@@ -508,17 +508,25 @@ CREATE TABLE treat_record_report_card (
 	reportCardImage VARCHAR (1000) NULL COMMENT '自述卡图片'
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '填写病历时的就诊卡';
 
+
 /*系统参数表*/
+DROP TABLE IF EXISTS system_param;
+
 CREATE TABLE system_param (
-	id INT AUTO_INCREMENT PRIMARY KEY COMMENT '编号',
-	paramName VARCHAR (20) NOT NULL UNIQUE COMMENT '系统参数名称',
-	paramValue VARCHAR (20) NOT NULL COMMENT '系统参数值',
-	unit      VARCHAR(20)  NOT NULL  COMMENT '参数单位',
-	modifyTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '参数修改时间'
+	paramId INT AUTO_INCREMENT PRIMARY KEY COMMENT '编号',
+	paramName VARCHAR (30) NOT NULL COMMENT '参数名称',
+	paramCode VARCHAR (20) NOT NULL COMMENT '参数代码',
+	paramValue VARCHAR (20) NOT NULL COMMENT '参数值',
+	paramUnit VARCHAR (20) NOT NULL COMMENT '参数单位',
+	paramRemark VARCHAR (50) NOT NULL DEFAULT '' COMMENT '参数说明',
+	isValid INT NOT NULL DEFAULT 1 COMMENT '是否有效 1有效0失效',
+	modifyTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间'
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '系统参数表';
 
-insert into system_param (paramName,paramValue,unit)VALUES ('get_line_time','5000','毫秒');
-insert into system_param (paramName,paramValue,unit)VALUES ('video_duration','600','秒');
+insert into system_param (paramName,paramCode,paramValue,paramUnit)VALUES ('刷新排队列表时间','get_line_time','5000','毫秒');
+insert into system_param (paramName,paramCode,paramValue,paramUnit)VALUES ('视频时长','video_duration','600','秒');
+insert into system_param (paramName,paramCode,paramValue,paramUnit)VALUES ('医生排队人数','line_up_number','10','个');
+
 
 /*用户行为表*/
 DROP TABLE if EXISTS user_behaviour;

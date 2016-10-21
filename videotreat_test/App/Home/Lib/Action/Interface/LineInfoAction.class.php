@@ -51,15 +51,25 @@ class LineInfoAction extends Action
                         $data_repeat['reportCardImage'] = $reportCardInfo['reportCardImage'];
                         M("treat_record_report_card")->add($data_repeat);
                     }
-                    $result = M("user_line")->add($add_data);
-                    if ($result) {
-                        $code = 1;
-                        $message = '加入队列成功';
-                        $doctorInfo = M("doctor_info")->field("doctorId,doctorName,headPic")->where("doctorId={$doctorId}")->find();
+                    /*获取系统参数，排队人数*/
+                    $line_up_number = M("system_param")->where("paramName='line_up_number'")->getField("paramValue");
+                    /*获取医师当前排队人数*/
+                    $doctor_line_up_num = M("user_line")->where("doctorId={$doctorId}")->count('id');
+                    if ($doctor_line_up_num < $line_up_number) {
+                        $result = M("user_line")->add($add_data);
+                        if ($result) {
+                            $code = 1;
+                            $message = '加入队列成功';
+                            $doctorInfo = M("doctor_info")->field("doctorId,doctorName,headPic")->where("doctorId={$doctorId}")->find();
+                        } else {
+                            $code = 0;
+                            $message = '加入队列失败';
+                        }
                     } else {
                         $code = 0;
-                        $message = '加入队列失败';
+                        $message = '当前医生排队已满，您可以等待或选择其他医师';
                     }
+
                 }
             }
         } elseif ($state == 'leave') {
