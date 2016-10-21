@@ -1,0 +1,237 @@
+[ 2016-10-20T10:25:57+08:00 ] 192.168.1.91 /videotreat_test/home.php/Interface/UserThirdPartyLogin/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001549s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001869s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001217s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001517s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat_test\App\Home\Lib\Action\Interface\UserThirdPartyLoginAction.class.php 第 29 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `qq_info` [ RunTime:0.005236s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `qq_info` WHERE ( qq_key='2EDC27BC43AB45BD5BEC3A8A61A7AFD3' ) LIMIT 1   [ RunTime:0.000469s ]
+SQL: SHOW COLUMNS FROM `user_db_info` [ RunTime:0.004813s ]
+SQL: INSERT INTO `user_db_info` (`third_type`,`client`,`qq_key`,`imei`,`userName`) VALUES ('qq',null,'2EDC27BC43AB45BD5BEC3A8A61A7AFD3','121c83f7602cd374ddb','最后通牒') [ RunTime:0.127527s ]
+SQL: SHOW COLUMNS FROM `task_info` [ RunTime:0.005879s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `taskId` FROM `task_info`  [ RunTime:0.000441s ]
+SQL: SHOW COLUMNS FROM `user_task` [ RunTime:0.005091s ]
+SQL: INSERT INTO `user_task` (`userId`,`taskId`) VALUES (3,1) [ RunTime:0.127482s ]
+SQL: INSERT INTO `qq_info` (`qq_key`,`qq_token`,`userId`,`nickName`,`headPic`) VALUES ('2EDC27BC43AB45BD5BEC3A8A61A7AFD3','jl55IcqEIQwNjUqNmpai2iGoW4y_u8XeGgw-IDb9Z7Keh5GcKl1Z4IqiGltfLaMXJtjZ3TMVVuThpNY0vF2E-emgeS8_zl-PXrFGQZQUcr8',3,'最后通牒','http://101.201.104.221/videotreat_test/Public/userImages/20161014/580093a00f8be.png') [ RunTime:0.171783s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.005894s ]
+SQL: INSERT INTO `user_base_info` (`userId`,`headPic`) VALUES (3,'http://101.201.104.221/videotreat_test/Public/userImages/20161014/580093a00f8be.png') [ RunTime:0.184912s ]
+
+[ 2016-10-20T10:30:58+08:00 ] 192.168.1.91 /videotreat_test/home.php/Interface/UserThirdPartyLogin/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000587s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000737s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000680s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000807s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat_test\App\Home\Lib\Action\Interface\UserThirdPartyLoginAction.class.php 第 29 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `qq_info` [ RunTime:0.127782s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `qq_info` WHERE ( qq_key='2EDC27BC43AB45BD5BEC3A8A61A7AFD3' ) LIMIT 1   [ RunTime:0.000335s ]
+SQL: UPDATE `qq_info` SET `userId`=3,`nickName`='最后通牒',`headPic`='http://101.201.104.221/videotreat_test/Public/userImages/20161014/580093a00f8be.png',`qq_key`='2EDC27BC43AB45BD5BEC3A8A61A7AFD3' WHERE ( qq_key='2EDC27BC43AB45BD5BEC3A8A61A7AFD3' ) [ RunTime:0.126622s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.004049s ]
+NOTIC: [8] Undefined variable: set E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 294 行.
+NOTIC: [2] implode(): Invalid arguments passed E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 294 行.
+SQL: UPDATE `user_base_info` SET  WHERE ( userId='3' ) [ RunTime:0.000226s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE ( userId='3' )' at line 1
+ [ SQL语句 ] : UPDATE `user_base_info` SET  WHERE ( userId='3' )
+SQL: SHOW COLUMNS FROM `user_db_info` [ RunTime:0.004619s ]
+SQL: UPDATE `user_db_info` SET `imei`='121c83f7602cd374ddb' WHERE ( userId='3' ) [ RunTime:0.129957s ]
+
+[ 2016-10-20T10:32:34+08:00 ] 192.168.1.91 /videotreat_test/home.php/Interface/UserThirdPartyLogin/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000651s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000836s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000529s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000660s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat_test\App\Home\Lib\Action\Interface\UserThirdPartyLoginAction.class.php 第 29 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `qq_info` [ RunTime:0.023664s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `qq_info` WHERE ( qq_key='2EDC27BC43AB45BD5BEC3A8A61A7AFD3' ) LIMIT 1   [ RunTime:0.000512s ]
+SQL: UPDATE `qq_info` SET `userId`=3,`nickName`='最后通牒',`headPic`='http://101.201.104.221/videotreat_test/Public/userImages/20161014/580093a00f8be.png',`qq_key`='2EDC27BC43AB45BD5BEC3A8A61A7AFD3' WHERE ( qq_key='2EDC27BC43AB45BD5BEC3A8A61A7AFD3' ) [ RunTime:0.117254s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.006678s ]
+NOTIC: [8] Undefined variable: set E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 294 行.
+NOTIC: [2] implode(): Invalid arguments passed E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 294 行.
+SQL: UPDATE `user_base_info` SET  WHERE ( userId='3' ) [ RunTime:0.000218s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE ( userId='3' )' at line 1
+ [ SQL语句 ] : UPDATE `user_base_info` SET  WHERE ( userId='3' )
+SQL: SHOW COLUMNS FROM `user_db_info` [ RunTime:0.005294s ]
+SQL: UPDATE `user_db_info` SET `imei`='121c83f7602cd374ddb' WHERE ( userId='3' ) [ RunTime:0.184401s ]
+
+[ 2016-10-20T10:34:14+08:00 ] 192.168.1.91 /videotreat_test/home.php/Interface/UserThirdPartyLogin/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000792s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000940s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000639s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000765s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat_test\App\Home\Lib\Action\Interface\UserThirdPartyLoginAction.class.php 第 29 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `qq_info` [ RunTime:0.016479s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `qq_info` WHERE ( qq_key='2EDC27BC43AB45BD5BEC3A8A61A7AFD3' ) LIMIT 1   [ RunTime:0.000341s ]
+SQL: UPDATE `qq_info` SET `userId`=3,`nickName`='最后通牒123',`headPic`='http://101.201.104.221/videotreat_test/Public/userImages/20161014/580093a00f8be.png',`qq_key`='2EDC27BC43AB45BD5BEC3A8A61A7AFD3' WHERE ( qq_key='2EDC27BC43AB45BD5BEC3A8A61A7AFD3' ) [ RunTime:0.121141s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.004897s ]
+NOTIC: [8] Undefined variable: set E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 294 行.
+NOTIC: [2] implode(): Invalid arguments passed E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 294 行.
+SQL: UPDATE `user_base_info` SET  WHERE ( userId='3' ) [ RunTime:0.000250s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE ( userId='3' )' at line 1
+ [ SQL语句 ] : UPDATE `user_base_info` SET  WHERE ( userId='3' )
+SQL: SHOW COLUMNS FROM `user_db_info` [ RunTime:0.004705s ]
+SQL: UPDATE `user_db_info` SET `imei`='121c83f7602cd374ddb' WHERE ( userId='3' ) [ RunTime:0.119460s ]
+
+[ 2016-10-20T10:51:56+08:00 ] 192.168.1.91 /videotreat_test/home.php/Interface/UserThirdPartyLogin/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000579s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000728s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000601s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000723s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat_test\App\Home\Lib\Action\Interface\UserThirdPartyLoginAction.class.php 第 30 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `qq_info` [ RunTime:0.134286s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `qq_info` WHERE ( qq_key='2EDC27BC43AB45BD5BEC3A8A61A7AFD3' ) LIMIT 1   [ RunTime:0.000348s ]
+SQL: SHOW COLUMNS FROM `user_db_info` [ RunTime:0.005080s ]
+SQL: INSERT INTO `user_db_info` (`userName`,`sex_key`,`imei`,`third_type`,`client`) VALUES ('最后通牒123',1,'121c83f7602cd374ddb','qq',null) [ RunTime:0.115950s ]
+SQL: SHOW COLUMNS FROM `task_info` [ RunTime:0.004876s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `taskId` FROM `task_info`  [ RunTime:0.000318s ]
+SQL: SHOW COLUMNS FROM `user_task` [ RunTime:0.005893s ]
+SQL: INSERT INTO `user_task` (`userId`,`taskId`) VALUES (4,1) [ RunTime:0.161115s ]
+SQL: INSERT INTO `qq_info` (`qq_key`,`qq_token`,`userId`,`nickName`,`headPic`) VALUES ('2EDC27BC43AB45BD5BEC3A8A61A7AFD3','jl55IcqEIQwNjUqNmpai2iGoW4y_u8XeGgw-IDb9Z7Keh5GcKl1Z4IqiGltfLaMXJtjZ3TMVVuThpNY0vF2E-emgeS8_zl-PXrFGQZQUcr8',4,'最后通牒123','http://101.201.104.221/videotreat_test/Public/userImages/20161014/580093a00f8be.png') [ RunTime:0.064302s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.005906s ]
+SQL: INSERT INTO `user_base_info` (`userId`,`headPic`) VALUES (4,'http://101.201.104.221/videotreat_test/Public/userImages/20161014/580093a00f8be.png') [ RunTime:0.126979s ]
+
+[ 2016-10-20T10:52:01+08:00 ] 192.168.1.91 /videotreat_test/home.php/Interface/UserThirdPartyLogin/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000617s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000773s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000551s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000785s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat_test\App\Home\Lib\Action\Interface\UserThirdPartyLoginAction.class.php 第 30 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `qq_info` [ RunTime:0.005360s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `qq_info` WHERE ( qq_key='2EDC27BC43AB45BD5BEC3A8A61A7AFD3' ) LIMIT 1   [ RunTime:0.000379s ]
+SQL: UPDATE `qq_info` SET `userId`=4,`nickName`='最后通牒123',`headPic`='http://101.201.104.221/videotreat_test/Public/userImages/20161014/580093a00f8be.png',`qq_key`='2EDC27BC43AB45BD5BEC3A8A61A7AFD3',`qq_token`='jl55IcqEIQwNjUqNmpai2iGoW4y_u8XeGgw-IDb9Z7Keh5GcKl1Z4IqiGltfLaMXJtjZ3TMVVuThpNY0vF2E-emgeS8_zl-PXrFGQZQUcr8' WHERE ( qq_key='2EDC27BC43AB45BD5BEC3A8A61A7AFD3' ) [ RunTime:0.134522s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.004079s ]
+SQL: UPDATE `user_base_info` SET `headPic`='http://101.201.104.221/videotreat_test/Public/userImages/20161014/580093a00f8be.png' WHERE ( userId='4' ) [ RunTime:0.135929s ]
+SQL: SHOW COLUMNS FROM `user_db_info` [ RunTime:0.004164s ]
+SQL: UPDATE `user_db_info` SET `qq_key`='2EDC27BC43AB45BD5BEC3A8A61A7AFD3',`userName`='最后通牒123',`sex_key`=1,`imei`='121c83f7602cd374ddb',`third_type`='qq',`client`=null WHERE ( userId='4' ) [ RunTime:0.135225s ]
+
+[ 2016-10-20T10:52:28+08:00 ] 192.168.1.91 /videotreat_test/home.php/Interface/UserThirdPartyLogin/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000583s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000770s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000521s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000644s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat_test\App\Home\Lib\Action\Interface\UserThirdPartyLoginAction.class.php 第 30 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `qq_info` [ RunTime:0.004120s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `qq_info` WHERE ( qq_key='2EDC27BC43AB45BD5BEC3A8A61A7AFD3' ) LIMIT 1   [ RunTime:0.000507s ]
+SQL: UPDATE `qq_info` SET `userId`=4,`nickName`='最后通牒',`headPic`='http://101.201.104.221/videotreat_test/Public/userImages/20161014/580093a00f8be.png',`qq_key`='2EDC27BC43AB45BD5BEC3A8A61A7AFD3',`qq_token`='jl55IcqEIQwNjUqNmpai2iGoW4y_u8XeGgw-IDb9Z7Keh5GcKl1Z4IqiGltfLaMXJtjZ3TMVVuThpNY0vF2E-emgeS8_zl-PXrFGQZQUcr8' WHERE ( qq_key='2EDC27BC43AB45BD5BEC3A8A61A7AFD3' ) [ RunTime:0.109800s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.005072s ]
+SQL: UPDATE `user_base_info` SET `headPic`='http://101.201.104.221/videotreat_test/Public/userImages/20161014/580093a00f8be.png' WHERE ( userId='4' ) [ RunTime:0.134452s ]
+SQL: SHOW COLUMNS FROM `user_db_info` [ RunTime:0.005382s ]
+SQL: UPDATE `user_db_info` SET `qq_key`='2EDC27BC43AB45BD5BEC3A8A61A7AFD3',`userName`='最后通牒',`sex_key`=1,`imei`='121c83f7602cd374ddb',`third_type`='qq',`client`=null WHERE ( userId='4' ) [ RunTime:0.124657s ]
+
+[ 2016-10-20T11:11:52+08:00 ] 192.168.1.91 /videotreat_test/home.php/Interface/TreatRecordGetAll/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000684s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000868s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000715s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000910s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat_test\App\Home\Lib\Action\Interface\TreatRecordGetAllAction.class.php 第 39 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `treat_record` [ RunTime:0.045700s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `treatRecordId`,doctor.doctorId,base.userName,doctor.doctorName,`userComplaint`,`userHPC`,`userPMH`,`doctorSuggest`,`treatTime`,`reportCardRemark`,`reportCardDescribe`,`reportCardImage` FROM `treat_record` LEFT JOIN user_base_info as base on treat_record.userId=base.userId LEFT JOIN doctor_info as doctor on treat_record.doctorId=doctor.doctorId WHERE ( treat_record.userId=1 )  [ RunTime:0.000543s ]
+ERR: 1054:Unknown column 'base.userName' in 'field list'
+ [ SQL语句 ] : SELECT `treatRecordId`,doctor.doctorId,base.userName,doctor.doctorName,`userComplaint`,`userHPC`,`userPMH`,`doctorSuggest`,`treatTime`,`reportCardRemark`,`reportCardDescribe`,`reportCardImage` FROM `treat_record` LEFT JOIN user_base_info as base on treat_record.userId=base.userId LEFT JOIN doctor_info as doctor on treat_record.doctorId=doctor.doctorId WHERE ( treat_record.userId=1 ) 
+
+[ 2016-10-20T11:12:01+08:00 ] 192.168.1.91 /videotreat_test/home.php/Interface/TreatRecordGetAll/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000919s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001170s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000891s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001135s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat_test\App\Home\Lib\Action\Interface\TreatRecordGetAllAction.class.php 第 39 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `treat_record` [ RunTime:0.092892s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `treatRecordId`,doctor.doctorId,base.userName,doctor.doctorName,`userComplaint`,`userHPC`,`userPMH`,`doctorSuggest`,`treatTime`,`reportCardRemark`,`reportCardDescribe`,`reportCardImage` FROM `treat_record` LEFT JOIN user_base_info as base on treat_record.userId=base.userId LEFT JOIN doctor_info as doctor on treat_record.doctorId=doctor.doctorId WHERE ( treat_record.userId=1 )  [ RunTime:0.000266s ]
+ERR: 1054:Unknown column 'base.userName' in 'field list'
+ [ SQL语句 ] : SELECT `treatRecordId`,doctor.doctorId,base.userName,doctor.doctorName,`userComplaint`,`userHPC`,`userPMH`,`doctorSuggest`,`treatTime`,`reportCardRemark`,`reportCardDescribe`,`reportCardImage` FROM `treat_record` LEFT JOIN user_base_info as base on treat_record.userId=base.userId LEFT JOIN doctor_info as doctor on treat_record.doctorId=doctor.doctorId WHERE ( treat_record.userId=1 ) 
+
+[ 2016-10-20T11:14:34+08:00 ] 192.168.1.91 /videotreat_test/home.php/Interface/TreatRecordGetAll/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000979s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001214s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000762s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000919s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat_test\App\Home\Lib\Action\Interface\TreatRecordGetAllAction.class.php 第 39 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `treat_record` [ RunTime:0.006014s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `treatRecordId`,treat_record.doctorId,db.userName,doctor.doctorName,`userComplaint`,`userHPC`,`userPMH`,`doctorSuggest`,`treatTime`,`reportCardRemark`,`reportCardDescribe`,`reportCardImage` FROM `treat_record` LEFT JOIN user_db_info as db on treat_record.userId=db.userId LEFT JOIN doctor_info as doctor on treat_record.doctorId=doctor.doctorId WHERE ( treat_record.userId=1 )  [ RunTime:0.000900s ]
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.008398s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `departmentName`,`hospitalName` FROM `doctor_info` LEFT JOIN department_info as d on d.departmentId=doctor_info.departmentId LEFT JOIN hospital_info as h on doctor_info.hospitalId=h.hospitalId WHERE ( doctorId=4 ) LIMIT 1   [ RunTime:0.000782s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `departmentName`,`hospitalName` FROM `doctor_info` LEFT JOIN department_info as d on d.departmentId=doctor_info.departmentId LEFT JOIN hospital_info as h on doctor_info.hospitalId=h.hospitalId WHERE ( doctorId=4 ) LIMIT 1   [ RunTime:0.000292s ]
+
+[ 2016-10-20T11:16:13+08:00 ] 192.168.1.91 /videotreat_test/home.php/Interface/TreatRecordGet/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000827s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001083s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000609s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000745s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat_test\App\Home\Lib\Action\Interface\TreatRecordGetAction.class.php 第 39 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `treat_record` [ RunTime:0.030511s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `treatRecordId`,treat_record.doctorId,db.userName,doctor.doctorName,`userComplaint`,`userHPC`,`userPMH`,`doctorSuggest`,`treatTime`,`reportCardRemark`,`reportCardDescribe`,`reportCardImage` FROM `treat_record` LEFT JOIN user_db_info as db on treat_record.userId=db.userId LEFT JOIN doctor_info as doctor on treat_record.doctorId=doctor.doctorId WHERE ( treat_record.userId=1 and treatRecordId=2 ) LIMIT 1   [ RunTime:0.000593s ]
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.005706s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `departmentName`,`hospitalName` FROM `doctor_info` LEFT JOIN department_info as d on d.departmentId=doctor_info.departmentId LEFT JOIN hospital_info as h on doctor_info.hospitalId=h.hospitalId WHERE ( doctorId=4 ) LIMIT 1   [ RunTime:0.000385s ]
+
+[ 2016-10-20T15:25:57+08:00 ] 192.168.1.91 /videotreat_test/Interface/UserDetailGet/
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000754s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000907s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000672s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000800s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat_test\App\Home\Lib\Action\Interface\UserDetailGetAction.class.php 第 27 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `user_db_info` [ RunTime:0.006936s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `headPic`,`userName`,`tel`,`birthday`,`sex_value`,`blood`,`stature`,`weight`,`userSmoking` FROM `user_db_info` LEFT JOIN user_base_info as base on user_db_info.userId=base.userId LEFT JOIN dic_user_sex on user_db_info.sex_key=dic_user_sex.sex_key WHERE ( user_db_info.userId=3 ) LIMIT 1   [ RunTime:0.009068s ]
+

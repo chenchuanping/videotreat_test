@@ -1,0 +1,251 @@
+[ 2016-10-13T19:19:50+08:00 ] 192.168.1.91 /videotreat/Interface/UserSignIn/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001045s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001345s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000849s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001053s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 21 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `user_sign_in` [ RunTime:0.020026s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `user_sign_in` WHERE ( userId=5 and signInDate=14 ) LIMIT 1   [ RunTime:0.008691s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `signInDate` FROM `user_sign_in` WHERE ( userId=5 ) ORDER BY signInDate  [ RunTime:0.005242s ]
+
+[ 2016-10-13T19:21:35+08:00 ] 192.168.1.91 /videotreat/Interface/UserSignIn/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000589s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000743s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000556s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000677s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 21 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `user_sign_in` [ RunTime:0.006482s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `user_sign_in` WHERE ( userId=5 and signInDate=14 ) LIMIT 1   [ RunTime:0.006374s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `signInDate` FROM `user_sign_in` WHERE ( userId=5 ) ORDER BY signInDate  [ RunTime:0.005721s ]
+
+[ 2016-10-13T19:22:23+08:00 ] 192.168.1.91 /videotreat/Interface/UserSignIn/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000612s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000773s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000697s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 21 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `user_sign_in` [ RunTime:0.008291s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `user_sign_in` WHERE ( userId=5 and signInDate=14 ) LIMIT 1   [ RunTime:0.006546s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `signInDate` FROM `user_sign_in` WHERE ( userId=5 ) ORDER BY signInDate  [ RunTime:0.006219s ]
+
+[ 2016-10-13T19:22:41+08:00 ] 192.168.1.91 /videotreat/Interface/UserSignIn/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000579s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000773s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000691s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000824s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 21 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `user_sign_in` [ RunTime:0.007772s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `user_sign_in` WHERE ( userId=5 and signInDate=14 ) LIMIT 1   [ RunTime:0.009354s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `signInDate` FROM `user_sign_in` WHERE ( userId=5 ) ORDER BY signInDate  [ RunTime:0.006725s ]
+
+[ 2016-10-13T19:22:54+08:00 ] 192.168.1.91 /videotreat/Interface/UserSignIn/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000680s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000850s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000979s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001336s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 21 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `user_sign_in` [ RunTime:0.006964s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `user_sign_in` WHERE ( userId=5 and signInDate=14 ) LIMIT 1   [ RunTime:0.007654s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `signInDate` FROM `user_sign_in` WHERE ( userId=5 ) ORDER BY signInDate  [ RunTime:0.025612s ]
+
+[ 2016-10-13T19:23:12+08:00 ] 192.168.1.91 /videotreat/Interface/UserSignIn/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000729s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000891s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000607s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000745s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 21 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `user_sign_in` [ RunTime:0.010358s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `user_sign_in` WHERE ( userId=5 and signInDate=14 ) LIMIT 1   [ RunTime:0.006595s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `signInDate` FROM `user_sign_in` WHERE ( userId=5 ) ORDER BY signInDate  [ RunTime:0.008121s ]
+
+[ 2016-10-13T19:23:19+08:00 ] 192.168.1.91 /videotreat/Interface/UserSignIn/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000583s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000739s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000705s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 21 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `user_sign_in` [ RunTime:0.012569s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `user_sign_in` WHERE ( userId=5 and signInDate=14 ) LIMIT 1   [ RunTime:0.009992s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `signInDate` FROM `user_sign_in` WHERE ( userId=5 ) ORDER BY signInDate  [ RunTime:0.012006s ]
+
+[ 2016-10-13T19:25:19+08:00 ] 192.168.1.91 /videotreat/Interface/UserSignIn/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000774s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000939s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000580s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000716s ]
+NOTIC: [8] Undefined index: userId E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: signInDate E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 20 行.
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 21 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `user_sign_in` [ RunTime:0.008019s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `user_sign_in` WHERE ( userId= and signInDate= ) LIMIT 1   [ RunTime:0.008577s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'and signInDate= ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `user_sign_in` WHERE ( userId= and signInDate= ) LIMIT 1  
+SQL: INSERT INTO `user_sign_in` (`signInDate`,`signIn`,`userId`) VALUES (null,1,null) [ RunTime:0.005930s ]
+ERR: 1048:Column 'signInDate' cannot be null
+ [ SQL语句 ] : INSERT INTO `user_sign_in` (`signInDate`,`signIn`,`userId`) VALUES (null,1,null)
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `signInDate` FROM `user_sign_in` WHERE ( userId= ) ORDER BY signInDate  [ RunTime:0.005447s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') ORDER BY signInDate' at line 1
+ [ SQL语句 ] : SELECT `signInDate` FROM `user_sign_in` WHERE ( userId= ) ORDER BY signInDate 
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 46 行.
+NOTIC: [8] Undefined variable: signInDateList E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 56 行.
+
+[ 2016-10-13T19:27:55+08:00 ] 192.168.1.91 /videotreat/Interface/UserSignIn/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000712s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000888s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000642s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000803s ]
+NOTIC: [8] Undefined index: userId E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: signInDate E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 20 行.
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 21 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `user_sign_in` [ RunTime:0.006308s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `user_sign_in` WHERE ( userId= and signInDate= ) LIMIT 1   [ RunTime:0.004833s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'and signInDate= ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `user_sign_in` WHERE ( userId= and signInDate= ) LIMIT 1  
+SQL: INSERT INTO `user_sign_in` (`signInDate`,`signIn`,`userId`) VALUES (null,1,null) [ RunTime:0.004579s ]
+ERR: 1048:Column 'signInDate' cannot be null
+ [ SQL语句 ] : INSERT INTO `user_sign_in` (`signInDate`,`signIn`,`userId`) VALUES (null,1,null)
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `signInDate` FROM `user_sign_in` WHERE ( userId= ) ORDER BY signInDate  [ RunTime:0.004293s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') ORDER BY signInDate' at line 1
+ [ SQL语句 ] : SELECT `signInDate` FROM `user_sign_in` WHERE ( userId= ) ORDER BY signInDate 
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 47 行.
+NOTIC: [8] Undefined variable: signInDateList E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 57 行.
+
+[ 2016-10-13T19:28:16+08:00 ] 192.168.1.91 /videotreat/Interface/UserSignIn/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000629s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000788s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000539s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000665s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 21 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `user_sign_in` [ RunTime:0.005716s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `user_sign_in` WHERE ( userId=5 and signInDate=14 ) LIMIT 1   [ RunTime:0.005781s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `signInDate` FROM `user_sign_in` WHERE ( userId=5 ) ORDER BY signInDate  [ RunTime:0.006564s ]
+
+[ 2016-10-13T19:28:48+08:00 ] 192.168.1.91 /videotreat/Interface/UserSignIn/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001040s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001218s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000800s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000945s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 21 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `user_sign_in` [ RunTime:0.005488s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `user_sign_in` WHERE ( userId=5 and signInDate=14 ) LIMIT 1   [ RunTime:0.008060s ]
+
+[ 2016-10-13T19:29:14+08:00 ] 192.168.1.91 /videotreat/Interface/UserSignIn/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000650s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000818s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000561s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000695s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 21 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `user_sign_in` [ RunTime:0.013559s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `user_sign_in` WHERE ( userId=5 and signInDate=14 ) LIMIT 1   [ RunTime:0.019156s ]
+
+[ 2016-10-13T19:29:31+08:00 ] 192.168.1.91 /videotreat/Interface/UserSignIn/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000702s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000899s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000643s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000777s ]
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 21 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `user_sign_in` [ RunTime:0.008081s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `user_sign_in` WHERE ( userId=5 and signInDate=14 ) LIMIT 1   [ RunTime:0.005758s ]
+
+[ 2016-10-13T19:30:12+08:00 ] 192.168.1.91 /videotreat/Interface/UserSignIn/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000861s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001111s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Dispatcher.class.php 第 132 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000531s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000665s ]
+NOTIC: [8] Undefined index: userId E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 19 行.
+NOTIC: [8] Undefined index: signInDate E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 20 行.
+NOTIC: [8] Undefined index: client E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 21 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `user_sign_in` [ RunTime:0.010866s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `user_sign_in` WHERE ( userId= and signInDate= ) LIMIT 1   [ RunTime:0.007216s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'and signInDate= ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `user_sign_in` WHERE ( userId= and signInDate= ) LIMIT 1  
+SQL: INSERT INTO `user_sign_in` (`signInDate`,`signIn`,`userId`) VALUES (null,1,null) [ RunTime:0.010120s ]
+ERR: 1048:Column 'signInDate' cannot be null
+ [ SQL语句 ] : INSERT INTO `user_sign_in` (`signInDate`,`signIn`,`userId`) VALUES (null,1,null)
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `signInDate` FROM `user_sign_in` WHERE ( userId= ) ORDER BY signInDate  [ RunTime:0.009921s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') ORDER BY signInDate' at line 1
+ [ SQL语句 ] : SELECT `signInDate` FROM `user_sign_in` WHERE ( userId= ) ORDER BY signInDate 
+NOTIC: [2] Invalid argument supplied for foreach() E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 41 行.
+NOTIC: [8] Undefined variable: signInDateList E:\wamp\www\videotreat\App\Home\Lib\Action\Interface\UserSignInAction.class.php 第 51 行.
+

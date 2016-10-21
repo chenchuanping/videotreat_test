@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>云医视讯管理系统</title>
+    <link rel="stylesheet" href="__ROOT__/Public/css/public.css">
+    <link rel="stylesheet" href="__ROOT__/Public/admin_css/admin.css">
+    <link rel="stylesheet" href="__ROOT__/Public/admin_css/add_manager.css">
+</head>
+<body onload="initialize()">
+<include file="Public/header"/>
+<div id="content">
+    <include file="Public/left"/>
+    <div id="content_right" class="right">
+        <form action="__APP__/AddManager/add" method="post" >
+            <table id="manager_list" border="1" >
+                <tr>
+                    <td>姓名</td>
+                    <td><input class="td_right" type="text" name="managerName" required></td>
+                </tr>
+                <tr>
+                    <td>密码</td>
+                    <td><input class="td_right" type="password" name="password" required></td>
+                </tr>
+                <tr>
+                    <td>角色</td>
+                    <td class="td_right">
+                        <select name="roleId"  class="hospital_select" id="manager_role">
+                            <foreach name="roleInfo" item="v">
+                                <option value="{$v.roleId}" >{$v.roleName}</option>
+                            </foreach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>管理的医院</td>
+                    <td class="td_right">
+                        <select name="hospitalId"  class="hospital_select" id="manager_hospital" >
+                            <foreach name="hospitalInfo" item="v">
+                                <option value="{$v.hospitalId}" >{$v.hospitalName}</option>
+                            </foreach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input class="button orange bigrounded" type="submit"  value="添加" />
+                        <input class="button orange bigrounded" type="reset"  value="重置"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<include file="Public/footer"/>
+
+<script src="__ROOT__/Public/js/jquery.js"></script>
+<script src="__ROOT__/Public/js/jquery.validate.js"></script>
+<script>
+   function initialize(){
+       if($("#manager_role").val()==1){
+           $("#manager_hospital").attr('disabled',true);
+           $("#manager_hospital").css({"backgroundColor":"#009","color":"#fff"});
+       }else{
+           $("#manager_hospital").attr('disabled',false);
+       }
+       $(function(){
+           $("#manager_role").change(function(){
+               if($("#manager_role").val()==1){
+                   $("#manager_hospital").attr('disabled',true);
+               }else{
+                   $("#manager_hospital").attr('disabled',false);
+               }
+           });
+       });
+    }
+</script>
+</body>
+</html>

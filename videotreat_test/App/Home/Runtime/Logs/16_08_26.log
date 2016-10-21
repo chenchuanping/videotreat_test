@@ -1,0 +1,107 @@
+[ 2016-08-26T08:25:50+08:00 ] 0.0.0.0 /videotreat/home.php/LineInfo/index
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000699s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000812s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: select userline.doctorId,userline.userId,userinfo.sex,userinfo.age,userinfo.userName,
+                      treatrecord.treatTime from userline,userinfo,treatrecord
+                      where userline.userId=userinfo.userId and userline.userId=treatrecord.userId and userline.doctorId=1 [ RunTime:0.001227s ]
+
+[ 2016-08-26T08:25:52+08:00 ] 0.0.0.0 /videotreat/home.php/Jpush/index
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000506s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000621s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `userinfo` [ RunTime:0.005963s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `imei` FROM `userinfo` WHERE ( userId=2 ) LIMIT 1   [ RunTime:0.000308s ]
+
+[ 2016-08-26T08:25:52+08:00 ] 0.0.0.0 /videotreat/home.php/AgreeVideo/index
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000966s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001183s ]
+
+[ 2016-08-26T08:26:38+08:00 ] 0.0.0.0 /videotreat/home.php/LineInfo/index
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000710s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: select userline.doctorId,userline.userId,userinfo.sex,userinfo.age,userinfo.userName,
+                      treatrecord.treatTime from userline,userinfo,treatrecord
+                      where userline.userId=userinfo.userId and userline.userId=treatrecord.userId and userline.doctorId=1 [ RunTime:0.000525s ]
+
+[ 2016-08-26T08:26:39+08:00 ] 0.0.0.0 /videotreat/home.php/Jpush/index
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000890s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001088s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `userinfo` [ RunTime:0.005509s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `imei` FROM `userinfo` WHERE ( userId=2 ) LIMIT 1   [ RunTime:0.000362s ]
+
+[ 2016-08-26T08:26:39+08:00 ] 0.0.0.0 /videotreat/home.php/AgreeVideo/index
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000632s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000778s ]
+
+[ 2016-08-26T08:26:51+08:00 ] 0.0.0.0 /videotreat/home.php/LineInfo/index
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000692s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: select userline.doctorId,userline.userId,userinfo.sex,userinfo.age,userinfo.userName,
+                      treatrecord.treatTime from userline,userinfo,treatrecord
+                      where userline.userId=userinfo.userId and userline.userId=treatrecord.userId and userline.doctorId=1 [ RunTime:0.000437s ]
+
+[ 2016-08-26T08:26:51+08:00 ] 0.0.0.0 /videotreat/home.php/AgreeVideo/index
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000746s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000922s ]
+
+[ 2016-08-26T08:26:52+08:00 ] 0.0.0.0 /videotreat/home.php/Jpush/index
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001597s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001812s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `userinfo` [ RunTime:0.100467s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `imei` FROM `userinfo` WHERE ( userId=2 ) LIMIT 1   [ RunTime:0.000311s ]
+
+[ 2016-08-26T08:43:30+08:00 ] 0.0.0.0 /videotreat/home.php/Interface/File
+ERR: 无法加载模块:Interface
+
+[ 2016-08-26T08:44:37+08:00 ] 0.0.0.0 /videotreat/home.php/Interface/DoctorInfo/index
+ERR: 无法加载模块:Interface
+
+[ 2016-08-26T10:56:40+08:00 ] 0.0.0.0 /videotreat/home.php/LineInfo/index
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000508s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000634s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: select userline.doctorId,userline.userId,userinfo.sex,userinfo.age,userinfo.userName,
+                      treatrecord.treatTime from userline,userinfo,treatrecord
+                      where userline.userId=userinfo.userId and userline.userId=treatrecord.userId and userline.doctorId=1 [ RunTime:0.001087s ]
+
+[ 2016-08-26T10:56:43+08:00 ] 0.0.0.0 /videotreat/home.php/Jpush/index
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000916s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001163s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `userinfo` [ RunTime:0.141166s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `imei` FROM `userinfo` WHERE ( userId=2 ) LIMIT 1   [ RunTime:0.000716s ]
+
+[ 2016-08-26T10:56:43+08:00 ] 0.0.0.0 /videotreat/home.php/AgreeVideo/index
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000777s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000987s ]
+
+[ 2016-08-26T14:30:28+08:00 ] 0.0.0.0 /videotreat/home.php/v1/DoctorInfo/index
+ERR: 无法加载模块:v1
+
+[ 2016-08-26T16:19:13+08:00 ] 0.0.0.0 /videotreat/home.php/interface/NearHospital/index
+ERR: 无法加载模块:NearHospital
+
+[ 2016-08-26T17:08:50+08:00 ] 0.0.0.0 /videotreat/home.php/interface/HospitalInfo/index
+ERR: 无法加载模块:HospitalInfo
+

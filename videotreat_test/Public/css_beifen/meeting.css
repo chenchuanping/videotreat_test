@@ -1,0 +1,74 @@
+@charset "UTF-8";
+.toolbar {
+    float: left;
+    width: 1103px;
+    display: none;
+}
+
+.toolbar ul li {
+    float: left;
+    margin-left: 150px;
+    margin-top: 560px;
+}
+.toolbar img {
+    width:80px;
+    height:80px
+}
+
+.main-container {
+    display:-moz-box;//火狐
+    display:-webkit-box;//谷歌
+    display:box;
+    width:100%;
+    position:relative;
+    margin:0 auto;
+}
+#video-container-parent {
+    -webkit-box-flex:1;
+    box-flex:1;
+    position:relative
+}
+#video-container {
+    width: 100%;
+    height: 100%;
+    position:relative
+}
+#video-container-multiple,.toolbar {
+     z-index:-1
+ }
+
+.mirror-video {
+    -webkit-transform:rotateY(180deg);
+    transform:rotateY(180deg)
+}
+video:-webkit-full-screen {
+    -webkit-transform:rotateY(180deg)!important;
+    transform:rotateY(180deg)!important
+}
+
+#wrapper {
+    position:absolute;
+    height:100%;
+    z-index:2
+}
+#wrapper>* {
+    z-index:1
+}
+#wrapper:before {
+    content:'';
+    display:block
+}
+
+#logo {
+    width:150px
+}
+#video-container-multiple {
+    position:relative
+}
+#video-container-multiple div {
+    padding:0;
+    background-color:#4b4b4b;
+    background-image:url(../Agora/images/icon_default.png);
+    background-position:50% 50%;
+    background-repeat:no-repeat
+}

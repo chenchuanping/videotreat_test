@@ -1,0 +1,63 @@
+#hospital_list{
+    font-size: 16px;
+}
+#hospital_list th{
+    width: 100px;
+    line-height: 1.5em;
+    text-align: center;
+}
+#hospital_list td{
+    width: 100px;
+    line-height: 1em;
+    text-align: center;
+}
+.labelArray{
+    display: inline-block;
+    width: 200px !important;
+    height: 106px;
+    overflow: auto;
+    text-align: left !important;
+}
+.introduction{
+    display: inline-block;
+    width: 600px !important;
+    height: 106px;
+    overflow: auto;
+    text-align: left !important;
+}
+.labelArrayText{
+    display: inline-block;
+    width: 200px !important;
+}
+.introductionText{
+    display: inline-block;
+    width: 600px !important;
+}
+.hospital_image{
+    width: 100px;
+    height: 106px;
+}
+.caozhuo{
+    width: 200px;
+}
+/*分页*/
+#pageSize{
+    height: 40px;
+    color: #ff0000;
+    border-color: #aaaaaa;
+    text-align: center;
+}
+
+/*添加医院*/
+#addHospital{
+    position:absolute;
+    left: 1000px;
+    margin-top: 6px;
+}
+/*医院搜索*/
+#searchHospital{
+    border:0;
+    border-bottom:1px solid black;
+    background: #F5FFFA;
+    height: 30px;
+}

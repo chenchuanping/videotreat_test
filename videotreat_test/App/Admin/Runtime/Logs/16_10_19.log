@@ -1,0 +1,46 @@
+[ 2016-10-19T09:10:32+08:00 ] 192.168.1.91 /videotreat_test/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000540s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000647s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.012267s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.004905s ]
+
+[ 2016-10-19T09:10:33+08:00 ] 192.168.1.91 /videotreat_test/admin.php/RecycleBin/restoreDoctor
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000527s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000635s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.006345s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId` FROM `doctor_info` WHERE ( doctorId=5 ) LIMIT 1   [ RunTime:0.005429s ]
+SQL: UPDATE `doctor_info` SET `isDel`=0 WHERE ( doctorId=5 ) [ RunTime:0.006587s ]
+NOTIC: [8] Undefined variable: set E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 294 行.
+NOTIC: [2] implode(): Invalid arguments passed E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 294 行.
+SQL: UPDATE `doctor_info` SET  WHERE ( hospitalId=3 ) [ RunTime:0.005099s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE ( hospitalId=3 )' at line 1
+ [ SQL语句 ] : UPDATE `doctor_info` SET  WHERE ( hospitalId=3 )
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorName` FROM `doctor_info` WHERE ( doctorId=5 ) LIMIT 1   [ RunTime:0.005366s ]
+SQL: SHOW COLUMNS FROM `manager_log` [ RunTime:0.006695s ]
+SQL: INSERT INTO `manager_log` (`managerId`,`operationId`,`operationContent`) VALUES (1,5,'恢复了医生：赵钱孙') [ RunTime:0.006123s ]
+
+[ 2016-10-19T09:10:36+08:00 ] 192.168.1.91 /videotreat_test/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000509s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000614s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.005986s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.005143s ]
+
+[ 2016-10-19T09:10:38+08:00 ] 192.168.1.91 /videotreat_test/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000593s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000727s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.005799s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat_test\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.005237s ]
+

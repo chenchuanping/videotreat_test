@@ -1,0 +1,78 @@
+@charset "utf-8";
+* {
+    margin:0;
+    padding:0;
+    text-decoration:none;
+    list-style:none;
+    font:12px/1em '宋体';
+}
+/**login**/
+.login {
+    margin-top:5px;
+    display:block;
+    font-size:x-large;
+    color:#bd0f0a;
+}
+.login img {
+    width:305px;
+    height:35px;
+    margin-left:50px;
+    margin-top:20px;
+    border:none;
+    border:0;
+}
+.login_body {
+    background:transparent;
+    background:url(../images/login.jpg);
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    background-size:cover;
+    -moz-background-size:cover;
+    -webkit-background-size:cover;
+}
+.login_div {
+    width:500px;
+    height:500px;
+    top:50%;
+    left:50%;
+    color:black;
+    margin-top:-130px;
+    margin-left:-150px;
+    position:fixed;
+    z-index:9999;
+}
+.login_nav {
+    margin-top:140px;
+}
+.login_usernameInput {
+    height:20px;
+    padding:0;
+}
+#managerName {
+    font-size:24px;
+    height:40px;
+    outline:0;
+    border-radius:15px;
+    border:1px solid #CCCCCC;
+    width:60%;
+    margin-left:50px;
+    margin-top:20px
+}
+.login_psdNav {
+    margin-top:30px;
+}
+#pwd {
+    height:40px;
+    font-size:24px;
+    outline:0;
+    border-radius:15px;
+    border:1px solid #CCCCCC;
+    width:60%;
+    margin-left:50px;
+    margin-top:30px
+}
+.login_btn_div {
+    text-align:left;
+    margin-top:10px;
+    padding-left:-15px;
+}

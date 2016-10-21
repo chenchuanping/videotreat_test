@@ -1,0 +1,420 @@
+[ 2016-10-08T09:22:39+08:00 ] 192.168.1.91 /videotreat/admin.php/TreatHistory/1
+ERR: 非法操作:1
+
+[ 2016-10-08T09:23:02+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000746s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000857s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.004280s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000326s ]
+
+[ 2016-10-08T09:23:03+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000828s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000948s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.038471s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.000317s ]
+
+[ 2016-10-08T09:23:04+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001171s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001401s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.004011s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000308s ]
+
+[ 2016-10-08T09:23:05+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000779s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000893s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.099290s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.000396s ]
+
+[ 2016-10-08T09:23:06+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000868s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000998s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.004505s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000317s ]
+
+[ 2016-10-08T09:23:08+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000737s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000865s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.004213s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.000345s ]
+
+[ 2016-10-08T09:23:10+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000884s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001019s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.031014s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000359s ]
+
+[ 2016-10-08T09:23:10+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000781s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000895s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.004240s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.000301s ]
+
+[ 2016-10-08T09:23:11+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000817s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000938s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.004455s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000309s ]
+
+[ 2016-10-08T09:23:12+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001225s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001426s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.033059s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.000299s ]
+
+[ 2016-10-08T09:23:13+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001171s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001428s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.006610s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000309s ]
+
+[ 2016-10-08T09:23:13+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000740s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000916s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.011020s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.000388s ]
+
+[ 2016-10-08T09:23:14+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000760s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000870s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.004293s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000329s ]
+
+[ 2016-10-08T09:23:15+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000780s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000903s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.004088s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.000393s ]
+
+[ 2016-10-08T09:23:15+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000790s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000904s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.317982s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000335s ]
+
+[ 2016-10-08T09:23:16+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000860s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001026s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.005747s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.000302s ]
+
+[ 2016-10-08T09:35:04+08:00 ] 192.168.1.91 /videotreat/admin.php/TreatHistory/1
+ERR: 非法操作:1
+
+[ 2016-10-08T09:51:53+08:00 ] 192.168.1.91 /videotreat/admin.php/TreatHistory/1
+ERR: 非法操作:1
+
+[ 2016-10-08T13:56:37+08:00 ] 192.168.1.91 /videotreat/admin.php/TreatHistory/1
+ERR: 非法操作:1
+
+[ 2016-10-08T13:56:39+08:00 ] 192.168.1.91 /videotreat/admin.php/TreatHistory/1
+ERR: 非法操作:1
+
+[ 2016-10-08T13:56:41+08:00 ] 192.168.1.91 /videotreat/admin.php/TreatHistory/1
+ERR: 非法操作:1
+
+[ 2016-10-08T13:57:25+08:00 ] 192.168.1.91 /videotreat/admin.php/TreatHistory/1
+ERR: 非法操作:1
+
+[ 2016-10-08T14:00:29+08:00 ] 192.168.1.91 /videotreat/admin.php/TreatHistory/1
+ERR: 非法操作:1
+
+[ 2016-10-08T14:00:48+08:00 ] 192.168.1.91 /videotreat/admin.php/TreatHistory/1
+ERR: 非法操作:1
+
+[ 2016-10-08T14:00:52+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000755s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000863s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.025465s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000348s ]
+
+[ 2016-10-08T14:00:53+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000813s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000965s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.032692s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.000305s ]
+
+[ 2016-10-08T14:00:54+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000732s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000846s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.076889s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000350s ]
+
+[ 2016-10-08T14:03:34+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000767s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000881s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.031813s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000368s ]
+
+[ 2016-10-08T14:03:35+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restoreHospital
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000756s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000870s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.028058s ]
+SQL: UPDATE `hospital_info` SET `isDel`=0 WHERE ( hospitalId=27 ) [ RunTime:0.124529s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalName` FROM `hospital_info` WHERE ( hospitalId=27 ) LIMIT 1   [ RunTime:0.000316s ]
+SQL: SHOW COLUMNS FROM `manager_log` [ RunTime:0.003862s ]
+SQL: INSERT INTO `manager_log` (`managerId`,`operationId`,`operationContent`) VALUES (1,5,'回收了医院：天津第一人民医院') [ RunTime:0.143420s ]
+
+[ 2016-10-08T14:03:41+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000788s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000907s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.031202s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000435s ]
+
+[ 2016-10-08T14:03:53+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000788s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000900s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.004830s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.000449s ]
+
+[ 2016-10-08T14:04:42+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000840s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000958s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.006039s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.000357s ]
+
+[ 2016-10-08T14:04:44+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restoreDoctor
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001096s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001265s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.004609s ]
+SQL: UPDATE `doctor_info` SET `isDel`=0 WHERE ( doctorId=20 ) [ RunTime:0.101481s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorName` FROM `doctor_info` WHERE ( doctorId=20 ) LIMIT 1   [ RunTime:0.000377s ]
+SQL: SHOW COLUMNS FROM `manager_log` [ RunTime:0.004438s ]
+SQL: INSERT INTO `manager_log` (`managerId`,`operationId`,`operationContent`) VALUES (1,5,'回收了医生：韩向志') [ RunTime:0.134456s ]
+
+[ 2016-10-08T14:04:54+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000775s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000889s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.022055s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.000319s ]
+
+[ 2016-10-08T14:05:31+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000784s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000896s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.005287s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000410s ]
+
+[ 2016-10-08T14:05:32+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000757s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000871s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.004375s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.000324s ]
+
+[ 2016-10-08T14:05:36+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000762s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000876s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.039552s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000322s ]
+
+[ 2016-10-08T14:05:37+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000762s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000889s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.105855s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.000333s ]
+
+[ 2016-10-08T14:05:40+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000778s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000893s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.029502s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000335s ]
+
+[ 2016-10-08T14:07:28+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000536s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000655s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.005087s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000353s ]
+
+[ 2016-10-08T14:07:29+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000532s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.005703s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000313s ]
+
+[ 2016-10-08T14:07:32+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000726s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.027477s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.000411s ]
+
+[ 2016-10-08T14:07:33+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000516s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000648s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.004870s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000332s ]
+
+[ 2016-10-08T14:07:47+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000944s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001082s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.005397s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.000335s ]
+
+[ 2016-10-08T14:07:51+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000777s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000889s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.004215s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.000314s ]
+
+[ 2016-10-08T14:07:52+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000763s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000871s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.004221s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000314s ]
+
+[ 2016-10-08T14:07:53+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000763s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000870s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.030790s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.000312s ]
+
+[ 2016-10-08T14:08:07+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000496s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000606s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.167906s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.000322s ]
+
+[ 2016-10-08T14:08:08+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000535s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000646s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.004421s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000311s ]
+
+[ 2016-10-08T14:08:43+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000509s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000625s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `hospital_info` [ RunTime:0.004425s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `hospitalId`,`hospitalName` FROM `hospital_info` WHERE ( isDel=1 )  [ RunTime:0.000321s ]
+
+[ 2016-10-08T14:08:45+08:00 ] 192.168.1.91 /videotreat/admin.php/RecycleBin/restore
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000513s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000629s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctor_info` [ RunTime:0.071850s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `doctorId`,`doctorName` FROM `doctor_info` WHERE ( isDel=1 )  [ RunTime:0.000322s ]
+

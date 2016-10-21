@@ -1,0 +1,199 @@
+[ 2016-08-16T09:14:27+08:00 ] 0.0.0.0 /videotreat/home.php/Doctorinfo/index
+ERR: 无法加载模块:Doctorinfo
+
+[ 2016-08-16T14:11:03+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001310s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001566s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.004426s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000464s ]
+SQL: UPDATE `doctorinfo` SET `stateId`=2 WHERE ( doctorId=1 ) [ RunTime:0.153409s ]
+
+[ 2016-08-16T14:13:08+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000902s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001101s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.005648s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000401s ]
+
+[ 2016-08-16T14:13:14+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000533s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000659s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.120261s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000513s ]
+
+[ 2016-08-16T14:13:30+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000581s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000709s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.005473s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000347s ]
+
+[ 2016-08-16T14:13:33+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000523s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000656s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.005183s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000338s ]
+
+[ 2016-08-16T14:13:53+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000511s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000635s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.006152s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000286s ]
+
+[ 2016-08-16T14:13:55+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001039s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001251s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.007361s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000414s ]
+
+[ 2016-08-16T14:14:04+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000630s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000761s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.005976s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000365s ]
+
+[ 2016-08-16T14:14:07+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000953s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001214s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.004936s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000456s ]
+
+[ 2016-08-16T14:21:44+08:00 ] 0.0.0.0 /videotreat/home.php/Tpl/Index/index.html
+ERR: 无法加载模块:Tpl
+
+[ 2016-08-16T14:21:50+08:00 ] 0.0.0.0 /videotreat/home.php/Index/index.html
+ERR: 无法加载模块:Index
+
+[ 2016-08-16T14:21:59+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000964s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001209s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.004758s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000516s ]
+
+[ 2016-08-16T14:26:14+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000578s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000732s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.014922s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000500s ]
+
+[ 2016-08-16T14:33:26+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000936s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001180s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.016722s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000390s ]
+
+[ 2016-08-16T14:33:31+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000645s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000792s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.006378s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000406s ]
+
+[ 2016-08-16T14:34:58+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000594s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000733s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.005133s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000317s ]
+
+[ 2016-08-16T14:35:06+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000534s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000660s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.004653s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000381s ]
+
+[ 2016-08-16T14:36:31+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001028s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001297s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.005747s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000419s ]
+
+[ 2016-08-16T14:36:39+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000768s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000980s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.175382s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000364s ]
+
+[ 2016-08-16T14:37:07+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001069s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001356s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.180472s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000395s ]
+
+[ 2016-08-16T14:37:33+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001855s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.007006s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000391s ]
+
+[ 2016-08-16T14:38:31+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000931s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001156s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.017681s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000607s ]
+
+[ 2016-08-16T15:46:26+08:00 ] 0.0.0.0 /videotreat/home.php/Doctor/initState
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000654s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000782s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `doctorinfo` [ RunTime:0.006491s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead E:\wamp\www\videotreat\library\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `stateId` FROM `doctorinfo` WHERE ( doctorId=1 ) LIMIT 1   [ RunTime:0.000643s ]
+

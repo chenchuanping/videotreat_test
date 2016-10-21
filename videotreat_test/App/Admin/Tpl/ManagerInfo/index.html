@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>云医视讯管理系统</title>
+    <link rel="stylesheet" href="__ROOT__/Public/css/public.css">
+    <link rel="stylesheet" href="__ROOT__/Public/admin_css/admin.css">
+    <link rel="stylesheet" href="__ROOT__/Public/admin_css/manager_info.css">
+
+    <!--js-->
+    <script>
+        function  modifyManager(managerId,hospitalId){
+            window.location = "__APP__/ModifyManager/index/managerId/"+managerId+"/hospitalId/"+hospitalId;
+        }
+        function  deleteManager(managerId,hospitalId){
+            if(confirm("是否删除该医院？")){
+                window.location = "__APP__/ModifyManager/delete/managerId/"+managerId+"/hospitalId/"+hospitalId;
+            }
+        }
+        function addManager(){
+            window.location="__APP__/AddManager/index";
+        }
+    </script>
+</head>
+<body>
+
+<include file="Public/header"/>
+
+<div id="content">
+    <include file="Public/left"/>
+
+    <div id="content_right" class="right">
+        <form name="frm" method="post" action="__APP__/ManagerInfo/index" >
+            <input  type="hidden" name="currentPage" value="1">
+            <table  style="height: 50px;font-size: 18px">
+                <tr>
+                    <td align="left">
+                        &nbsp;管理员搜索：
+                        <input id="searchHospital"  type="text" name="keyword" size="50" value='{$keyword}'/>
+                        <input class="button orange bigrounded" type="submit" value="搜索">
+                    </td>
+                    <td id="addManager" class="button orange bigrounded" onclick="addManager()">添加</td>
+                    </if>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <br>
+        <table id="manager_list" border="1" >
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>角色</th>
+                <th class="manager_hospital">管理的医院</th>
+                <th>操作</th>
+            </tr>
+            <if condition="$managerInfo != null">
+                <foreach name="managerInfo"  key="k" item="v">
+                    <tr>
+                        <td>{$k+1}</td>
+                        <td>{$v.managerName}</td>
+                        <td>{$v.roleName}</td>
+                        <td>{$v.hospitalName}</td>
+                        <td>
+                            <if condition="$v.hospitalId neq all">
+                                <input class="button orange bigrounded"  type="button" onclick="modifyManager('{$v.managerId}','{$v.hospitalId}')" value="修改"/>
+                            </if>
+                            <input class="button orange bigrounded"  type="button" onclick="deleteManager('{$v.managerId}','{$v.hospitalId}')" value="停用"/>
+                        </td>
+                    </tr>
+                </foreach>
+                <tr>
+                    <td colspan="5" id="pageSize" >
+                        <for start="1" end="$totalPage+1">
+                            <if condition="$currentPage == $i">
+                                [{$i}]&nbsp;&nbsp;
+                                <else/>
+                                <a href="#" onclick="setPage({$i})">[{$i}]</a>&nbsp;&nbsp;
+                            </if>
+                        </for>
+                    </td>
+                </tr>
+                <else/>
+                <tr>
+                    <td colspan="5">暂无信息</td>
+                </tr>
+            </if>
+        </table>
+    </div>
+</div>
+<include file="Public/footer"/>
+<script src="__ROOT__/Public/js/jquery.js"></script>
+</body>
+</html>
