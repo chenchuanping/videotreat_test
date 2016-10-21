@@ -175,12 +175,13 @@ INSERT INTO dic_user_sex (sex_key, sex_value)VALUES(2, '女性');
 
 INSERT INTO dic_user_sex (sex_key, sex_value)VALUES(9, '未说明的性别');
 
+/*用户登录信息表*/
 CREATE TABLE user_db_info (
 	userId INT PRIMARY KEY auto_increment COMMENT '编号',
 	userName VARCHAR (50) NOT NULL DEFAULT '' COMMENT '姓名',
 	tel VARCHAR (20) DEFAULT '' COMMENT '手机号',
 	password VARCHAR (40) DEFAULT '' COMMENT '密码',
-	sex_key INT (1)   NULL   COMMENT '性别',
+  sex_key INT (1) NOT NULL DEFAULT 0 COMMENT '性别'
 	birthday VARCHAR (40) DEFAULT '' COMMENT '出生日期',
 	imei VARCHAR (20) NOT NULL DEFAULT '' COMMENT '手机的唯一识别号码',
 	third_type VARCHAR (20) DEFAULT '' COMMENT '第三方登录类型',
@@ -189,7 +190,7 @@ CREATE TABLE user_db_info (
 	FOREIGN KEY (sex_key) REFERENCES dic_user_sex (sex_key)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '用户登录信息表';
 
-
+/*第三方QQ登录表*/
 CREATE TABLE qq_info (
 	id INT PRIMARY KEY auto_increment COMMENT '编号',
 	userId INT NOT NULL COMMENT '用户编号',
@@ -201,7 +202,7 @@ CREATE TABLE qq_info (
 	FOREIGN KEY (userId) REFERENCES user_db_info (userId)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '第三方QQ登录表';
 
-
+/*第三方微信登录表*/
 CREATE TABLE wechat_info (
 	id INT PRIMARY KEY auto_increment COMMENT '编号',
 	userId INT NOT NULL COMMENT '用户编号',
@@ -213,7 +214,7 @@ CREATE TABLE wechat_info (
 	FOREIGN KEY (userId) REFERENCES user_db_info (userId)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '第三方微信登录表';
 
-
+/*第三方微博登录表*/
 CREATE TABLE blog_info (
 	id INT PRIMARY KEY auto_increment COMMENT '编号',
 	userId INT NOT NULL COMMENT '用户编号',
@@ -225,6 +226,7 @@ CREATE TABLE blog_info (
 	FOREIGN KEY (userId) REFERENCES user_db_info (userId)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '第三方微博登录表';
 
+/*用户基本信息表*/
 CREATE TABLE user_base_info (
 	userId INT NOT NULL COMMENT '用户Id',
 	address VARCHAR (128) DEFAULT '' COMMENT '地址',
@@ -238,7 +240,7 @@ CREATE TABLE user_base_info (
 	FOREIGN KEY (userId) REFERENCES user_db_info (userId)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '用户基本信息表';
 
-/*自述表*/
+/*自述卡*/
 CREATE TABLE user_report_card (
 	reportCardId INT auto_increment PRIMARY KEY COMMENT '自述卡Id',
 	userId INT NOT NULL COMMENT '用户id',
@@ -262,6 +264,7 @@ CREATE TABLE user_line (
 	FOREIGN KEY (reportCardId) REFERENCES user_report_card (reportCardId)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '用户排队信息表';
 
+/*版本升级表*/
 CREATE TABLE `version` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '编号',
   `version` varchar(32) NOT NULL COMMENT '版本号',
@@ -279,6 +282,7 @@ INSERT INTO `version` VALUES ('4', '1.0.0.1', '测试版本2_andriod', '1', '0',
 INSERT INTO `version` VALUES ('5', '1.0.2.0', '修复视频通讯bug', '1', '0', 'http://101.201.104.221/YunYi/YunYi.apk', '2016-10-12 17:39:26');
 INSERT INTO `version` VALUES ('6', '1.0.2.3', '优化启动速度', '1', '0', 'http://101.201.104.221/YunYi/YunYi.apk', '2016-10-14 16:48:47');
 
+/*意见反馈表*/
 CREATE TABLE suggestion_feedback (
 	suggestionId INT (11) NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT '编号',
 	userId INT (11) NOT NULL UNIQUE COMMENT '用户id',
@@ -288,6 +292,7 @@ CREATE TABLE suggestion_feedback (
 	FOREIGN KEY (userId) REFERENCES user_db_info (userId)
 ) ENGINE = INNODB AUTO_INCREMENT = 10 DEFAULT CHARSET = utf8 COMMENT = '意见反馈表';
 
+/*广告表*/
 CREATE TABLE advertisement (
 	id INT PRIMARY KEY AUTO_INCREMENT COMMENT '编号',
 	advertId INT NOT NULL COMMENT '广告编号',
@@ -297,6 +302,7 @@ CREATE TABLE advertisement (
 	join_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '广告的加入时间'
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '广告表';
 
+/*关注医院表*/
 CREATE TABLE attention_hospital (
 	id INT PRIMARY KEY AUTO_INCREMENT COMMENT '编号',
 	userId INT NOT NULL COMMENT '用户Id',
@@ -306,6 +312,7 @@ CREATE TABLE attention_hospital (
 	FOREIGN KEY (userId) REFERENCES user_db_info (userId)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '关注医院表';
 
+/*关注医生表*/
 CREATE TABLE attention_doctor (
 	id INT PRIMARY KEY AUTO_INCREMENT COMMENT '编号',
 	userId INT NOT NULL COMMENT '用户Id',
@@ -315,6 +322,7 @@ CREATE TABLE attention_doctor (
 	FOREIGN KEY (userId) REFERENCES user_db_info (userId)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '关注医生表';
 
+/*用户等级表*/
 CREATE TABLE user_grade (
 	id INT PRIMARY KEY auto_increment COMMENT '编号',
 	userId INT NOT NULL UNIQUE COMMENT '用户id',
@@ -324,7 +332,7 @@ CREATE TABLE user_grade (
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '用户等级表';
 
 
-
+/*用户签到表*/
 CREATE TABLE user_sign_in (
 	id INT PRIMARY KEY auto_increment COMMENT '编号',
 	userId INT NOT NULL COMMENT '用户Id',

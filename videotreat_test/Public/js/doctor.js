@@ -214,7 +214,7 @@ function get_user_line() {
                     '<table id="get_user_line"><tr >' +
                     '<th>序号</th><th>姓名</th><th>性别</th><th>年龄</th><th>操作</th></tr>';
                 $.each(data, function (key, val) {
-                    if (key == 0) {  //只显示列表中第一个患者可以被接诊
+                    if (key == 0 && val['behaviourName'] != '进入视频') {  //只显示列表中第一个患者可以被接诊
                         inshtml += '<tr><td>'
                             + (key + 1)
                             + '</td><td>'
@@ -258,8 +258,9 @@ $(".get_user_line").click(function () {
 
 //接诊按钮
 function jiezhen(userId, reportCardId, doctorId) {
-    //推送成功后，隐藏接诊图片
-    $("#get_user_line").find('#jiezhen_button').css({'display': 'none'});
+    /*先清除隐藏表单内容*/
+    $('#userIdUp').val('');
+    $('#reportCardIdUp').val('');
     /*做推送用的*/
     $.ajax({
         url: app + '/Jpush/index',
@@ -268,11 +269,12 @@ function jiezhen(userId, reportCardId, doctorId) {
         dataType: 'json',
         success: function (data) {
             if (data != null) {
-                 window.open(app + '/Meeting/index?room=' + userId + '&vendorKey=' + data['vendorKey'] + '&resolution=' + data['resolution'], "_blank", "width=" + document.body.clientWidth + ",height=" + document.body.clientHeight + ",top=0,left=" + document.body.clientWidth);
+                window.open(app + '/Meeting/index?room=' + userId + '&vendorKey=' + data['vendorKey'] + '&resolution=' + data['resolution'], "_blank", "width=" + document.body.clientWidth + ",height=" + document.body.clientHeight + ",top=0,left=" + document.body.clientWidth);
                 $('#userIdUp').val(userId);
                 if (reportCardId != null) {
                     $('#reportCardIdUp').val(reportCardId);
                 }
+                getUserDetail();
             }
         }
     });

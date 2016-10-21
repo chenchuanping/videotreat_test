@@ -31,7 +31,7 @@ class JpushAction extends Action
         $options = array(
             'sendno' => time(),
             'time_to_live' => 0,
-            'apns_production' => false,
+            'apns_production' => false,   //上线为true,测试为false
             'big_push_duration' => 0
         );
         $response = $push->setPlatform($platform)
