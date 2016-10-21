@@ -184,9 +184,6 @@ CREATE TABLE user_db_info (
 	birthday VARCHAR (40) DEFAULT '' COMMENT '出生日期',
 	imei VARCHAR (20) NOT NULL DEFAULT '' COMMENT '手机的唯一识别号码',
 	third_type VARCHAR (20) DEFAULT '' COMMENT '第三方登录类型',
-	qq_key VARCHAR (64) DEFAULT '' COMMENT '第三方登录QQ的唯一标识',
-	wechat_key VARCHAR (64) DEFAULT '' COMMENT '第三方登录微信的唯一标识',
-	blog_key VARCHAR (64) DEFAULT '' COMMENT '第三方登录微博唯一标识',
 	client INT (1) DEFAULT '1' COMMENT '手机型号 1是苹果0是安卓',
 	login_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	FOREIGN KEY (sex_key) REFERENCES dic_user_sex (sex_key)

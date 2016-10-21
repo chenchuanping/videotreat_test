@@ -32,6 +32,9 @@ class UserDetailGetAction extends Action
             ->where("user_db_info.userId={$userId}")
             ->find();
         $userInfo['sex'] = $userInfo['sex_value'];
+        if ($userInfo['sex'] == null) {
+            $userInfo['sex'] = '';
+        }
         unset($userInfo['sex_value']);
         if ($userInfo) {
             return Response::json(1, '用户信息获取成功', $userInfo);

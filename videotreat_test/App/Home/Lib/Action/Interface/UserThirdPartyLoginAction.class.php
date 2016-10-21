@@ -24,7 +24,7 @@ class UserThirdPartyLoginAction extends Action
         $type = $_POST['type'];
         $imei = $_POST['imei'];
         $thirdPartyId = $_POST['thirdPartyId'];
-        $token = $_POST['token'];
+        $token = $_POST['token']?$_POST['token']:"";
         $nickName = $_POST['nickName'];
         $headPic = $_POST['headPic'];
         $gender = $_POST['gender'];//性别
@@ -53,51 +53,14 @@ class UserThirdPartyLoginAction extends Action
                 break;
         }
 
-        if ($thirdPartyInfo) {              /*非首次登录*/
-            $code = 1;
-            $message = "第三方" . $type . "非首次登录成功";
-            $userId = $thirdPartyInfo['userId'];
-            //修改第三方登录信息
-            $thirdDate_repeat['userId'] = $userId;
-            $thirdDate_repeat['nickName'] = $nickName;
-            $thirdDate_repeat['headPic'] = $headPic;
-            switch ($type) {
-                case 'qq':
-                    $db_repeat['qq_key'] = $thirdPartyId;
-                    $thirdDate_repeat['qq_key'] = $thirdPartyId;
-                    $thirdDate_repeat['qq_token'] = $token;
-                    $model->where("qq_key='{$thirdPartyId}'")->save($thirdDate_repeat);
-                    break;
-                case 'wechat':
-                    $db_repeat['wechat_key'] = $thirdPartyId;
-                    $thirdDate_repeat['wechat_key'] = $thirdPartyId;
-                    $thirdDate_repeat['wechat_token'] = $token;
-                    $model->where("wechat_key='{$thirdPartyId}'")->save($thirdDate_repeat);
-                    break;
-                case 'blog':
-                    $db_repeat['blog_key'] = $thirdPartyId;
-                    $thirdDate_repeat['blog_key'] = $thirdPartyId;
-                    $thirdDate_repeat['blog_token'] = $token;
-                    $model->where("blog_key='{$thirdPartyId}'")->save($thirdDate_repeat);
-                    break;
-            }
-            $base_repeat['headPic'] = $headPic;
-            M('user_base_info')->where("userId='{$userId}'")->save($base_repeat);
-
-
-            $db_repeat['userName'] = $nickName;
-            $db_repeat['sex_key'] = $gender;
-            $db_repeat['imei'] = $imei;        /*手机Imei，用来推送的*/
-            $db_repeat['third_type'] = $type;
-            $db_repeat['client'] = $client;
-            M("user_db_info")->where("userId='{$userId}'")->save($db_repeat);
-        } else {                /*首次登录*/
+        if (!$thirdPartyInfo){                /*首次登录*/
             $data['userName'] = $nickName;
             $data['sex_key'] = $gender;
             $data['imei'] = $imei;        /*手机Imei，用来推送的*/
             $data['third_type'] = $type;
             $data['client'] = $client;
-            $userId = M("user_db_info")->data($data)->add();/*自增长的，用户userId  将对应的userId  的每个任务和完成情况，在user_task表中，初始化*/;
+            $userId = M("user_db_info")->data($data)->add();
+            /*自增长的，用户userId  将对应的userId  的每个任务和完成情况，在user_task表中，初始化*/;
 
             $taskInfo = M("task_info")->field('taskId')->select();
             foreach ($taskInfo as $v) {
