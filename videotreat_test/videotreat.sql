@@ -518,10 +518,9 @@ insert into system_param (paramName,paramValue,unit)VALUES ('video_duration','60
 /*用户行为表*/
 DROP TABLE if EXISTS user_behaviour;
 CREATE TABLE user_behaviour (
-	behaviourId INT PRIMARY KEY COMMENT '行为编号',
+	behaviourId INT  PRIMARY KEY AUTO_INCREMENT COMMENT '行为编号',
 	behaviourName VARCHAR (20) NOT NULL COMMENT '上一次行为',
 	userId INT NOT NULL COMMENT '用户id',
 	creat_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '行为日期',
 	FOREIGN KEY (userId) REFERENCES user_db_info (userId)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '用户行为表';
-
