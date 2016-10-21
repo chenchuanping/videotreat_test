@@ -16,20 +16,20 @@ class UserLoginVideoAction extends Action
     public function index()
     {
         include_once 'common/Response.class.php';
-        $userId =  $_POST['userId'];
-        $doctorId =  $_POST['doctorId'];
-        $videoStartTime = '2016-10-21 12:11:00';// $_POST['videoStartTime'];
+        $userId = $_POST['userId'];
+        $doctorId = $_POST['doctorId'];
+        $videoStartTime = $_POST['videoStartTime'];
         $doctor_isInVideo = M("doctor_info")->where("doctorId={$doctorId}")->getField("isInVideo");
         if ($doctor_isInVideo == 1) {
             /*添加用户行为*/
-            $behaviourInfo=M("user_behaviour")->where("userId={$userId}")->find();
+            $behaviourInfo = M("user_behaviour")->where("userId={$userId}")->find();
             $behaviourData['behaviourName'] = "进入视频";
-            if(!$behaviourInfo){
+            if (!$behaviourInfo) {
                 $behaviourData['userId'] = $userId;
                 M("user_behaviour")->add($behaviourData);
-            }else{
+            } else {
                 $behaviourData['userId'] = $userId;
-                $behaviourData['create_time']=date("Y-m-d H:i:s");
+                $behaviourData['create_time'] = date("Y-m-d H:i:s");
                 M("user_behaviour")->where("behaviourId={$behaviourInfo['behaviourId']}")->save($behaviourData);
             }
 
