@@ -19,6 +19,7 @@ class UserLogoutVideoAction extends Action
         $doctorId = $_POST['doctorId'];
         $videoEndTime = $_POST['videoEndTime'];
         $videoHistoryId = $_POST['videoHistoryId'];
+
         $data['userId'] = $userId;
         $data['doctorId'] = $doctorId;
         $data['videoEndTime'] = $videoEndTime;
@@ -36,6 +37,17 @@ class UserLogoutVideoAction extends Action
         $data['videoDuration'] = $minute . ":" . $second;
         $result = M("video_history")->where("id={$videoHistoryId}")->save($data);
         if ($result) {
+            /*添加用户行为*/
+            $behaviourInfo = M("user_behaviour")->where("userId={$userId}")->find();
+            $behaviourData['behaviourName'] = "退出视频";
+            if (!$behaviourInfo) {
+                $behaviourData['userId'] = $userId;
+                M("user_behaviour")->add($behaviourData);
+            } else {
+                $behaviourData['userId'] = $userId;
+                $behaviourData['create_time'] = date("Y-m-d H:i:s");
+                M("user_behaviour")->where("behaviourId={$behaviourInfo['behaviourId']}")->save($behaviourData);
+            }
             /*删除用户的排队*/
             M("user_line")->where("userId={$userId}")->delete();
             /*删除临时自述单的内容*/

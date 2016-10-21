@@ -19,6 +19,17 @@ class UserRefuseVideoAction extends Action
         $doctorId = 4;//$_POST['doctorId'];
         $line=M("user_line")->where("userId={$userId} and doctorId={$doctorId}")->getField('id');
         if ($line) {
+            /*添加用户行为*/
+            $behaviourInfo = M("user_behaviour")->where("userId={$userId}")->find();
+            $behaviourData['behaviourName'] = "用户拒绝进入视频";
+            if (!$behaviourInfo) {
+                $behaviourData['userId'] = $userId;
+                M("user_behaviour")->add($behaviourData);
+            } else {
+                $behaviourData['userId'] = $userId;
+                $behaviourData['create_time'] = date("Y-m-d H:i:s");
+                M("user_behaviour")->where("behaviourId={$behaviourInfo['behaviourId']}")->save($behaviourData);
+            }
             /*删除用户的排队*/
             M("user_line")->where("userId={$userId}")->delete();
             /*删除临时自述单的内容*/
