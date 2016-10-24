@@ -3,7 +3,6 @@
 /*                               用户进入视频接口
  * @param userId                  int         用户Id
  * @param doctorId                int         医生Id
- * @param videoStartTime         string       视频开始时间
  * @param client                  int         手机型号区别，1为ios 0为android
  * return code                    int         状态码
  *        message                 string      提示信息
@@ -16,9 +15,8 @@ class UserLoginVideoAction extends Action
     public function index()
     {
         include_once 'common/Response.class.php';
-        $userId = $_POST['userId'];
-        $doctorId = $_POST['doctorId'];
-        $videoStartTime = $_POST['videoStartTime'];
+        $userId =  $_POST['userId'];
+        $doctorId =  $_POST['doctorId'];
         $doctor_isInVideo = M("doctor_info")->where("doctorId={$doctorId}")->getField("isInVideo");
         if ($doctor_isInVideo == 1) {
             /*添加用户行为*/
@@ -32,18 +30,17 @@ class UserLoginVideoAction extends Action
                 $behaviourData['create_time'] = date("Y-m-d H:i:s");
                 M("user_behaviour")->where("behaviourId={$behaviourInfo['behaviourId']}")->save($behaviourData);
             }
+            /*通话时长*/
+            $video_duration = M('system_param')->where("paramCode = 'video_duration'")->getField('paramValue');
 
-            /*添加用户视频开始时间*/
-            $videoData['doctorId'] = $doctorId;
-            $videoData['userId'] = $userId;
-            $videoData['videoStartTime'] = $videoStartTime;
-            $videoHistoryId = M("video_history")->data($videoData)->add();
             $code = 1;
             $message = '医生在视频中';
+            $data['video_duration'] = (int)$video_duration;
         } else {
             $code = 0;
             $message = '医生不在视频中';
         }
-        return Response::json($code, $message, $videoHistoryId);
+
+        return Response::json($code, $message, $data);
     }
 }

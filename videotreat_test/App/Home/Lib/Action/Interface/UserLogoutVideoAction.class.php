@@ -1,14 +1,10 @@
 <?php
 
 /*                               用户退出视频接口
- * @param userId                int        用户userId
+ * @param userId                int         用户userId
  * @param doctorId              int         医生Id
+ * @param videoStartTime        string      视频开始时间
  * @param videoEndTime          string      视频结束时间
- * @param videoHistoryId        int         用户记录就诊时间Id
- * @param client                  int         手机型号区别，1为ios 0为android
- * return code                    int         状态码
- *        message                 string      提示信息
- *        data                    array       返回的数据
  */
 
 class UserLogoutVideoAction extends Action
@@ -17,14 +13,16 @@ class UserLogoutVideoAction extends Action
     {
         $userId = $_POST['userId'];
         $doctorId = $_POST['doctorId'];
+        $videoStartTime = $_POST['videoStartTime'];
         $videoEndTime = $_POST['videoEndTime'];
-        $videoHistoryId = $_POST['videoHistoryId'];
+
 
         $data['userId'] = $userId;
         $data['doctorId'] = $doctorId;
+        $data['videoStartTime'] = $videoStartTime;
         $data['videoEndTime'] = $videoEndTime;
         /*处理视频时间*/
-        $start = M("video_history")->where("id={$videoHistoryId}")->getField('videoStartTime');
+        $start = $videoStartTime;
         $start_minute = substr($start, strpos($start, ':') + 1, 2);
         $start_second = substr($start, strrpos($start, ':') + 1, 2);
         $end_minute = substr($videoEndTime, strpos($videoEndTime, ':') + 1, 2);
@@ -35,8 +33,9 @@ class UserLogoutVideoAction extends Action
             $second = "0" . $second;
         }
         $data['videoDuration'] = $minute . ":" . $second;
-        $result = M("video_history")->where("id={$videoHistoryId}")->save($data);
-        if ($result) {
+
+        $add = M("video_history")->add($data);
+        if ($add) {
             /*添加用户行为*/
             $behaviourInfo = M("user_behaviour")->where("userId={$userId}")->find();
             $behaviourData['behaviourName'] = "退出视频";

@@ -24,9 +24,9 @@ class JpushAction extends Action
         $doctorId = $_SESSION['userMsg']['doctorId'];
         $regId = M('user_db_info')->where("userId=" . $userId)->getField('imei');
 
-        $ios_notification = array('sound' => 'default', 'badge' => '+1', 'extras' => ['userId' => $userId, 'doctorId' => $doctorId, 'video_duration' => $video_duration]);
+        $ios_notification = array('sound' => 'default', 'badge' => '+1', 'extras' => ['userId' => $userId, 'doctorId' => $doctorId]);
         //通知提示声音和角标加1,用户的userId,用来判断用户是否登录
-        $android_notification = array('title' => '云医视讯', 'extras' => ['userId' => $userId, 'video_duration' => $video_duration]);
+        $android_notification = array('title' => '云医视讯', 'extras' => ['userId' => $userId]);
         $options = array(
             'sendno' => time(),
             'time_to_live' => 0,

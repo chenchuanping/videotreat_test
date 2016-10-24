@@ -15,13 +15,13 @@ class UserRefuseVideoAction extends Action
 {
     public function index()
     {
-        $userId = 3;//$_POST['userId'];
-        $doctorId = 4;//$_POST['doctorId'];
+        $userId =  $_POST['userId'];
+        $doctorId =  $_POST['doctorId'];
         $line=M("user_line")->where("userId={$userId} and doctorId={$doctorId}")->getField('id');
         if ($line) {
             /*添加用户行为*/
             $behaviourInfo = M("user_behaviour")->where("userId={$userId}")->find();
-            $behaviourData['behaviourName'] = "用户拒绝进入视频";
+            $behaviourData['behaviourName'] = "拒绝进入视频";
             if (!$behaviourInfo) {
                 $behaviourData['userId'] = $userId;
                 M("user_behaviour")->add($behaviourData);
