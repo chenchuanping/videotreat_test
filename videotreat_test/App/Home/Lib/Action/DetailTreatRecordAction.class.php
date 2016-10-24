@@ -28,9 +28,9 @@ class  DetailTreatRecordAction extends Action
             foreach ($reportCardImages as $k => $value) {
                 $imageInfo=getimagesize($value);
                 $width=$imageInfo[0];
-                $hight=$imageInfo[1];
+                $height=$imageInfo[1];
                 $userTreatInfo['reportCardImageInfo'][$k]['width']=$width;
-                $userTreatInfo['reportCardImageInfo'][$k]['height']=$hight;
+                $userTreatInfo['reportCardImageInfo'][$k]['height']=$height;
                 $userTreatInfo['reportCardImageInfo'][$k]['image']=$value;
             }*/
         } else {

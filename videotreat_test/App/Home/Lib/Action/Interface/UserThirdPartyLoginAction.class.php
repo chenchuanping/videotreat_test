@@ -24,43 +24,56 @@ class UserThirdPartyLoginAction extends Action
         $type = $_POST['type'];
         $imei = $_POST['imei'];
         $thirdPartyId = $_POST['thirdPartyId'];
-        $token = $_POST['token']?$_POST['token']:"";
+        $token = $_POST['token'];
         $nickName = $_POST['nickName'];
         $headPic = $_POST['headPic'];
         $gender = $_POST['gender'];//性别
         $client = $_POST['client'];/*0为安卓，1为iOS*/
-
         $thirdPartyInfo = '';
         $model = '';
         switch ($type) {
             case 'qq':
+                $model = M("qq_info");
                 $thirdDate['qq_key'] = $thirdPartyId;
                 $thirdDate['qq_token'] = $token;
-                $model = M("qq_info");
                 $thirdPartyInfo = $model->where("qq_key='{$thirdPartyId}'")->find();
                 break;
             case 'wechat':
+                $model = M("wechat_info");
                 $thirdDate['wechat_key'] = $thirdPartyId;
                 $thirdDate['wechat_token'] = $token;
-                $model = M("wechat_info");
                 $thirdPartyInfo = $model->where("wechat_key='{$thirdPartyId}'")->find();
                 break;
             case 'blog':
+                $model = M("blog_info");
                 $thirdDate['blog_key'] = $thirdPartyId;
                 $thirdDate['blog_token'] = $token;
-                $model = M("blog_info");
                 $thirdPartyInfo = $model->where("blog_key='{$thirdPartyId}'")->find();
                 break;
         }
 
-        if (!$thirdPartyInfo){                /*首次登录*/
+        /*非首次登录  只需要找到userId 把imei存进表中*/
+        if ($thirdPartyInfo) {
+
+            $userId = $thirdPartyInfo['userId'];
+            $data['imei'] = $imei;
+            $data['userId'] = $userId;
+            $result = M("user_db_info")->where("userId='%d'", $userId)->save($data);
+            if ($result) {
+                $code = 1;
+                $message = "第三方" . $type . "非首次登录成功";
+            } else {
+                $code = 0;
+                $message = "第三方" . $type . "非首次登录成功";
+            }
+
+        } else {                          /*首次登录 */
             $data['userName'] = $nickName;
             $data['sex_key'] = $gender;
             $data['imei'] = $imei;        /*手机Imei，用来推送的*/
             $data['third_type'] = $type;
             $data['client'] = $client;
-            $userId = M("user_db_info")->data($data)->add();
-            /*自增长的，用户userId  将对应的userId  的每个任务和完成情况，在user_task表中，初始化*/;
+            $userId = M("user_db_info")->data($data)->add();/*自增长的，用户userId  将对应的userId  的每个任务和完成情况，在user_task表中，初始化*/;
 
             $taskInfo = M("task_info")->field('taskId')->select();
             foreach ($taskInfo as $v) {
@@ -80,7 +93,7 @@ class UserThirdPartyLoginAction extends Action
             $result = M("user_base_info")->data($thirdPartyDate)->add();
             if ($result) {
                 $code = 1;
-                $message = "第三方" . $type . "登录成功";
+                $message = "第三方" . $type . "首次登录成功";
             } else {
                 $code = 0;
                 $message = "第三方" . $type . "登录失败";

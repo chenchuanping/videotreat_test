@@ -14,6 +14,7 @@
         height: $('.main-container').height()
     });
     $(function () {
+
         var resolution = resolution,
             maxFrameRate = Number(15),
             channel = room,
@@ -23,7 +24,7 @@
             disableAudio = false,
             disableVideo = false,
             hideLocalStream = false,
-            fullscreenEnabled = false,
+            fullscreenEnabled = true,
             recordingServiceUrl = 'https://recordtest.agorabeckon.com:9002/agora/recording/genToken?channelname=' + channel,
             recording = false,
             uid,
@@ -33,6 +34,7 @@
             isMixed = false,
             isShared = false,
             isShowShareList = false;
+
         if (!key) {
             $.alert("没有指定供应商的key.");
             window.location.href='http://download.agora.io/sdk/Agora_Native_SDK_for_Web_v1_7_0.zip';
@@ -40,20 +42,21 @@
         }
 
         $(".mute-button,.list-switch-audio-btn").off("click").on("click", function (e) {
-            $(".mute-button img").off("hover");
+
             disableAudio = !disableAudio;
 
             var target = $(this),
                 isMixed = target.hasClass('list-switch-audio-btn'),
                 mixedClassName = 'list-switch-audio-disable-btn';
 
-            if (disableAudio) {         //静音
+            if (disableAudio) {         //禁用音频流
                 $(e.target).attr("src", root + "/Public/Agora/images/btn_mute_touch.png");
                 localStream.disableAudio();
-            } else {            //非静音
+            } else {            //启用音频流
                 $(e.target).attr("src", root + "/Public/Agora/images/btn_mute@2x.png");
                 localStream.enableAudio();
             }
+            $(".mute-button img").off("hover");
 
             // if (disableAudio) {
             //     localStream.disableAudio();
@@ -67,10 +70,24 @@
 
         /*结束视频*/
         $(".end-call-button").click(function () {
-
             var userId = window.opener.document.getElementById("userIdUp").value;
             var doctorId = window.opener.document.getElementById("doctorIdUp").value;
             if (confirm("确定结束视频吗？")) {
+
+                var viewportWidth = $(window).width(),
+                    viewportHeight = $(window).height(),
+                    curResolution = getResolutionArray(resolution),
+                    width,
+                    height,
+                    newWidth,
+                    newHeight,
+                    ratioWindow,
+                    ratioVideo;
+                alert(viewportHeight)
+                alert(viewportHeight)
+                alert(curResolution)
+                alert(width)
+                alert(123)
                 $.ajax({
                     url: app + '/VideoHangUp/disconnect',
                     type: "post",
@@ -89,7 +106,7 @@
         /* 加入频道 */
         (function initAgoraRTC() {
             client.init(key, function (obj) {
-                ;
+
                 client.join(key, channel, 0, function (uid) {
                     console.log("用户 " + uid + " 成功地加入频道");
                     console.log("时间为: " + Date.now());
@@ -120,11 +137,13 @@
                 }
             });
         }());
-        subscribeStreamEvents();
-        subscribeMouseHoverEvents();
-        subscribeWindowResizeEvent();
-        attachExitFullscreenEvent();
+        subscribeStreamEvents();   /*远程音视频流已添加事件(stream-added) */
+        subscribeMouseHoverEvents();  /*订阅鼠标划过事件*/
+        subscribeWindowResizeEvent();  /*订阅窗口大小重置事件*/
+        attachExitFullscreenEvent();   /*监听退出全屏事件*/
+
         /*监听退出全屏事件*/
+
         function attachExitFullscreenEvent() {
             if (document.addEventListener) {
                 document.addEventListener('webkitfullscreenchange', exitHandler, false);
@@ -166,6 +185,7 @@
             localStream.init(function () {
                 console.log("成功获取用户媒体");
                 console.log(localStream);
+                alert(123);
                 var size = calculateVideoSize();
                 /*计算视频的大小*/
                 if (remoteStreamList.length === 0) {
@@ -525,6 +545,7 @@
             });
         }
 
+
         /*一方离开时，显示视频流*/
         function showStreamOnPeerLeave(streamId) {
             var size;
@@ -603,6 +624,7 @@
 
         /*远程已加入，显示音/视频流*/
         function showStreamOnPeerAdded(stream) {
+
             var size;
             if (remoteStreamList.length === 0) {
                 clearAllStream();
@@ -668,14 +690,16 @@
                     console.log("Subscribe stream failed", err);
                 });
             });
+
             /*远端用户已离开房间事件(peer-leave) */
             client.on('peer-leave', function (evt) {
                 console.log("Peer has left: " + evt.uid);
                 console.log("Timestamp: " + Date.now());
                 console.log(evt);
                 showStreamOnPeerLeave(evt.uid);
-                //updateRoomInfo();
+
             });
+
             /*远程音视频流已订阅事件(stream-subscribed) */
             client.on('stream-subscribed', function (evt) {
                 var stream = evt.stream;
@@ -686,6 +710,7 @@
                 showStreamOnPeerAdded(stream);
                 //updateRoomInfo();
             });
+
             /*远程音视频流已移除事件(stream-removed) */
             client.on("stream-removed", function (evt) {
                 var stream = evt.stream;
@@ -784,6 +809,7 @@
 
         /*计算视频大小*/
         function calculateVideoSize(multiple) {
+
             var viewportWidth = $(window).width(),
                 viewportHeight = $(window).height(),
                 curResolution = getResolutionArray(resolution),
@@ -797,8 +823,8 @@
                 width = viewportWidth / 2 - 50;
                 height = viewportHeight / 2 - 40;
             } else {
-                width = viewportWidth - 100;
-                height = viewportHeight - 80;
+                width = viewportWidth;
+                height = viewportHeight;
             }
             ratioWindow = width / height;
             ratioVideo = curResolution[0] / curResolution[1];
@@ -835,6 +861,7 @@
                     $(this).attr("src", root + "/Public/Agora/images/btn_mute@2x.png");
                 }
             });
+
             /*挂断图标*/
             $(".end-call-button img").off("hover").hover(function () {
                 $(this).attr("src", root + "/Public/Agora/images/btn_endcall_touchpush@2x.png");
@@ -853,167 +880,5 @@
             });
         }
     });
-    function subscribeMouseClickEvents() {
-        $(".record-video-button").off('click').click(function (e) {
-            // Be defensive always
-            if (!client) {
-                return;
-            }
-            if (recording) {
-                //if (queryRecordingHandler) {
-                //clearInterval(queryRecordingHandler);
-                //queryRecordingHandler = undefined;
-                //}
-                $.get(recordingServiceUrl + "&uid=" + uid)
-                    .done(function (data) {
-                        console.log(data);
-                        client.stopRecording(data, function (data) {
-                            $(e.target).attr("src", "images/btn_record.png");
-                            // toggle recording flag
-                            recording = !recording;
-                            console.log(data);
-                        }, function (err) {
-                            console.log(err);
-                            $.alert("Failed to start recording, please try again or contact admin.");
-                        });
-                    })
-                    .fail(function (err) {
-                        console.log(err);
-                        $.alert("Failed to get recording key, please try again.");
-                    });
-            } else {
-                $.get(recordingServiceUrl + "&uid=" + uid)
-                    .done(function (data) {
-                        console.log(data);
-                        client.startRecording(data, function (data) {
-                            $(e.target).attr("src", "images/btn_record_pause.png");
-                            // toggle recording flag
-                            recording = !recording;
-                            console.log(data);
-                        }, function (err) {
-                            console.log(err);
-                            $.alert("Failed to start recording, please try again or contact admin.");
-                        });
-                    })
-                    .fail(function (err) {
-                        console.log(err);
-                        $.alert("Failed to get recording key, please try again.");
-                    });
-                if (!queryRecordingHandler) {
-                    queryRecordingHandler = setInterval(function () {
-                        client.queryRecordingStatus(function (result) {
-                            console.log(result);
-                            switch (result.status) {
-                                case 0:
-                                    // recording has been stopped
-                                    recording = false;
-                                    $(e.target).attr("src", "images/btn_record.png");
-                                    break;
-                                case 1:
-                                    // recording now
-                                    recording = true;
-                                    $(e.target).attr("src", "images/btn_record_pause.png");
-                                    break;
-                            }
-                        });
-                    }, 3000);
-                }
-            }
-        });
 
-
-        $(".switch-audio-button").off("click").click(function (e) {
-            disableVideo = !disableVideo;
-            if (disableVideo) {
-                localStream.disableVideo();
-                $(e.target).attr("src", "images/btn_video.png");
-                $("#stream" + localStream.getId()).css({display: 'none'});
-                $("#stream" + lastLocalStreamId).css({display: 'none'});
-
-                $("#player_" + localStream.getId()).css({
-                    "background-color": "#4b4b4b",
-                    "background-image": "url(images/icon_default.png)",
-                    "background-repeat": "no-repeat",
-                    "background-position": "center center"
-                });
-                $("#player_" + lastLocalStreamId).css({
-                    "background-color": '#4b4b4b',
-                    "background-image": "url(images/icon_default.png)",
-                    "background-repeat": "no-repeat",
-                    "background-position": "center center"
-                });
-            } else {
-                localStream.enableVideo();
-                $(e.target).attr("src", "images/btn_voice.png");
-                $("#stream" + localStream.getId()).css({display: 'block'});
-                $("#stream" + lastLocalStreamId).css({display: 'block'});
-            }
-        });
-
-        $(".fullscreen-button").off("click").click(function (e) {
-            var target;
-            fullscreenEnabled = !fullscreenEnabled;
-            if (screenfull.enabled) {
-                if (screenfull.isFullscreen) {
-                    screenfull.exit();
-                    $(e.target).attr("src", "images/btn_maximize.png");
-                } else {
-                    var videoWrapper = $("div[id^='agora-remote']")[0];
-                    target = $(videoWrapper).find("canvas")[0];
-                    screenfull.request(target);
-                    $(e.target).attr("src", "images/btn_reduction.png");
-                }
-            } else {
-                // TODO will we provide fallback for older browsers??
-            }
-        });
-
-        $(".expension-button").off("click").click(function (e) {
-            hideLocalStream = !hideLocalStream;
-
-            if (hideLocalStream) {
-                $("div[id^='agora-local']").remove();
-            } else {
-                displayStream("agora-local", localStream, 160, 120, 'local-partner-video');
-            }
-            // workaround to remove bottom bar
-            $("div[id^='bar_']").remove();
-        });
-
-
-        var videoContainerMultiple = $('#video-container-multiple');
-        $(".whiteboard-button").click(function (e) {
-            $('.video-side-bar').show();
-            $('.toolbar').hide();
-            isMixed = true;
-            videoContainerMultiple.addClass('to-side');
-            // load white board
-            var key = "74a0b7bb5d3e47c7abca0533d17b0afa",
-                resolution = Cookies.get("resolution") || "480p",
-                maxFrameRate = Number(Cookies.get("maxFrameRate") || 15),
-                maxBitRate = Number(Cookies.get("maxBitRate") || 750),
-                channel = Cookies.get("roomName"),
-                client = AgoraRTC.Client({}),
-                remoteStreamList = [],
-                localStream;
-            var hostParams = {
-                key: key,
-                cname: channel,
-                role: 'host',
-                width: 1024,
-                height: 768,
-                container: "whiteboard-container"
-            };
-            /* Call AgoraWhiteBoardApi */
-            Agora.Whiteboard.join(hostParams);
-        });
-        // End mixed-mode
-        $(".list-close-btn").click(function (e) {
-            $('.video-side-bar').hide();
-            $('.toolbar').show();
-            isMixed = false;
-            $('#whiteboard-container').empty();
-            videoContainerMultiple.removeClass('to-side');
-        });
-    }
 }(jQuery));

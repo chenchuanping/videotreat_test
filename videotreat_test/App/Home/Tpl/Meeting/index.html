@@ -142,18 +142,15 @@
                                 <img src="__ROOT__/Public/Agora/images/btn_endcall@2x.png" alt="End">
                             </a>
                         </li>
+                        <li>
+                            <a class="fullscreen-button" href="#">
+                                <input type="button" value="全屏">
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="video-side-bar">
-            <div class="video-operation-bar">
-                <span class="video-operation-btn list-switch-audio-btn">1</span>
-                <span class="video-operation-btn list-hang-up-btn">2</span>
-                <span class="video-operation-btn list-close-btn">3</span>
-            </div>
-        </div>
-        <div class="info"></div>
     </div>
 
     <!-- Footer -->
@@ -163,27 +160,9 @@
         </ul>
     </footer>
 </div>
-<div id="roomInfoModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <p>
-                    No remote stream yet&hellip;, :(
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">
-                    Close
-                </button>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
 <script src="__ROOT__/Public/js/jquery.js"></script>
 <script src="__ROOT__/Public/Agora/js/AgoraRtcAgentSDK-1.6.0.js"></script>
-<script src="__ROOT__/Public/Agora/js/vendor-bundle.js"></script>
+<!--<script src="__ROOT__/Public/Agora/js/vendor-bundle.js"></script>-->
 <script src="__ROOT__/Public/js/meeting.js"></script>
 <script>
     $(function () {
