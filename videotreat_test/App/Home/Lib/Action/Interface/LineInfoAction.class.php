@@ -52,7 +52,7 @@ class LineInfoAction extends Action
                         M("treat_record_report_card")->add($data_repeat);
                     }
                     /*获取系统参数，排队人数*/
-                    $line_up_number = M("system_param")->where("paramName='line_up_number'")->getField("paramValue");
+                    $line_up_number = M("system_param")->where("paramCode='line_up_number'")->getField("paramValue");
                     /*获取医师当前排队人数*/
                     $doctor_line_up_num = M("user_line")->where("doctorId={$doctorId}")->count('id');
                     if ($doctor_line_up_num < $line_up_number) {

@@ -8,7 +8,7 @@ class MeetingAction extends Action
         $vendorKey = $_REQUEST['vendorKey'];
         $resolution = $_REQUEST['resolution'];
         /*获取视频时间*/
-        $videoDuration = M("system_param")->where("paramName='video_duration'")->getField('paramValue');
+        $videoDuration = M("system_param")->where("paramCode='video_duration'")->getField('paramValue');
         if ($room && $vendorKey && $resolution) {
             /*修改医生表中，医生进入视频*/
             $isInVideo['isInVideo'] = 1;
