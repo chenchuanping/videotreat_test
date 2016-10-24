@@ -3,7 +3,7 @@
 /*                               用户进入视频接口
  * @param userId                  int         用户Id
  * @param doctorId                int         医生Id
- * @param videoStartTime        string       视频开始时间
+ * @param videoStartTime         string       视频开始时间
  * @param client                  int         手机型号区别，1为ios 0为android
  * return code                    int         状态码
  *        message                 string      提示信息

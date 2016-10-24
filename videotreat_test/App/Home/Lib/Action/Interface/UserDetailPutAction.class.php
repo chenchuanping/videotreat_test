@@ -62,18 +62,30 @@ class UserDetailPutAction extends Action
                 $userImageUrl = "http://" . $_SERVER["SERVER_NAME"] . __ROOT__ . "/" . $arr[0]['savepath'] . $arr[0]['savename'];
                 $_POST['headPic'] = $userImageUrl;
             }
-        } else {
-            $_POST['headPic'] = '';
         }
-        $result = M("user_base_info")->where("userId={$userId}")->save($_POST);
-        if ($result) {
+
+        /*分别加入user_db_info  user_base_info 表中*/
+        $db_data['userName'] = $_POST['userName'];
+        $db_data['sex_key'] = $_POST['sex_key'];
+        $db_data['birthday'] = $_POST['birthday'];
+
+        $db_result = M("user_db_info")->where("userId={$userId}")->save($db_data);
+
+        unset($_POST['userName']);
+        unset($_POST['sex_key']);
+        unset($_POST['birthday']);
+
+        $base_result = M("user_base_info")->where("userId={$userId}")->save($_POST);
+
+
+        if ($db_result || $base_result) {
             $code = 1;
             $message = "个人信息修改成功";
         } else {
             $code = 0;
             $message = "个人信息修改失败";
         }
-        $userInfo =  M("user_db_info")
+        $userInfo = M("user_db_info")
             ->field('userName,sex_key,birthday,blood,stature,weight,userSmoking,user_db_info.userId')
             ->join("user_base_info as base on base.userId=user_db_info.userId")
             ->where("user_db_info.userId={$userId}")

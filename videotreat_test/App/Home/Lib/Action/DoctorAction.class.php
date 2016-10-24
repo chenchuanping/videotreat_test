@@ -8,8 +8,8 @@ class DoctorAction extends Action
             $this->redirect('Login/index');
         }
         /*设置参数*/
-        //定时刷新排队列表 5s
-        $get_line_time = M('system_param')->where("paramName='get_line_time'")->getField('paramValue');
+        //定时刷新排队列表
+        $get_line_time = M('system_param')->where("paramCode='get_line_time'")->getField('paramValue');
         $headPic = $_SESSION['userMsg']['headPic'];/*医生头像*/
         /*医生选填备注信息*/
         $remarkInfo=M("case_history_remark")->field('remarkId,remarkName')->select();

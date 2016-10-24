@@ -65,7 +65,7 @@ class LineInfoAction extends Action
                             $code = 0;
                             $message = '加入队列失败';
                         }
-                    } else {
+                    } else {                //当前人数已满
                         $code = 0;
                         $message = '当前医生排队已满，您可以等待或选择其他医师';
                     }
