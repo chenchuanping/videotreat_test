@@ -35,6 +35,7 @@
             isShowShareList = false;
         if (!key) {
             $.alert("没有指定供应商的key.");
+            window.location.href='http://download.agora.io/sdk/Agora_Native_SDK_for_Web_v1_7_0.zip';
             return;
         }
 

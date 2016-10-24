@@ -7,7 +7,7 @@
  * return code                    int         状态码
  *        message                 string      提示信息
  *        data                    array       返回的数据
- *            videoHistoryId          int   用户记录就诊时间Id
+ *            video_duration          int     通话时长
  */
 
 class UserLoginVideoAction extends Action

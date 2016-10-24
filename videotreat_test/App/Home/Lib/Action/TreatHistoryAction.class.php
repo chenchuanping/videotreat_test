@@ -13,15 +13,21 @@ class  TreatHistoryAction extends Action
                 ->where("treat_record.userId={$userId}")
                 ->order('treatTime')
                 ->select();
-            foreach($userTreatInfo as  $k=>$v){
-                $hospitalName=M("hospital_info")->where("hospitalId={$v['hospitalId']}")->getField('hospitalName');
-                $userTreatInfo[$k]['hospitalName']=$hospitalName;
+            foreach ($userTreatInfo as $k => $v) {
+                $hospitalName = M("hospital_info")->where("hospitalId={$v['hospitalId']}")->getField('hospitalName');
+                $userTreatInfo[$k]['hospitalName'] = $hospitalName;
                 $userTreatInfo[$k]['userId'] = $userId;
+                $len=20;
+                if (strlen($v['userComplaint']) > ($len * 3)) {
+                    $userTreatInfo[$k]['userComplaint'] = mb_substr($v['userComplaint'], 0, $len, 'utf-8') . '...';
+                }
             }
+
             $data['userTreatInfo'] = $userTreatInfo;
         } else {
             $data['userTreatInfo'] = '';
         }
+
         echo json_encode($data);
     }
 }

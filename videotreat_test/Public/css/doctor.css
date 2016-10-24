@@ -231,7 +231,7 @@ select::-ms-expand { display: none; }
 	text-align: center;
 }
 #treatHistorys  .indent{
-	text-indent: 1em;
+	text-indent: 2em;
 	padding: 5px;
 	text-align: left;
 }

@@ -130,14 +130,14 @@ $(function () {
                 var inse = '<div id="user_detail_treat_record_parent"><table  id="get_user_detail_treat_record">';
                 if (data.userTreatInfo != '') {
                     var inse = '<div id="treat_record_parent">' +
-                        '<table  id="treatHistorys" cellspacing="0" cellpadding="0" >' +
-                        '<tr><th style="width: 50px">序号</th><th  width="50">用户姓名</th><th  width="50">接诊医院</th><th  width="50">接诊医师</th><th  width="80">接诊时间</th><th  width="80">主诉</th><th  width="50">操作</th></tr>';
+                        '<table  id="treatHistorys" cellspacing="0" cellpadding="0"  width="100%">' +
+                        '<tr><th style="width: 50px">序号</th><th  width="50">用户姓名</th><th  width="50">接诊医院</th><th  width="50">接诊医师</th><th width="150px">接诊时间</th><th>主诉</th><th  width="50">操作</th></tr>';
                     $.each(data.userTreatInfo, function (key, val) {
                         inse += '<tr><td style="width: 50px">' + (key + 1) + '</td>' +
                             '<td  style="width: 80px">' + val.userName + '</td>' +
                             '<td  style="width: 120px">' + val.hospitalName + '</td>' +
                             '<td  style="width: 80px">' + val.doctorName + '</td>' +
-                            '<td>' + val.treatTime + '</td>' +
+                            '<td  style="width: 150px;">' + val.treatTime + '</td>' +
                             '<td class="indent">' + val.userComplaint + '</td>' +
                             ' <td  style="width: 80px"><a href="javascript:;" class="treatRecordDetail_a" onclick="detailTreatRecord(' + val.userId + ',' + val.treatRecordId + ')">查看详情</a></td></tr>';
                     });
