@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>云医视讯管理系统</title>
+    <link rel="stylesheet" href="__ROOT__/Public/js/easyui/themes/bootstrap/easyui.css">
     <link rel="stylesheet" href="__ROOT__/Public/css/public.css">
     <link rel="stylesheet" href="__ROOT__/Public/admin_css/admin.css">
     <link rel="stylesheet" href="__ROOT__/Public/admin_css/index.css">
+    <script src="__ROOT__/Public/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/admin.js"></script>
 </head>
 <body>
 
 <include file="Public/header"/>
-<div id="content">
+
     <include file="Public/left"/>
 
     <div id="content_right" class="right">
-        <div class="welcomeDiv1">&nbsp;&nbsp;&nbsp;&nbsp;{$Think.session.userMsg.managerName}您好,欢迎登录云医视讯管理系统</div>
+        <iframe src="" frameborder="0" name="frame" style="width:100%; height:500px;overflow-x: hidden"></iframe>
     </div>
-</div>
-<include file="Public/footer"/>
-<script src="__ROOT__/Public/js/jquery.js"></script>
+
 </body>
 </html>

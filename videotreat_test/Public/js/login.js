@@ -29,6 +29,36 @@ $(function() {
             n.css('display', 'none');
             dpassok = true;
         }
+    });
+        //管理员用户名光标丢失验证
+        $('input[name=managerName]').blur(function () {
+            var v = $(this).val();
+            var n = $(this).parent().next();
+            var t = $(this);
+            var reg = /^\d{11}$/;
+            if (v == '') {
+                n.css('display', 'block').find('span').html('用户名不能为空');
+                nameok = false;
+            }
+            else {
+                n.css('display', 'none');
+                nameok = true;
+            }
+        });
+        //管理员密码光标丢失验证
+        $('input[name=pwd]').blur(function () {
+            var v = $(this).val();
+            var n = $(this).parent().next();
+            var t = $(this);
+            if (v == '') {
+                n.css('display', 'block').find('span').html('密码不能为空');
+                pwdok = false;
+            } else {
+                n.css('display', 'none');
+                pwdok = true;
+            }
+
+
     })
     ////提交验证
     //$('.sub').click(function () {

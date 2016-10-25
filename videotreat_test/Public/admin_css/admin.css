@@ -1,70 +1,123 @@
 body{
-    margin: 0 auto;
+    background-image: url("../images/core/bg/paper.png");
 }
 #header{
     width: 100%;
-    height: 100px;
-    font: 34px/1em '宋体';
+    height: 80px;
+    font-size: 20px;
     line-height: 50px;
-    background-color: #6672c4;
+    background-color: #35353a;
     color:#ffffff;
     font-weight: bold;
     text-align: left;
+    border-bottom: #c5d52b solid 3px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35);
+    position: relative;
+    z-index: 100;
 }
-#header >ul{
+#header span{
+    width: 200px;
+    line-height: 80px;
+    height:80px;
+    margin-left: 10px;
+}
+#header ul{
     position: absolute;
-    right:0;
+    right:5px;
+    top:30px;
+    height:40px;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 2px rgba(0, 0, 0, 0.5) inset;
 }
-#header >ul >li{
-    font-size: 16px;
-    margin-right: 10px;
+#header ul li{
     list-style: none;
     float: left;
+    width: 90px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
 }
-#header >ul >li a{
+#header ul .usename{
+    font-size: 14px;
+    width: 120px;
+    padding-top: 2px;
+    color: #c5d52b;
+    text-shadow: 0 0 6px rgba(197, 213, 42, 0.5);
+}
+#header ul li a{
     color: #ffffff;
+    font-size: 14px;
+    line-height: 40px;
+
 }
 #content{
-    width: 100%;
-    height: 1200px;
-    margin: 2px 0;
+width: auto;
+    overflow: hidden;
 }
 /*左侧*/
 #content_left{
-    width:10%;
-    height: 100%;
-    background-color: #f9f9f9;
+    width:200px;
+    float: left;
+    height: 600px;
+    background-color: #35353a;
+    color: #fff;
 }
-#content_left >ul{
-    display: block;
-    padding-left: 12px;
+#content_left a{
+    color: #fff;
+}
+.accordion .accordion-header-selected{
     font-size: 16px;
-    font-family: "宋体";
     text-align: center;
-    background-color: #ffffff;
+    background: #35353a;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    border-bottom: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+    line-height: 30px;
+    position: relative;
+    text-decoration: none;
 }
-#content_left >ul >li{
-    width: 170px;
-    margin: 20px 0;
-    color: #000;
-    font-weight:lighter;
-    padding: 10px 0;
-    cursor: pointer;
+.accordion .accordion-header{
+    font-size: 16px;
+    text-align: center;
+    background: #35353a;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    border-bottom: 1px solid rgba(0,0,0,0.35);
 }
-#authority{
-    width: 80px;
-    margin-top:20px;
-    margin-left: 20px;
+.panel-title{
+    font-size: 14px;
+    line-height: 30px;
+    color: #fff;
+    text-align: left;
+    padding-left: 50px;
 }
-#authority li{
-    list-style-type: square;;
-    margin-top:16px;
+.accordion .accordion-body {
+    background-color: rgba(0, 0, 0, 0.15);
+    border: 0 none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) inset;
+}
+
+#content_left #authority li{
+    list-style: none;
+}
+#content_left  .accordion-body a{
+    color: #ffffff !important;
+    display: block;
+    font-size: 12px;
+    padding: 4px 0 4px 60px;
+    text-decoration: none;
+    line-height: 25px;
+}
+
+#content_left .accordion-body a:hover{
+    background-color: rgba(0, 0, 0, 0.15);
 }
 /*右侧*/
 #content_right{
-    width:89%;
-    margin-left: 2px;
-    background-color: #eceee8;
+    width: 800px;
+   padding-left: 10px;
+    float: left;
+    background: url("../images/core/mws-sidebar-stitch.png") repeat-y scroll -10px 0;
 }
 #footer{
     width: 100%;
@@ -87,9 +140,7 @@ body{
     vertical-align: baseline;
 }
 .orange {
-    background: rgba(0, 0, 0, 0)
-    -moz-linear-gradient(center top , #faa51a, #f47a20)
-    repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) repeat scroll 0 0;
     border: 1px solid #da7c0c;
     color: #fef4e9;
 }
@@ -98,4 +149,19 @@ body{
 }
 input,textarea{
     border:none;
+}
+
+/*表格*/
+.mws-panel{
+    margin-top: 20px;
+}
+.mws-table thead tr th {
+      border-bottom: 1px solid #cccccc;
+      border-left: 1px solid #cccccc;
+      padding: 12px 0px;
+      text-align: center;
+  }
+.mws-table tbody td{
+    text-align: center;
+    padding: 12px 5px;
 }

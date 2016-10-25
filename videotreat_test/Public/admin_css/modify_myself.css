@@ -1,21 +1,41 @@
 #modifyManager{
-    margin-top: 50px;
-    margin-left: 50px;
-   text-align:center;
-    font-size: 18px;
+    text-align:left;
+    font-size: 16px;
+    border-collapse:collapse;
+    width: 100%;
+}
+input,textarea{
+    border:none;
 }
 #modifyManager td{
     line-height: 1.5em;
-    text-align: center;
+    text-align: left;
+    text-indent: 1em;
+    border: #ccc solid 1px;
 }
 .td_left{
-    width: 150px;
+    width: 100px;
+    text-align: left;
 }
 .td_right{
-    font-size: large;
-    width: 600px;
-    height: 50px;
-    overflow: scroll;
+    height: 30px;
+    overflow: auto;
+    background: none;
+}
+img{
+    align-items: left;
+    margin-left: 10px;
+    width: 100px;
+    height: 100px;
+}
+textarea{
+    height: 150px;
+    font-size: 14px;
+    min-width: 800px;
+    overflow-y: auto;
+}
+.easyui-linkbutton{
+    margin: 10px;
 }
 #errorMsg{
     color:red;

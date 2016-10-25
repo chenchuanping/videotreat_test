@@ -15,9 +15,15 @@ class UserLogoutAction extends Action
         include_once 'common/Response.class.php';
         /*接受客户端POST过来的数据*/
         $userId = $_POST['userId'];
-        //退出登录时把imei清除
-        $data_logout['imei'] = '';
-        $logout = M("user_db_info")->where("userId='%d'", $userId)->save($data_logout);
+        $imei = M("user_db_info")->where("userId='%d'", $userId)->getField('imei');
+        if ($imei != '') {
+            //退出登录时把imei清除
+            $data_logout['imei'] = '';
+            $logout = M("user_db_info")->where("userId='%d'", $userId)->save($data_logout);
+        } else {
+            $logout = 1;
+        }
+
         if ($logout) {
             $code = 1;
             $message = "退出登录成功";

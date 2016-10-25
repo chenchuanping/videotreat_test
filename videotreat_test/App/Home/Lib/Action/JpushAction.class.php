@@ -24,11 +24,22 @@ class JpushAction extends Action
         $userId = $_POST['userId'];
         $doctorId = $_SESSION['userMsg']['doctorId'];
         $regId = M('user_db_info')->where("userId=" . $userId)->getField('imei');
-        /*通话时长*/
-        $video_duration = M('system_param')->where("paramCode = 'video_duration'")->getField('paramValue');
-        $ios_notification = array('sound' => 'default', 'badge' => '+1', 'extras' => ['userId' => $userId, 'doctorId' => $doctorId]);
+
+        $ios_notification = array(
+            'sound' => 'default',
+            'badge' => '+1',
+            'extras' => [
+                'userId' => $userId,
+                'doctorId' => $doctorId
+            ]
+        );
         //通知提示声音和角标加1,用户的userId,用来判断用户是否登录
-        $android_notification = array('title' => '云医视讯', 'extras' => ['userId' => $userId]);
+        $android_notification = array(
+            'title' => '云医视讯',
+            'extras' => [
+                'userId' => $userId
+            ]
+        );
         $options = array(
             'sendno' => time(),
             'time_to_live' => 0,
@@ -43,6 +54,7 @@ class JpushAction extends Action
             ->options($options);
 
         $result = $response->send();//发送推送
+
         /*设置参数*/
         $resolution = '640p';         //视频分辨率
         $vendorKey = "1546a861c05a4ab6a90529eff16cd306";      //声网的vendorKey

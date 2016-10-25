@@ -40,6 +40,7 @@
     display: block;
     font-size: 16px;
     white-space: nowrap;
+    color:#fff;
 }
 
 .mws-panel .mws-panel-header span [class*="icon-"], 

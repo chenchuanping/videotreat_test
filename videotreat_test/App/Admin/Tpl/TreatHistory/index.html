@@ -5,53 +5,77 @@
     <title>云医视讯管理系统</title>
     <link rel="stylesheet" href="__ROOT__/Public/css/public.css">
     <link rel="stylesheet" href="__ROOT__/Public/admin_css/admin.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/mws-theme.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/table.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/panels.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/form.css" media="screen">
+    <link rel="stylesheet" href="__PUBLIC__/js/easyui/themes/bootstrap/easyui.css">
+    <link rel="stylesheet" href="__PUBLIC__/js/easyui/themes/icon.css">
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/easyui/easyui.js"></script>
     <link rel="stylesheet" href="__ROOT__/Public/admin_css/treat_history.css">
 </head>
 <body>
 
-<include file="Public/header"/>
 
 <div id="content">
-    <include file="Public/left"/>
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span><i class="icon-table"></i> 就诊历史查询</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <form name="frm" method="post" action="__APP__/TreatHistory/index" >
+                <div role="id" class="dataTables_wrapper" id="DataTables_Table_1_wrapper">
 
-    <div id="content_right" class="right">
-        <form name="frm" method="post" action="__APP__/TreatHistory/index" >
-            <input  type="hidden" name="currentPage" value="1">
-            <table  style="height: 50px;font-size: 18px">
-                <tr>
-                    <td align="left">
-                        &nbsp;患者搜索：
-                        <input id="searchHospital"  type="text" name="keyword" size="50" value='{$keyword}'/>
-                        <input class="button orange bigrounded" type="submit" value="搜索">
-                    </td>
-                    </if>
-                    </td>
+                    <div class="dataTables_filter" id="DataTables_Table_1_filter">
+                        <label>患者搜索：
+                            <input id="searchHospital"  type="text" name="keyword" size="20" value='{$keyword}'/>
+                            <button class="easyui-linkbutton" data-options="iconCls:'icon-search'"  type="submit" value="搜索">搜索</button>
+                        </label>
+                    </div></div></form>
+            <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1" aria-describedby="DataTables_Table_1_info">
+                <thead>
+                <tr role="row">
+                    <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 100px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">患者姓名
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 100px;" aria-label="Browser: activate to sort column ascending">医师姓名
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 100px;" aria-label="Browser: activate to sort column ascending">医院名称
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 100px;" aria-label="Platform(s): activate to sort column ascending">科室
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width:60px" aria-label="Platform(s): activate to sort column ascending">主诉
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width:100px;" aria-label="Platform(s): activate to sort column ascending">现病史
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1"  style="width:150px;" aria-label="Platform(s): activate to sort column ascending">既往史
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1"  aria-label="Platform(s): activate to sort column ascending">医生建议
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 100px;" aria-label="CSS grade: activate to sort column ascending">自述卡内容
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 100px;" aria-label="CSS grade: activate to sort column ascending">自述卡描述
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 100px;" aria-label="CSS grade: activate to sort column ascending">自述材料1
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 100px;" aria-label="CSS grade: activate to sort column ascending">自述材料2
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 100px;" aria-label="CSS grade: activate to sort column ascending">自述材料3
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 100px;" aria-label="CSS grade: activate to sort column ascending">自述材料4
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 100px;" aria-label="CSS grade: activate to sort column ascending">自述材料5
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 100px;" aria-label="CSS grade: activate to sort column ascending">自述材料6
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 100px;" aria-label="CSS grade: activate to sort column ascending">自述材料7
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 100px;" aria-label="CSS grade: activate to sort column ascending">自述材料8
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 100px;" aria-label="CSS grade: activate to sort column ascending">自述材料9
+                    </th>
                 </tr>
-            </table>
-        </form>
-        <br>
-        <table id="treat_history_list" border="1" >
-            <tr>
-                <th>患者姓名</th>
-                <th>医师姓名</th>
-                <th>医院名称</th>
-                <th>科室</th>
-                <th>主诉</th>
-                <th>现病史</th>
-                <th>既往史</th>
-                <th>医生建议</th>
-                <th>自述卡内容</th>
-                <th>自述卡描述</th>
-                <th>自述材料1</th>
-                <th>自述材料2</th>
-                <th>自述材料3</th>
-                <th>自述材料4</th>
-                <th>自述材料5</th>
-                <th>自述材料6</th>
-                <th>自述材料7</th>
-                <th>自述材料8</th>
-                <th>自述材料9</th>
-            </tr>
+                </thead>
             <if condition="$userTreatInfo != null">
                 <foreach name="userTreatInfo" item="v">
                     <tr>
@@ -131,8 +155,6 @@
             </if>
         </table>
     </div>
-</div>
-<include file="Public/footer"/>
 <script src="__ROOT__/Public/js/jquery.js"></script>
 </body>
 </html>

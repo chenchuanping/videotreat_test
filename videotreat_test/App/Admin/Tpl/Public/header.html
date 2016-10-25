@@ -1,8 +1,9 @@
 <div id="header">
     <span>云医视讯管理系统</span>
     <ul>
-        <li><a href="__APP__/ModifyMyself/index">修改登录信息</a></li>
+        <li class="usename">欢迎您，{$Think.session.userMsg.managerName}</li>
+        <li><a href="__APP__/ModifyMyself/index"  target="frame">修改登录信息</a></li>
         <li><a href="#" onclick="logout()">退出登录</a></li>
-        <li><a href="#" onclick="gotoIndex()">返回首页</a></li>
+        <!--<li><a href="#" onclick="gotoIndex()">返回首页</a></li>-->
     </ul>
 </div>

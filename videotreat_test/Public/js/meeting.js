@@ -7,7 +7,7 @@
         mainContainerHeight = wraperHeight;
     }
     $('.main-container').css({
-        height: mainContainerHeight
+        height: (mainContainerHeight-50)+'px'
     });
     $('#video-container').css({
         width: $('.main-container').width(),
@@ -50,21 +50,20 @@
                 mixedClassName = 'list-switch-audio-disable-btn';
 
             if (disableAudio) {         //禁用音频流
-                $(e.target).attr("src", root + "/Public/Agora/images/btn_mute_touch.png");
+                $(e.target).attr("src", root + "/Public/Agora/images/btn_mute_blue@2x.png");
                 localStream.disableAudio();
             } else {            //启用音频流
                 $(e.target).attr("src", root + "/Public/Agora/images/btn_mute@2x.png");
                 localStream.enableAudio();
             }
             $(".mute-button img").off("hover");
-
-            // if (disableAudio) {
-            //     localStream.disableAudio();
-            //     $(e.target).attr("src", "images/btn_mute_touch.png");
-            // } else {
-            //     localStream.enableAudio();
-            //     $(e.target).attr("src", "images/btn_mute@2x.png");
-            // }
+             if (disableAudio) {
+                 localStream.disableAudio();
+                 $(e.target).attr("src", root + "/Public/Agora/images/btn_mute_blue@2x.png");
+             } else {
+                 localStream.enableAudio();
+                 $(e.target).attr("src",root + "/Public/Agora/images/btn_mute@2x.png");
+             }
         });
 
 
@@ -83,11 +82,11 @@
                     newHeight,
                     ratioWindow,
                     ratioVideo;
-                alert(viewportHeight)
-                alert(viewportHeight)
-                alert(curResolution)
-                alert(width)
-                alert(123)
+                //alert(viewportHeight)
+                //alert(viewportHeight)
+                //alert(curResolution)
+                //alert(width)
+                //alert(123)
                 $.ajax({
                     url: app + '/VideoHangUp/disconnect',
                     type: "post",
@@ -185,7 +184,7 @@
             localStream.init(function () {
                 console.log("成功获取用户媒体");
                 console.log(localStream);
-                alert(123);
+                //alert(123);
                 var size = calculateVideoSize();
                 /*计算视频的大小*/
                 if (remoteStreamList.length === 0) {
@@ -521,29 +520,6 @@
             }
         }
 
-        /*添加静音图标*/
-        function addingMuteSpeakIcon(streamId) {
-            $("#agora-remote" + streamId).append("<a class='remote-mute-speak-icon' data-stream-id='" + streamId + "' href='#'>" +
-                "<img src='" + root + "'/Public/Agora/images/icon_mute.png'></a>");
-            $(".remote-mute-speak-icon").off("click").on("click", function (e) {
-                var streamId = Number($(e.target).parent().data("stream-id"));
-                var index, length, obj;
-                for (index = 0, length = remoteStreamList.length; index < length; index += 1) {
-                    obj = remoteStreamList[index];
-                    if (obj.id === streamId) {
-                        if (obj.audioEnabled) {
-                            obj.stream.disableAudio();
-                            obj.audioEnabled = false;
-                            $(this).attr("src", root + "/Public/Agora/images/icon_speak.png");
-                        } else {
-                            obj.stream.enableAudio();
-                            obj.audioEnabled = true;
-                            $(this).attr("src", root + "/Public/Agora/images/icon_mute.png");
-                        }
-                    }
-                }
-            });
-        }
 
 
         /*一方离开时，显示视频流*/
@@ -850,13 +826,13 @@
             /*静音图标*/
             $(".mute-button img").off("hover").hover(function () {
                 if (disableAudio) {
-                    $(this).attr("src", root + "/Public/Agora/images/btn_mute@2x.png");
+                    $(this).attr("src", root + "/Public/Agora/images/btn_mute_touch.png");
                 } else {
                     $(this).attr("src", root + "/Public/Agora/images/btn_mute.png");
                 }
             }, function () {
                 if (disableAudio) {
-                    $(this).attr("src", root + "/Public/Agora/images/btn_mute.png");
+                    $(this).attr("src", root + "/Public/Agora/images/btn_mute_blue@2x.png");
                 } else {
                     $(this).attr("src", root + "/Public/Agora/images/btn_mute@2x.png");
                 }

@@ -47,24 +47,24 @@
             $("#dialog").dialog("open");
             event.preventDefault();
         });
-        $('#content').css('width','1000px');
+        $('#content').css('width', '1000px');
 
 //自述单图片放大浏览
         $("#imgshow").dialog({
             autoOpen: false,
             width: 1000,
-            height:600,
-            modal:true,
-            position : 'center top',
-            closeText:'关闭',
+            height: 600,
+            modal: true,
+            position: 'center top',
+            closeText: '关闭',
         });
-        $(document).on("click",'.img_a',function(event){
+        $(document).on("click", '.img_a', function (event) {
             $("#imgshow").dialog("open");
             event.preventDefault();
 //            $('.ui-widget-header').css('background','none').css('border','0');
 //            $('.ui-widget-content').css('background','none').css('border','0');
-            var imgsrc=$(this).find('img').attr('src');
-            $('#imgshow').find('img').attr('src',imgsrc);
+            var imgsrc = $(this).find('img').attr('src');
+            $('#imgshow').find('img').attr('src', imgsrc);
         });
 
 
@@ -88,45 +88,60 @@
         </ul>
     </div>
 </div>
-<div id="content" class="clear" >
+<div id="content" class="clear">
 
     <div class="mws-panel grid_8">
         <div class="mws-panel-header">
             <span><i class="icon-table"></i> 就诊历史</span>
         </div>
         <div class="mws-panel-body no-padding">
-            <form action="<?php echo U('TreatRecordHistory/index');?>" method="get">
+            <form action="__APP__/TreatRecordHistory/index" method="post">
                 <div role="id" class="dataTables_wrapper" id="DataTables_Table_1_wrapper">
 
                     <div class="dataTables_filter" id="DataTables_Table_1_filter">
                         <label>搜索:
-                            <input type="text" aria-controls="DataTables_Table_1" name="keywords" value="<?php echo ($keywords); ?>">
+                            <input type="text" aria-controls="DataTables_Table_1" name="userName" value="<?php echo ($keyword); ?>">
             			<span class="btn-group">
                             <button class="btn" type="submit"><span class="ui-icon ui-icon-search"></span></button>
                         </span>
                         </label>
                     </div>
-                    <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1" aria-describedby="DataTables_Table_1_info">
+                    <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1"
+                           aria-describedby="DataTables_Table_1_info">
                         <thead>
                         <tr role="row">
-                            <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 10%;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">编号
+                            <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                                rowspan="1" colspan="1" style="width: 10%;" aria-sort="ascending"
+                                aria-label="Rendering engine: activate to sort column descending">编号
                             </th>
-                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 10%;" aria-label="Browser: activate to sort column ascending">姓名
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                                rowspan="1" colspan="1" style="width: 10%;"
+                                aria-label="Browser: activate to sort column ascending">姓名
                             </th>
-                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 10%;" aria-label="Browser: activate to sort column ascending">手机号
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                                rowspan="1" colspan="1" style="width: 10%;"
+                                aria-label="Browser: activate to sort column ascending">手机号
                             </th>
-                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 10%;" aria-label="Platform(s): activate to sort column ascending">性别
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                                rowspan="1" colspan="1" style="width: 10%;"
+                                aria-label="Platform(s): activate to sort column ascending">性别
                             </th>
-                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 10%;" aria-label="Platform(s): activate to sort column ascending">年龄
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                                rowspan="1" colspan="1" style="width: 10%;"
+                                aria-label="Platform(s): activate to sort column ascending">年龄
                             </th>
-                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width:30%;" aria-label="Platform(s): activate to sort column ascending">时间
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                                rowspan="1" colspan="1" style="width:30%;"
+                                aria-label="Platform(s): activate to sort column ascending">时间
                             </th>
-                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 10%;" aria-label="CSS grade: activate to sort column ascending">操作
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                                rowspan="1" colspan="1" style="width: 10%;"
+                                aria-label="CSS grade: activate to sort column ascending">操作
                             </th>
                         </tr>
                         </thead>
 
-                        <tbody role="alert" aria-live="polite" aria-relevant="all"  style="text-align:center;width:100%">
+                        <tbody role="alert" aria-live="polite" aria-relevant="all" style="text-align:center;width:100%">
                         <?php if(is_array($treatRecordHistory)): foreach($treatRecordHistory as $k=>$v): ?><tr class="odd">
                                 <td class="sorting_1"><?php echo ($k+1); ?></td>
                                 <td class=" "><?php echo ($v["userName"]); ?></td>
@@ -137,25 +152,24 @@
 
                                 <td class=" ">
                                     <span class="btn-group">
-                                       <a href="javascript:;" class="treatRecordDetail_a" onclick="detailTreatRecord(<?php echo ($v["userId"]); ?>,<?php echo ($v["treatRecordId"]); ?>)">查看详情</a>
+                                       <a href="javascript:;" class="treatRecordDetail_a"
+                                          onclick="detailTreatRecord(<?php echo ($v["userId"]); ?>,<?php echo ($v["treatRecordId"]); ?>)">查看详情</a>
                                     </span>
                                 </td>
                             </tr><?php endforeach; endif; ?>
                         </tbody>
                     </table>
-                    <div class="dataTables_info" id="DataTables_Table_1_info">显示 <?php echo ($start); ?> 到 <?php echo ($end); ?> &nbsp;&nbsp;总共<?php echo ($count); ?>条数据</div>
+                    <div class="dataTables_info" id="DataTables_Table_1_info">&nbsp;总共<?php echo ($count); ?>条数据</div>
                     <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_1_paginate">
                         <div id="pages">
                             <?php echo ($page); ?>
                         </div>
                     </div>
                 </div>
-            </form></div>
-        <div id="imgshow"><img src="" width="100%" /></div>
+            </form>
+        </div>
+        <div id="imgshow"><img src="" width="100%"/></div>
     </div>
-
-
-
 
 
     <!--显示单次的就诊详情-->

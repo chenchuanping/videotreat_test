@@ -4,8 +4,8 @@ function init_recycle(){
     $("#doctor_recycle").css("display","none");
 }
 function display_hospital(){
-    $("#hospital_recycle").css("display","block");
-    $("#doctor_recycle").css("display","none");
+    //$("#hospital_recycle").css("display","block");
+    //$("#doctor_recycle").css("display","none");
     $.ajax({
         url : app+'/RecycleBin/restore',
         type : "post",
@@ -27,8 +27,8 @@ function display_hospital(){
     });
 }
 function display_doctor(){
-    $("#doctor_recycle").css("display","block");
-    $("#hospital_recycle").css("display","none");
+    //$("#doctor_recycle").css("display","block");
+    //$("#hospital_recycle").css("display","none");
     $.ajax({
         url : app+'/RecycleBin/restore',
         type : "post",
@@ -79,3 +79,10 @@ function restore_doctor(id){
         }
     });
 }
+//计算页面布局宽度
+$(function(){
+    var w=$(window).width();
+    $('#content_right').css('width',w-230);
+
+})
+

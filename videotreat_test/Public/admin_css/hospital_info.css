@@ -1,5 +1,6 @@
 #hospital_list{
     font-size: 16px;
+    collapse: 0;
 }
 #hospital_list th{
     width: 100px;
@@ -7,8 +8,8 @@
     text-align: center;
 }
 #hospital_list td{
-    width: 100px;
     line-height: 1em;
+    border: #ccc solid 1px;
     text-align: center;
 }
 .labelArray{

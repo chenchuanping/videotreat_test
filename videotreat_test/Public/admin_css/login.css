@@ -7,12 +7,7 @@
     font:12px/1em '宋体';
 }
 /**login**/
-.login {
-    margin-top:5px;
-    display:block;
-    font-size:x-large;
-    color:#bd0f0a;
-}
+
 .login img {
     width:305px;
     height:35px;
@@ -23,23 +18,38 @@
 }
 .login_body {
     background:transparent;
-    background:url(../images/login.jpg);
+    background:url(../images/login_bg.png) no-repeat center top;
     background-attachment:fixed;
-    background-repeat:no-repeat;
-    background-size:cover;
-    -moz-background-size:cover;
-    -webkit-background-size:cover;
+
+}
+.inputbg{
+    height: 40px;
+    margin-bottom: 20px;
+}
+.icon_error{
+    display: inline-block;
+    height: 14px;
+    margin: -2px 5px 0 0;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 14px;
+    background: url("../images/icon.png") no-repeat;
+}
+.err_tip {
+    margin-bottom: 5px;
+    line-height: 20px;
+    font-size: 12px;
+    margin-top: -10px;
+    color: #ff6f3d;
+    display: none;;
 }
 .login_div {
-    width:500px;
-    height:500px;
-    top:50%;
-    left:50%;
-    color:black;
-    margin-top:-130px;
-    margin-left:-150px;
-    position:fixed;
-    z-index:9999;
+    width:305px;
+    padding: 50px 0 0 60px;
+    margin: 260px auto 0 auto;
+    background: #fff;
+    height: 200px;
+    border-radius: 8px;
 }
 .login_nav {
     margin-top:140px;
@@ -48,31 +58,50 @@
     height:20px;
     padding:0;
 }
-#managerName {
-    font-size:24px;
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    　　color: #fff;
+}
+#tel {
+    font-size:14px;
     height:40px;
-    outline:0;
-    border-radius:15px;
-    border:1px solid #CCCCCC;
-    width:60%;
-    margin-left:50px;
-    margin-top:20px
+    border:0;
+    border-radius: 6px;
+    background: #a5a6a6 url(../images/tel_bg.png) no-repeat left top;
+    width:245px;
+    color: #ffffff;
+    text-indent: 35px;
+    margin-bottom: 20px;
+    line-height: 40px;
 }
-.login_psdNav {
-    margin-top:30px;
-}
-#pwd {
+
+#dpass {
+    font-size:14px;
     height:40px;
-    font-size:24px;
-    outline:0;
-    border-radius:15px;
-    border:1px solid #CCCCCC;
-    width:60%;
-    margin-left:50px;
-    margin-top:30px
+    border: 0;
+    border-radius: 6px;
+    background: #a5a6a6 url(../images/dpass_bg.png) no-repeat left top;
+    width:245px;
+    color: #ffffff;
+    text-indent: 35px;
+    line-height: 40px;
 }
-.login_btn_div {
-    text-align:left;
-    margin-top:10px;
-    padding-left:-15px;
+.loginon{
+    width: 110px;
+    height: 30px;
+    border: 0;
+    border-radius: 6px;
+    margin: 20px 20px 0 0;
+    font-size: 14px;
+    color: white;
+    cursor:pointer;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    background: #c91b30;
+}
+.register {
+    margin-left:100px;
+    margin-top:20px;
+}
+.register a {
+    font-size:x-large;
+    color:#e91e2c
 }

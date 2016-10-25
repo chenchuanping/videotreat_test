@@ -1,25 +1,33 @@
 #manager_list{
-    margin-top: 50px;
-    margin-left: 50px;
-    text-align:center;
-    font-size: 18px;
+    text-align:left;
+    font-size: 16px;
+    border-collapse:collapse;
+    width: 100%;
 }
-input{
+input,textarea{
     border:none;
 }
 #manager_list td{
-    height: 50px;
     line-height: 1.5em;
-    text-align: center;
+    text-align: left;
+    text-indent: 1em;
+    border: #ccc solid 1px;
 }
 .td_left{
-    width: 150px;
+    width: 100px;
+    text-align: left;
 }
-.td_right{
-    font-size: large;
-    width: 600px;
+.td_right{;
     height: 50px;
-    overflow: scroll;
+    overflow: auto;
+}
+.labelList{
+    display: inline-block;
+    font-size: large;
+    height: 100px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 14px;
 }
 img{
     align-items: left;
@@ -28,13 +36,16 @@ img{
     height: 100px;
 }
 textarea{
-    font-size: large;
-    width: 600px;
-    height: 100px;
-    overflow: scroll;
+    height: 150px;
+    font-size: 14px;
+    min-width: 800px;
+    overflow-y: auto;
+}
+.easyui-linkbutton{
+    margin: 10px;
 }
 .hospital_select{
     text-align: left;
-    width: 600px;
-    height: 50px;
+    width: 300px;
+    height: 30px;
 }

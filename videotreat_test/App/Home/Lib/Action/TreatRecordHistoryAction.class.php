@@ -5,64 +5,55 @@ class  TreatRecordHistoryAction extends Action
     public function index()
     {
         $doctorId = $_SESSION['userMsg']['doctorId'];
+        $keyword = $_POST['userName'];
+        $pageSize = 2;
+        if ($keyword) {
+            $totalRow = M('treat_record')->join('user_db_info as db on treat_record.userId=db.userId')->where("doctorId={$doctorId} and userName like '%{$keyword}%'")->count('treatRecordId');
+            //实例化分页类
+            import('ORG.Util.Page');
+            $page = new Page($totalRow, $pageSize);
 
-        $treatRecordHistory = M("treat_record");
-        //搜索设置
-        if (I('get.keywords')) {
-            $where = "name like '%" . I('get.keywords') . "%'";
+            $page->parameter = "userName='{$keyword}'";
+
+            $treatRecordHistory = M("treat_record")
+                ->field('tel,db.userId,userName,sex_key,db.birthday,treat_record.treatRecordId,treatTime')
+                ->join('user_db_info as db on treat_record.userId=db.userId')
+                ->where("doctorId={$doctorId} and userName like '%{$keyword}%'")
+                ->limit($page->firstRow, $page->listRows)
+                ->select();
+
         } else {
-            $where = '';
+            $totalRow = M('treat_record')->join('user_db_info as db on treat_record.userId=db.userId')->where("doctorId={$doctorId}")->count('treatRecordId');
+            //实例化分页类
+            import('ORG.Util.Page');
+            $page = new Page($totalRow, $pageSize);
+            $treatRecordHistory = M("treat_record")
+                ->field('tel,db.userId,userName,sex_key,db.birthday,treat_record.treatRecordId,treatTime')
+                ->join('user_db_info as db on treat_record.userId=db.userId')
+                ->where("doctorId={$doctorId}")
+                ->limit($page->firstRow, $pageSize)
+                ->select();
+
         }
-        //获取总共多少条数据
-        $count = $treatRecordHistory->where("doctorId={$doctorId}")->where($where)->count();
-        //实例化分页类
-        import('ORG.Util.Page');
-        $page = new Page($count, 8);
-        //设置分页参数
-        $page->setConfig('prev', '<<');
-        $page->setConfig('next', '>>');
-        $page->setConfig('theme', '  %upPage% %first% %linkPage%%downPage% %end%');
-
-
-        //设置limit
-        $limit = $page->firstRow . ',' . $page->listRows;
-        //查询
-        $treatRecordHistory = M("treat_record")
-            ->field('tel,db.userId,userName,sex_key,db.birthday,treat_record.treatRecordId,treatTime')
-            ->join('user_db_info as db on treat_record.userId=db.userId')
-            ->where("doctorId={$doctorId}")
-            ->limit($limit)
-            ->select();
         foreach ($treatRecordHistory as $k => $value) {
             $sex_value = M("dic_user_sex")->where("sex_key={$value['sex_key']}")->getField('sex_value');
             $treatRecordHistory[$k]['sex'] = $sex_value;
             unset($treatRecordHistory[$k]['sex_key']);
         }
-        //获取总共多少条数据
-        $treatRecordCount = count($treatRecordHistory);
+        //设置分页参数
+
+        $page->setConfig('prev', '上一页');
+        $page->setConfig('next', '下一页');
+        $page->setConfig('last', '末页');
+        $page->setConfig('first', '首页');
+        $page->setConfig('theme', "%totalRow% %header% %nowPage%/%totalPage% 页 %upPage% %downPage% %first% %prePage% %linkPage% %nextPage% %end%");
         //显示页码
         $show = $page->show();
-        $this->assign('count', $treatRecordCount);
+        $this->assign('count', $totalRow);
         $this->assign('treatRecordHistory', $treatRecordHistory);
-        $this->assign('num', 8);
-        $this->assign('keywords', I('get.keywords'));
+        $this->assign('keyword', $keyword);
         $this->assign('page', $show);
-        //显示{$start}到{$end}
-        //特殊情况的判断[首页两种情况(记录不足,空表)  尾页页一种情况(记录不足))]
-        if (10 >= $treatRecordCount) {//总记录不足一页的情况
-            $this->assign('start', 1);
-            $this->assign('end', $treatRecordCount);
-        } elseif ($treatRecordCount == 0) {
-            $this->assign('start', 0);
-            $this->assign('end', 0);
-        } else {
-            $this->assign('start', $page->firstRow + 1);
-            if ($page->firstRow + 1 > floor($treatRecordCount / 8) * 8) {//通过limit(m,n)的m即$page->firstRow锁定最后一页
-                $this->assign('end', $page->firstRow + $treatRecordCount - floor($treatRecordCount / 8) * 8);
-            } else {
-                $this->assign('end', $page->firstRow + $page->listRows);
-            }
-        }
+
         $this->display();
     }
 }

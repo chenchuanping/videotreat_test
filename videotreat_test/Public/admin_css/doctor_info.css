@@ -20,7 +20,6 @@
 }
 .profile{
     display: inline-block;
-    width: 400px !important;
     height: 106px;
     overflow: auto;
     text-align: center !important;

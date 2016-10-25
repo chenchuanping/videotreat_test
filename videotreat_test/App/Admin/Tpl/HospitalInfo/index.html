@@ -1,13 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="overflow-x: hidden">
 <head>
     <meta charset="UTF-8">
     <title>云医视讯管理系统</title>
-    <link rel="stylesheet" href="__ROOT__/Public/css/public.css">
-    <link rel="stylesheet" href="__ROOT__/Public/admin_css/admin.css">
-    <link rel="stylesheet" href="__ROOT__/Public/admin_css/hospital_info.css">
-    <!--js-->
+    <link rel="stylesheet" href="__PUBLIC__/css/public.css">
+    <link rel="stylesheet" href="__PUBLIC__/admin_css/hospital_info.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/mws-theme.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/table.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/panels.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/form.css" media="screen">
+    <link rel="stylesheet" href="__PUBLIC__/js/easyui/themes/bootstrap/easyui.css">
+    <link rel="stylesheet" href="__PUBLIC__/js/easyui/themes/icon.css">
+    <link rel="stylesheet" href="__PUBLIC__/admin_css/admin.css">
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/easyui/easyui.js"></script>
     <script>
+        $(function(){
+            $('.mws-table tbody  tr').mouseover(function(){
+                $(this).css('background','#ccc')
+                        .mouseout(function(){
+                            $(this).css('background','none')
+                        })
+            })
+            $('.search').linkbutton();
+        })
         function  modifyHospital(id){
             window.location = "__APP__/ModifyHospital/index/hospitalId/"+id;
         }
@@ -24,43 +40,48 @@
 </head>
 <body>
 
-<include file="Public/header"/>
-
 <div id="content">
-    <include file="Public/left"/>
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span><i class="icon-table"></i> 医院信息管理</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <form name="frm" method="post" action="__APP__/HospitalInfo/index" >
+                <div role="id" class="dataTables_wrapper" id="DataTables_Table_1_wrapper">
 
+                    <div class="dataTables_filter" id="DataTables_Table_1_filter">
+                        <label>医院搜索：
+                        <input id="searchHospital"  type="text" name="keyword" size="20" value='{$keyword}'/>
+                        <button class="easyui-linkbutton" data-options="iconCls:'icon-search'"  type="submit" value="搜索">搜索</button>
+                            <if condition="$Think.session.userMsg.systemAdmin eq 1">
+                                  <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="addHospital()">添加</a>
+                            </if>
+                        </label>
+                    </div></div></form>
+                    <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1" aria-describedby="DataTables_Table_1_info">
+                        <thead>
+                        <tr role="row">
+                            <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 60px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">编号
+                            </th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 100px;" aria-label="Browser: activate to sort column ascending">医院名称
+                            </th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 100px;" aria-label="Browser: activate to sort column ascending">医院Logo
+                            </th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 100px;" aria-label="Platform(s): activate to sort column ascending">医院图片
+                            </th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width:60px" aria-label="Platform(s): activate to sort column ascending">医师数量
+                            </th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width:100px;" aria-label="Platform(s): activate to sort column ascending">标签
+                            </th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1"  style="width:150px;" aria-label="Platform(s): activate to sort column ascending">医院地址
+                            </th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1"  aria-label="Platform(s): activate to sort column ascending">简介
+                            </th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 100px;" aria-label="CSS grade: activate to sort column ascending">操作
+                            </th>
+                        </tr>
+                        </thead>
 
-    <div id="content_right" class="right">
-        <form name="frm" method="post" action="__APP__/HospitalInfo/index" >
-            <input  type="hidden" name="currentPage" value="1">
-            <table  style="height: 50px;font-size: 18px">
-                <tr>
-                    <td align="left">
-                        &nbsp;医院搜索：
-                        <input id="searchHospital"  type="text" name="keyword" size="50" value='{$keyword}'/>
-                        <input class="button orange bigrounded" type="submit" value="搜索">
-                    </td>
-                    <if condition="$Think.session.userMsg.systemAdmin eq 1">
-                        <td id="addHospital" onclick="addHospital()">
-                            <input class="button orange bigrounded" type="button" value="添加">
-                        </td>
-                    </if>
-                </tr>
-            </table>
-        </form>
-        <br>
-        <table id="hospital_list" border="1" >
-            <tr>
-                <th>编号</th>
-                <th class="hospitalName">医院名称</th>
-                <th>医院Logo</th>
-                <th>医院图片</th>
-                <th>医师数量</th>
-                <th class="labelArrayText">标签</th>
-                <th class="hospitalAddress">医院地址</th>
-                <th class="introductionText">简介</th>
-                <th>操作</th>
-            </tr>
             <if condition="$hospitalInfo != null">
                 <foreach name="hospitalInfo" item="v">
                     <tr>
@@ -73,12 +94,12 @@
                             <img class="hospital_image" src="{$v.hospitalImage}" alt="暂无图片"/>
                         </td>
                         <td>{$v.doctorNumber}</td>
-                        <td class="labelArray">{$v.labelArray}</td>
-                        <td class="hospitalAddress">{$v.hospitalAddress}</td>
-                        <td class="introduction">{$v.hospitalIntroduction}</td>
+                        <td>{$v.labelArray}</td>
+                        <td>{$v.hospitalAddress}</td>
+                        <td>{$v.hospitalIntroduction}</td>
                         <td>
-                            <input class="button orange bigrounded" type="button" onclick="modifyHospital('{$v.hospitalId}')" value="修改" />
-                            <input class="button orange bigrounded"  type="button" onclick="deleteHospital('{$v.hospitalId}')" value="停用"/>
+                            <button class="easyui-linkbutton" data-options="iconCls:'icon-edit'"  onclick="modifyHospital('{$v.hospitalId}')" value="修改" >修改</button>
+                            <button class="easyui-linkbutton" data-options="iconCls:'icon-no'" onclick="deleteHospital('{$v.hospitalId}')" value="停用">停用</button>
                         </td>
                     </tr>
                 </foreach>
@@ -99,9 +120,8 @@
                 </tr>
             </if>
         </table>
-    </div>
 </div>
-<include file="Public/footer"/>
-<script src="__ROOT__/Public/js/jquery.js"></script>
+</div>
+</div>
 </body>
 </html>
