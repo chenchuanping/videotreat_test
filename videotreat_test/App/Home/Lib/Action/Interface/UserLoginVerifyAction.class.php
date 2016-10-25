@@ -15,18 +15,17 @@ class UserLoginVerifyAction extends Action
     {
         include_once 'common/Response.class.php';
 
-        $userId = $_POST['userId'];
-        $imei = $_POST['imei'];
+        $userId =  $_POST['userId'];
+        $imei =  $_POST['imei'];
         $user_login_imei = M('user_db_info')->where("userId={$userId}")->getField('imei');
-
         if ($user_login_imei != '') {
             if ($user_login_imei != $imei) {
-                include_once 'JPush/Client.php';
-                include_once 'JPush/Config.php';
-                include_once 'JPush/PushPayload.php';
-                include_once 'JPush/Http.php';
-                include_once 'JPush/ReportPayload.php';
-                include_once 'JPush/DevicePayload.php';
+                include_once 'library/JPush/Client.php';
+                include_once 'library/JPush/Config.php';
+                include_once 'library/JPush/PushPayload.php';
+                include_once 'library/JPush/Http.php';
+                include_once 'library/JPush/ReportPayload.php';
+                include_once 'library/JPush/DevicePayload.php';
 
                 /*Jpush的key*/
                 $master_secret = '65ea9cd2feed0fe958bed712';

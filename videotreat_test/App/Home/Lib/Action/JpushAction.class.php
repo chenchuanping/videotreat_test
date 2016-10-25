@@ -6,12 +6,12 @@ class JpushAction extends Action
 {
     public function index()
     {
-        include_once 'JPush/Client.php';
-        include_once 'JPush/Config.php';
-        include_once 'JPush/PushPayload.php';
-        include_once 'JPush/Http.php';
-        include_once 'JPush/ReportPayload.php';
-        include_once 'JPush/DevicePayload.php';
+        include_once 'library/JPush/Client.php';
+        include_once 'library/JPush/Config.php';
+        include_once 'library/JPush/PushPayload.php';
+        include_once 'library/JPush/Http.php';
+        include_once 'library/JPush/ReportPayload.php';
+        include_once 'library/JPush/DevicePayload.php';
 
         /*Jpush的key*/
         $master_secret = '65ea9cd2feed0fe958bed712';
