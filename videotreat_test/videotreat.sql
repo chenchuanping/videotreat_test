@@ -537,3 +537,17 @@ CREATE TABLE user_behaviour (
 	create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '行为日期',
 	FOREIGN KEY (userId) REFERENCES user_db_info (userId)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '用户行为表';
+
+
+/*亲友列表*/
+DROP TABLE IF EXISTS user_friends_list;
+CREATE TABLE user_friends_list (
+  id INT NOT NULL AUTO_INCREMENT COMMENT '自增Id',
+  userId INT NOT NULL COMMENT '用户id',
+  friendUserId INT NOT NULL COMMENT '亲友Id',
+  createTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '添加日期',
+  modifyTime varchar(20) NOT NULL DEFAULT '' COMMENT '修改日期',
+  PRIMARY KEY (id),
+  FOREIGN KEY (userId) REFERENCES user_db_info (userId),
+  FOREIGN KEY (friendUserId) REFERENCES user_db_info (userId)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='亲友列表';

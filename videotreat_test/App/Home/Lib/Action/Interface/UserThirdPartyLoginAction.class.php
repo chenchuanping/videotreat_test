@@ -21,30 +21,30 @@ class UserThirdPartyLoginAction extends Action
     {
         include_once 'common/Response.class.php';
         /*接受客户端POST过来的数据*/
-        $type = $_POST['type'];
-        $imei = $_POST['imei'];
-        $thirdPartyId = $_POST['thirdPartyId'];
-        $token = $_POST['token'];
-        $nickName = $_POST['nickName'];
-        $headPic = $_POST['headPic'];
-        $gender = $_POST['gender'];//性别
-        $client = $_POST['client'];/*0为安卓，1为iOS*/
+        $type = $_REQUEST['type'];
+        $imei = $_REQUEST['imei'];
+        $thirdPartyId = $_REQUEST['thirdPartyId'];
+        $token = $_REQUEST['token'];
+        $nickName = $_REQUEST['nickName'];
+        $headPic = $_REQUEST['headPic'];
+        $gender = $_REQUEST['gender'];//性别
+        $client = $_REQUEST['client'];/*0为安卓，1为iOS*/
         $thirdPartyInfo = '';
         $model = '';
         switch ($type) {
-            case 'qq':
+            case 'QQ':
                 $model = M("qq_info");
                 $thirdDate['qq_key'] = $thirdPartyId;
                 $thirdDate['qq_token'] = $token;
                 $thirdPartyInfo = $model->where("qq_key='{$thirdPartyId}'")->find();
                 break;
-            case 'wechat':
+            case 'Wechat':
                 $model = M("wechat_info");
                 $thirdDate['wechat_key'] = $thirdPartyId;
                 $thirdDate['wechat_token'] = $token;
                 $thirdPartyInfo = $model->where("wechat_key='{$thirdPartyId}'")->find();
                 break;
-            case 'blog':
+            case 'SinaWeibo':
                 $model = M("blog_info");
                 $thirdDate['blog_key'] = $thirdPartyId;
                 $thirdDate['blog_token'] = $token;

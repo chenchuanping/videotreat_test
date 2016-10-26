@@ -23,7 +23,7 @@ class UserDetailGetAction extends Action
     {
         include_once 'common/Response.class.php';
         /*接受客户端POST过来的数据*/
-        $userId = $_POST['userId'];
+        $userId =  $_POST['userId'];
         $client = $_POST['client'];/*0为安卓，1为iOS*/
         $userInfo = M("user_db_info")
             ->field("headPic,userName,tel,birthday,sex_value,blood,stature,weight,userSmoking")

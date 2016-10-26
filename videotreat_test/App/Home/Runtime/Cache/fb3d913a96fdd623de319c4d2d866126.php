@@ -49,7 +49,7 @@
         });
         $('#content').css('width', '1000px');
 
-//自述单图片放大浏览
+        //自述单图片放大浏览
         $("#imgshow").dialog({
             autoOpen: false,
             width: 1000,
@@ -61,8 +61,6 @@
         $(document).on("click", '.img_a', function (event) {
             $("#imgshow").dialog("open");
             event.preventDefault();
-//            $('.ui-widget-header').css('background','none').css('border','0');
-//            $('.ui-widget-content').css('background','none').css('border','0');
             var imgsrc = $(this).find('img').attr('src');
             $('#imgshow').find('img').attr('src', imgsrc);
         });

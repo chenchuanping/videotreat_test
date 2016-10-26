@@ -21,10 +21,16 @@
 		</if>
 </div>
 <script>
+	//点击了页码的超链接
+	function setPage(currentPage)
+	{
+		document.frm.currentPage.value = currentPage;//设置页码
+		document.frm.submit();//提交表单
+	}
 	$(function(){
 		//左侧菜单
 		$('#content_left').accordion({
-			selected: false,
+			selected: false
 		});
 
 		$('.panel-header').css('height','30px');
@@ -38,10 +44,5 @@
 	function gotoIndex(){
 		window.location = "__APP__/Index/index";
 	}
-	//点击了页码的超链接
-	function setPage(currentPage)
-	{
-		document.frm.currentPage.value = currentPage;//设置页码
-		document.frm.submit();//提交表单
-	}
+
 </script>

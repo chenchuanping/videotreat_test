@@ -6,17 +6,17 @@ class  TreatRecordHistoryAction extends Action
     {
         $doctorId = $_SESSION['userMsg']['doctorId'];
         $keyword = $_GET['userName'];
-        $keyword=str_replace("%","\\%",$keyword);
-        $keyword=str_replace("_","\\_",$keyword);
-        $keyword=str_replace(" ","\\%",$keyword);
-        $pageSize = 6;
+        $keyword = str_replace("%", "\\%", $keyword);
+        $keyword = str_replace("_", "\\_", $keyword);
+        $keyword = str_replace(" ", "\\%", $keyword);
+        $pageSize = 8;
         if ($keyword) {
             $totalRow = M('treat_record')->join('user_db_info as db on treat_record.userId=db.userId')->where("doctorId={$doctorId} and userName like '%{$keyword}%'")->count('treatRecordId');
             //实例化分页类
             import('ORG.Util.Page');
             $page = new Page($totalRow, $pageSize);
 
-            $page->parameter = "userName=".urlencode($keyword);
+            $page->parameter = "userName=" . urlencode($keyword);
 
             $treatRecordHistory = M("treat_record")
                 ->field('tel,db.userId,userName,sex_key,db.birthday,treat_record.treatRecordId,treatTime')

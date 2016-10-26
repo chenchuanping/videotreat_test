@@ -43,7 +43,7 @@ class UserDetailPutAction extends Action
         $dir = "Public/userImages/";
         chmod($dir, '0777');
         $upload = new UploadFile();
-        $upload->maxSize = "2097152";//上传的文件大小限制 (0-不做限制，1M为1048576字节)
+        $upload->maxSize = "10485760";//上传的文件大小限制 (0-不做限制，1M为1048576字节)
         $upload->allowExts = array('jpg', 'png', 'gif'); //允许上传的文件后缀
         $upload->autoSub = true;//自动子目录保存文件
         $upload->subType = "date";//子目录创建方式
@@ -86,10 +86,16 @@ class UserDetailPutAction extends Action
             $message = "个人信息修改失败";
         }
         $userInfo = M("user_db_info")
-            ->field('userName,sex_key,birthday,blood,stature,weight,userSmoking,user_db_info.userId')
-            ->join("user_base_info as base on base.userId=user_db_info.userId")
+            ->field("headPic,userName,tel,birthday,sex_value,blood,stature,weight,userSmoking")
+            ->join('user_base_info as base on user_db_info.userId=base.userId')
+            ->join('dic_user_sex on user_db_info.sex_key=dic_user_sex.sex_key')
             ->where("user_db_info.userId={$userId}")
             ->find();
+        $userInfo['sex'] = $userInfo['sex_value'];
+        if ($userInfo['sex'] == null) {
+            $userInfo['sex'] = '';
+        }
+        unset($userInfo['sex_value']);
         return Response::json($code, $message, $userInfo);
     }
 }

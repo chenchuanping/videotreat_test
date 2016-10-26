@@ -41,7 +41,18 @@ class UserLoginVerifyAction extends Action
                 $alert = '您的账号在别处登录，如果非您本人操作，请尽快修改密码！';//alert弹出的内容
                 $regId = $user_login_imei;
 
-                $ios_notification = array('sound' => 'default', 'badge' => '+1');
+                $ios_notification = array(
+                    'sound' => 'default',
+                    'badge' => '+1',
+                    'extras' => [
+                        'userId' => $userId
+                    ]);
+                $android_notification = array(
+                    'title' => '云医视讯',
+                    'extras' => [
+                        'userId' => $userId
+                    ]
+                );
                 $options = array(
                     'sendno' => time(),
                     'time_to_live' => 86400,
@@ -51,7 +62,7 @@ class UserLoginVerifyAction extends Action
                 $response = $push->setPlatform($platform)
                     ->addRegistrationId($regId)
                     ->iosNotification($alert, $ios_notification)
-                    ->androidNotification($alert)
+                    ->androidNotification($alert, $android_notification)
                     ->options($options);
                 $result = $response->send();//发送推送
                 if ($result) {
