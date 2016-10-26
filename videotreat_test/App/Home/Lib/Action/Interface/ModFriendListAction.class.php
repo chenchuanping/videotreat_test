@@ -45,7 +45,7 @@ class ModFriendListAction extends Action
         $userImageUrl = '';//用户头像地址
         if ($info) {
             /*删除以前的头像*/
-            $del_headPicInfo = M("user_base_info")->field('headPic')->where("userId={$userId}")->find();
+            $del_headPicInfo = M("user_base_info")->field('headPic')->where("userId={$friendUserId}")->find();
             if ($del_headPicInfo) {
                 $del_fileName = substr($del_headPicInfo['headPic'], strrpos($del_headPicInfo['headPic'], 'Public'));
                 unlink($del_fileName);

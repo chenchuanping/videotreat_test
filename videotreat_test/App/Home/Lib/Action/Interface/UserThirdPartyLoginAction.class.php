@@ -54,20 +54,16 @@ class UserThirdPartyLoginAction extends Action
 
         /*非首次登录  只需要找到userId 把imei存进表中*/
         if ($thirdPartyInfo) {
-
             $userId = $thirdPartyInfo['userId'];
-            $data['imei'] = $imei;
-            $data['userId'] = $userId;
-            $data['client'] = $client;
-            $result = M("user_db_info")->where("userId='%d'", $userId)->save($data);
-            if ($result) {
-                $code = 1;
-                $message = "第三方" . $type . "非首次登录成功";
-            } else {
-                $code = 0;
-                $message = "第三方" . $type . "非首次登录失败";
+            $old_imei = M("user_db_info")->where("userId={$userId}")->getField("imei");
+            if ($old_imei == '') {
+                $data['imei'] = $imei;
+                $data['userId'] = $userId;
+                $data['client'] = $client;
+                M("user_db_info")->where("userId='%d'", $userId)->save($data);
             }
-
+            $code = 1;
+            $message = "第三方" . $type . "非首次登录成功";
         } else {                          /*首次登录 */
             $data['userName'] = $nickName;
             $data['sex_key'] = $gender;

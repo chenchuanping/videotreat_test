@@ -7,7 +7,7 @@
         mainContainerHeight = wraperHeight;
     }
     $('.main-container').css({
-        height: (mainContainerHeight-50)+'px'
+        height: (mainContainerHeight - 50) + 'px'
     });
     $('#video-container').css({
         width: $('.main-container').width(),
@@ -37,7 +37,7 @@
 
         if (!key) {
             $.alert("没有指定供应商的key.");
-            window.location.href='http://download.agora.io/sdk/Agora_Native_SDK_for_Web_v1_7_0.zip';
+            window.location.href = 'http://download.agora.io/sdk/Agora_Native_SDK_for_Web_v1_7_0.zip';
             return;
         }
 
@@ -57,36 +57,19 @@
                 localStream.enableAudio();
             }
             $(".mute-button img").off("hover");
-             if (disableAudio) {
-                 localStream.disableAudio();
-                 $(e.target).attr("src", root + "/Public/Agora/images/btn_mute_blue@2x.png");
-             } else {
-                 localStream.enableAudio();
-                 $(e.target).attr("src",root + "/Public/Agora/images/btn_mute@2x.png");
-             }
+            if (disableAudio) {
+                localStream.disableAudio();
+                $(e.target).attr("src", root + "/Public/Agora/images/btn_mute_blue@2x.png");
+            } else {
+                localStream.enableAudio();
+                $(e.target).attr("src", root + "/Public/Agora/images/btn_mute@2x.png");
+            }
         });
 
-
-        /*结束视频*/
-        $(".end-call-button").click(function () {
+        function closeVideo(){
             var userId = window.opener.document.getElementById("userIdUp").value;
             var doctorId = window.opener.document.getElementById("doctorIdUp").value;
             if (confirm("确定结束视频吗？")) {
-
-                var viewportWidth = $(window).width(),
-                    viewportHeight = $(window).height(),
-                    curResolution = getResolutionArray(resolution),
-                    width,
-                    height,
-                    newWidth,
-                    newHeight,
-                    ratioWindow,
-                    ratioVideo;
-                //alert(viewportHeight)
-                //alert(viewportHeight)
-                //alert(curResolution)
-                //alert(width)
-                //alert(123)
                 $.ajax({
                     url: app + '/VideoHangUp/disconnect',
                     type: "post",
@@ -100,6 +83,10 @@
                     }
                 });
             }
+        }
+        /*结束视频*/
+        $(".end-call-button").click(function () {
+            closeVideo();
         });
 
         /* 加入频道 */
@@ -136,10 +123,14 @@
                 }
             });
         }());
-        subscribeStreamEvents();   /*远程音视频流已添加事件(stream-added) */
-        subscribeMouseHoverEvents();  /*订阅鼠标划过事件*/
-        subscribeWindowResizeEvent();  /*订阅窗口大小重置事件*/
-        attachExitFullscreenEvent();   /*监听退出全屏事件*/
+        subscribeStreamEvents();
+        /*远程音视频流已添加事件(stream-added) */
+        subscribeMouseHoverEvents();
+        /*订阅鼠标划过事件*/
+        subscribeWindowResizeEvent();
+        /*订阅窗口大小重置事件*/
+        attachExitFullscreenEvent();
+        /*监听退出全屏事件*/
 
         /*监听退出全屏事件*/
 
@@ -498,30 +489,6 @@
             }
         }
 
-        /*切换全屏按钮*/
-        function toggleFullscreenButton(show, parent) {
-            if (parent) {
-                $(parent + " .fullscreen-button").parent().toggle(show);
-                $(parent + " .fullscreen-button, " + parent + " .fullscreen-button>img").toggle(show);
-            } else {
-                $("#video-container .fullscreen-button").parent().toggle(show);
-                $("#video-container .fullscreen-button, #video-container .fullscreen-button>img").toggle(show);
-            }
-        }
-
-        /*切换扩展按钮*/
-        function toggleExpensionButton(show, parent) {
-            if (parent) {
-                $(parent + " .expension-button").parent().toggle(show);
-                $(parent + " .expension-button, " + parent + " .expension-button>img").toggle(show);
-            } else {
-                $("#video-container .expension-button").toggle(show);
-                $("#video-container .expension-button, #video-container .expension-button>img").toggle(show);
-            }
-        }
-
-
-
         /*一方离开时，显示视频流*/
         function showStreamOnPeerLeave(streamId) {
             var size;
@@ -655,13 +622,49 @@
             $("div[id^='bar_']").remove();
         }
 
-        /*远程音视频流已添加事件(stream-added) */
+        function startVideo() {
+            var videoDuration = 600;   //系统参数，视频持续时间
+            var minute, second, showTime;
+            var Obj = window.setInterval(time_subtract, 1000);
+
+            function time_subtract() {
+                minute = Math.floor(videoDuration / 60);
+                second = videoDuration % 60;
+                if (second < 10) {
+                    second = "0" + second;
+                }
+                showTime = minute + ':' + second;
+                videoDuration = videoDuration - 1;
+                $("#minute_countDown").text(showTime);
+                if (minute == 2 && second == '00') {
+                    $('#minute_countDown').after("  视频还剩下2分钟，请尽快");
+                }
+                if (minute == 0 && second == '00') {
+                    var userId = window.opener.document.getElementById("userIdUp").value;
+                    var doctorId = window.opener.document.getElementById("doctorIdUp").value;
+                    $.ajax({
+                        url: app + '/VideoHangUp/disconnect',
+                        type: "post",
+                        data: {
+                            userId: userId,
+                            doctorId: doctorId
+                        },
+                        success: function (data) {
+                            window.clearInterval(Obj);
+                            window.close();
+                        }
+                    });
+                }
+            }
+        }
+
+
         function subscribeStreamEvents() {
+            /*远程音视频流已添加事件(stream-added) */
             client.on('stream-added', function (evt) {
                 var stream = evt.stream;
-                console.log("New stream added: " + stream.getId());
-                console.log("Timestamp: " + Date.now());
-                console.log("Subscribe ", stream);
+                startVideo();        /*视频开始，开始计时*/
+
                 client.subscribe(stream, function (err) {
                     console.log("Subscribe stream failed", err);
                 });
@@ -669,6 +672,7 @@
 
             /*远端用户已离开房间事件(peer-leave) */
             client.on('peer-leave', function (evt) {
+                closeVideo();       /*手机用户离开，关闭视频*/
                 console.log("Peer has left: " + evt.uid);
                 console.log("Timestamp: " + Date.now());
                 console.log(evt);

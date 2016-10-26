@@ -88,8 +88,6 @@ class UserRegisterLoginAction extends Action
                     M("user_db_info")->where("userId={$userId}")->save($newPwd);
                 }
                 $newPwd['password'] = $password;
-                $userId = $userInfo['userId'];
-                $newPwd['password'] = $password;
                 $result = M("user_db_info")->where("userId={$userId}")->save($newPwd);
                 if ($result) {
                     $code = 1;

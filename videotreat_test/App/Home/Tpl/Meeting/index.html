@@ -133,19 +133,14 @@
                 <div class="toolbar">
                     <ul>
                         <li>
-                            <a class="mute-button" href="#">
+                            <div class="mute-button" href="#">
                                 <img src="__ROOT__/Public/Agora/images/btn_mute@2x.png" alt="Mute">
-                            </a>
+                            </div>
                         </li>
                         <li>
-                            <a class="end-call-button" href="#">
+                            <div class="end-call-button" href="#">
                                 <img src="__ROOT__/Public/Agora/images/btn_endcall@2x.png" alt="End">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="fullscreen-button" href="#">
-                                <input type="button" value="全屏">
-                            </a>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -165,41 +160,7 @@
 <!--<script src="__ROOT__/Public/Agora/js/vendor-bundle.js"></script>-->
 <script src="__ROOT__/Public/js/meeting.js"></script>
 <script>
-    $(function () {
-        var videoDuration =  '{$videoDuration}';   //系统参数，视频持续时间
-        var minute, second, showTime;
-        var Obj = window.setInterval(time_subtract, 1000);
-        function time_subtract() {
-            minute = Math.floor(videoDuration / 60);
-            second = videoDuration % 60;
-            if (second < 10) {
-                second = "0" + second;
-            }
-            showTime = minute + ':' + second;
-            videoDuration = videoDuration - 1;
-            $("#minute_countDown").text(showTime);
-            if (minute == 2 && second == '00') {
-                $('#minute_countDown').after("  视频还剩下2分钟，请尽快");
-            }
-            if (minute == 0 && second == '00') {
-                var userId = window.opener.document.getElementById("userIdUp").value;
-                var doctorId = window.opener.document.getElementById("doctorIdUp").value;
-                $.ajax({
-                    url: app + '/VideoHangUp/disconnect',
-                    type: "post",
-                    data: {
-                        userId: userId,
-                        doctorId: doctorId
-                    },
-                    success: function (data) {
-                        window.clearInterval(Obj);
-                        window.close();
-                    }
-                });
-            }
-        }
-    });
-
+    var videoDuration = '{$videoDuration}';
 </script>
 <script>
     if ('addEventListener' in window) {
