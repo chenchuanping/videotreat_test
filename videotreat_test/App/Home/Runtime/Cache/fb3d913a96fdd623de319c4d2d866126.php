@@ -95,7 +95,7 @@
             <span><i class="icon-table"></i> 就诊历史</span>
         </div>
         <div class="mws-panel-body no-padding">
-            <form action="__APP__/TreatRecordHistory/index" method="post">
+            <form action="__APP__/TreatRecordHistory/index" method="get">
                 <div role="id" class="dataTables_wrapper" id="DataTables_Table_1_wrapper">
 
                     <div class="dataTables_filter" id="DataTables_Table_1_filter">
