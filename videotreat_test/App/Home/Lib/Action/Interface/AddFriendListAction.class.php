@@ -69,24 +69,13 @@ class AddFriendListAction extends Action
                 $code = 1;
                 $message = '添加亲友成功';
                 $userInfo = M("user_db_info")
-                    ->field('user_db_info.userId,headPic,userName,sex_key,birthday,blood,stature,weight,userSmoking')
+                    ->field('user_db_info.userId,headPic,userName,sex_value,birthday,blood,stature,weight,userSmoking')
                     ->join("user_base_info as base on base.userId=user_db_info.userId")
+                    ->join('dic_user_sex as sex on sex.sex_key=user_db_info.sex_key')
                     ->where("user_db_info.userId={$add_userId}")
                     ->find();
-                if ($userInfo['sex_key']) {
-                    switch ($sex) {
-                        case 1:
-                            $userInfo['sex'] = '男';
-                            break;
-                        case 2:
-                            $userInfo['sex'] = '女';
-                            break;
-                        case 9:
-                            $userInfo['sex'] = '其他';
-                            break;
-                    }
-                }
-                unset($userInfo['sex_key']);
+                $userInfo['sex'] = $userInfo['sex_value'];
+                unset($userInfo['sex_value']);
                 return Response::json($code, $message, $userInfo);
             } else {
                 $code = 0;

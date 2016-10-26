@@ -69,6 +69,9 @@ class ModFriendListAction extends Action
         $modify_base_data['userSmoking'] = $smoking;
         $modify_base_data['headPic'] = $userImageUrl;
         $mod_base_info = M('user_base_info')->where("userId={$friendUserId}")->save($modify_base_data);
+        //修改亲友关系表
+        $modifyTime['modifyTime'] = date("Y-m-d H:i:s");
+        M("user_friends_list")->where("userId={$userId} and friendUserId={$friendUserId}")->save($modifyTime);
 
 
         if ($mod_base_info || $mod_db_info) {
