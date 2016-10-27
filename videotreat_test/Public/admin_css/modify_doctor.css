@@ -1,0 +1,60 @@
+#modifyDoctor{
+    text-align:left;
+    font-size: 16px;
+    border-collapse:collapse;
+    width: 100%;
+}
+input,textarea{
+    border:none;
+    background: none;
+}
+#modifyDoctor td{
+    line-height: 1.5em;
+    text-align: left;
+    text-indent: 1em;
+    border: #ccc solid 1px;
+}
+.td_left{
+    width: 100px;
+    text-align: left;
+}
+.td_right{;
+    height: 50px;
+    overflow: auto;
+}
+.labelList{
+    display: inline-block;
+    font-size: large;
+    height: 100px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 14px;
+}
+img{
+    align-items: left;
+    margin-left: 10px;
+    width: 100px;
+    height: 100px;
+}
+textarea{
+    height: 100px;
+    font-size: 14px;
+    min-width: 1000px;
+    overflow-y: auto;
+}
+.easyui-linkbutton{
+    margin: 10px;
+}
+.manager_hospital{
+    width: 200px;
+    float: left;
+    height: 30px;
+    overflow: auto;
+}
+#errorMsg{
+    color:red;
+    font-size: large;
+    display: block;
+    margin-top:10px;
+    margin-left:300px;"
+}

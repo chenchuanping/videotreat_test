@@ -42,7 +42,7 @@ class ModFriendListAction extends Action
         $upload->dateFormat = "Ymd";
         $upload->uploadReplace = true;//存在同名是否覆盖
         $info = $upload->upload();  //上传头像
-        $userImageUrl = '';//用户头像地址
+        $userImageUrl = M("user_base_info")->where("userId={$friendUserId}")->getField('headPic');//用户头像地址
         if ($info) {
             /*删除以前的头像*/
             $del_headPicInfo = M("user_base_info")->field('headPic')->where("userId={$friendUserId}")->find();
@@ -69,6 +69,7 @@ class ModFriendListAction extends Action
         $modify_base_data['userSmoking'] = $smoking;
         $modify_base_data['headPic'] = $userImageUrl;
         $mod_base_info = M('user_base_info')->where("userId={$friendUserId}")->save($modify_base_data);
+
         //修改亲友关系表
         $modifyTime['modifyTime'] = date("Y-m-d H:i:s");
         M("user_friends_list")->where("userId={$userId} and friendUserId={$friendUserId}")->save($modifyTime);

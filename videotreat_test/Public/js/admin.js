@@ -12,7 +12,7 @@ function display_hospital(){
         dataType : "json",
         data : {type:'hospital'},
         success : function(data) {
-            var inshtml = '<div><table class="recyle_table"><tr ><th>医院Id</th><th>医院名称</th><th>操作</th></tr>';
+            var inshtml = '<div><table class="recyle_table"><tr ><th>编号</th><th>医院名称</th><th>操作</th></tr>';
             if (typeof (data) != null) {
                 $.each(data,function(key, val) {
                         inshtml += '<tr><td>'+val.hospitalId+'</td><td>'+val.hospitalName+'</td><td> ' +
@@ -35,7 +35,7 @@ function display_doctor(){
         dataType : "json",
         data : {type:'doctor'},
         success : function(data) {
-            var inshtml = '<div><table class="recyle_table"><tr ><th>医生Id</th><th>医生姓名</th><th>操作</th></tr>';
+            var inshtml = '<div><table class="recyle_table"><tr ><th>编号</th><th>医生姓名</th><th>操作</th></tr>';
             if (typeof (data) != null) {
                 $.each(data,function(key, val) {
                     inshtml += '<tr><td>'+val.doctorId+'</td><td>'+val.doctorName+'</td><td> ' +

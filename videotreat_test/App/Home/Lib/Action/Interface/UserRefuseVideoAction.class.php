@@ -15,9 +15,10 @@ class UserRefuseVideoAction extends Action
 {
     public function index()
     {
-        $userId =  $_POST['userId'];
-        $doctorId =  $_POST['doctorId'];
-        $line=M("user_line")->where("userId={$userId} and doctorId={$doctorId}")->getField('id');
+        include_once 'common/Response.class.php';
+        $userId = $_POST['userId'];
+        $doctorId = $_POST['doctorId'];
+        $line = M("user_line")->where("userId={$userId} and doctorId={$doctorId}")->getField('id');
         if ($line) {
             /*添加用户行为*/
             $behaviourInfo = M("user_behaviour")->where("userId={$userId}")->find();
@@ -31,12 +32,28 @@ class UserRefuseVideoAction extends Action
                 M("user_behaviour")->where("behaviourId={$behaviourInfo['behaviourId']}")->save($behaviourData);
             }
             /*删除用户的排队*/
-            M("user_line")->where("userId={$userId}")->delete();
+            $del_line = M("user_line")->where("userId={$userId}")->delete();
             /*删除临时自述单的内容*/
-            $temporary=M("treat_record_report_card")->where("userId={$userId}")->getField("id");
-            if($temporary){
-                M("treat_record_report_card")->where("userId={$userId}")->delete();
+            $temporary = M("treat_record_report_card")->where("userId={$userId}")->getField("id");
+            if ($temporary) {
+                $del_report = M("treat_record_report_card")->where("userId={$userId}")->delete();
+            } else {
+                $del_report = true;
             }
+            if ($del_line && $del_report) {
+                $code = 1;
+                $message = "拒绝进入成功";
+                $data['userId']=$userId;
+                $data['doctorId']=$doctorId;
+                $data['videoStartTime']=date("Y-m-d H:i:s");
+                $data['videoEndTime']=date("Y-m-d H:i:s");
+                $data['videoDuration']=0;
+                M("video_history")->add($data);
+            } else {
+                $code = 0;
+                $message = "拒绝进入失败";
+            }
+            return Response::json($code, $message);
         }
     }
 }

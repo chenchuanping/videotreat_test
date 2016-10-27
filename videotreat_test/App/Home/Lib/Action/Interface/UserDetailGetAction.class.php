@@ -23,23 +23,36 @@ class UserDetailGetAction extends Action
     {
         include_once 'common/Response.class.php';
         /*接受客户端POST过来的数据*/
-        $userId =  $_POST['userId'];
+        $userId = $_POST['userId'];
         $client = $_POST['client'];/*0为安卓，1为iOS*/
-        $userInfo = M("user_db_info")
-            ->field("headPic,userName,tel,birthday,sex_value,blood,stature,weight,userSmoking")
-            ->join('user_base_info as base on user_db_info.userId=base.userId')
-            ->join('dic_user_sex on user_db_info.sex_key=dic_user_sex.sex_key')
-            ->where("user_db_info.userId={$userId}")
-            ->find();
-        $userInfo['sex'] = $userInfo['sex_value'];
-        if ($userInfo['sex'] == null) {
-            $userInfo['sex'] = '';
-        }
-        unset($userInfo['sex_value']);
-        if ($userInfo) {
-            return Response::json(1, '用户信息获取成功', $userInfo);
+        $check = M('user_db_info')->where("userId={$userId}")->getField('userId');
+
+        if ($check) {
+            $userInfo = M("user_db_info")
+                ->field("user_db_info.userId,headPic,userName,tel,birthday,sex_value,blood,stature,weight,userSmoking")
+                ->join('user_base_info as base on user_db_info.userId=base.userId')
+                ->join('dic_user_sex on user_db_info.sex_key=dic_user_sex.sex_key')
+                ->where("user_db_info.userId={$userId}")
+                ->find();
+            $userInfo['sex'] = $userInfo['sex_value'];
+            if ($userInfo['sex'] == null) {
+                $userInfo['sex'] = '';
+            }
+            unset($userInfo['sex_value']);
+            if ($userInfo) {
+                $code = 1;
+                $message = '用户信息获取成功';
+                $data = $userInfo;
+            } else {
+                $code = 1;
+                $message = '用户信息为空';
+                $data = array();
+            }
         } else {
-            return Response::json(1, '用户信息为空', array());
+            $code = 0;
+            $message = '用户不存在';
         }
+
+        return Response::json($code, $message, $data);
     }
 }

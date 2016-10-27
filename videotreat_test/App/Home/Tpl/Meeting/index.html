@@ -48,6 +48,7 @@
 
 
 
+
     </script>
     <!-- fragment shader -->
     <script id="2d-fragment-shader" type="x-shader/x-fragment">
@@ -62,6 +63,7 @@
                 void main() {
                     gl_FragColor = texture2D(u_image, v_texCoord);
                 }
+
 
 
 
@@ -106,6 +108,7 @@
                     b = y + 2.017 * u;
                     gl_FragColor = vec4(r, g, b, 1.0);
                 }
+
 
 
 

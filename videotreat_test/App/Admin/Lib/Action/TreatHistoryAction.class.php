@@ -18,7 +18,7 @@ class TreatHistoryAction extends BaseAction
         //分页变量
         $currentPage = $_POST["currentPage"];
         $currentPage = $currentPage == NULL ? 1 : $currentPage;
-        $pageSize = 5;
+        $pageSize = 2;
         $totalRow = 0;
         $totalPage = 0;
         $start = ($currentPage - 1) * $pageSize;
@@ -31,8 +31,8 @@ class TreatHistoryAction extends BaseAction
                 $totalRow = M("treat_record")->count();
                 $totalPage = ceil($totalRow / $pageSize);
                 $userTreatInfo = M("treat_record")
-                    ->field('base.userName,doctor.doctorId,doctor.doctorName,treatRecordId,userComplaint,userHPC,userPMH,doctorSuggest,treatTime,reportCardDescribe,reportCardRemark,reportCardImage')
-                    ->join('user_base_info as base on treat_record.userId=base.userId')
+                    ->field('userName,doctor.doctorId,doctor.doctorName,treatRecordId,userComplaint,userHPC,userPMH,doctorSuggest,treatTime,reportCardDescribe,reportCardRemark,reportCardImage')
+                    ->join('user_db_info as db on treat_record.userId=db.userId')
                     ->join("doctor_info as doctor on treat_record.doctorId=doctor.doctorId")
                     ->order("treat_record.treatRecordId")
                     ->limit($start, $pageSize)
@@ -60,15 +60,16 @@ class TreatHistoryAction extends BaseAction
             } else {
                 //获得总页数、总记录数
                 $totalRow = M("treat_record")
-                    ->join('user_base_info as base on treat_record.userId=base.userId')
-                    ->where("userName like '%{$keyword}%'")
+                    ->join('user_db_info as db on treat_record.userId=db.userId')
+                    ->where("db.userName like '%{$keyword}%'")
                     ->count();
+
                 $totalPage = ceil($totalRow / $pageSize);
                 $userTreatInfo = M("treat_record")
-                    ->field('base.userName,doctor.doctorId,doctor.doctorName,treatRecordId,userComplaint,userHPC,userPMH,doctorSuggest,treatTime,reportCardDescribe,reportCardRemark,reportCardImage')
-                    ->join('user_base_info as base on treat_record.userId=base.userId')
+                    ->field('userName,doctor.doctorId,doctor.doctorName,treatRecordId,userComplaint,userHPC,userPMH,doctorSuggest,treatTime,reportCardDescribe,reportCardRemark,reportCardImage')
+                    ->join('user_db_info as db on treat_record.userId=db.userId')
                     ->join("doctor_info as doctor on treat_record.doctorId=doctor.doctorId")
-                    ->where("base.userName like '%{$keyword}%'")
+                    ->where("db.userName like '%{$keyword}%'")
                     ->order("treat_record.treatRecordId")
                     ->limit($start, $pageSize)
                     ->select();
@@ -114,8 +115,8 @@ class TreatHistoryAction extends BaseAction
                 $totalRow = M("treat_record")->count();
                 $totalPage = ceil($totalRow / $pageSize);
                 $userTreatInfo = M("treat_record")
-                    ->field('base.userName,doctor.doctorId,doctor.doctorName,treatRecordId,userComplaint,userHPC,userPMH,doctorSuggest,treatTime,reportCardDescribe,reportCardRemark,reportCardImage')
-                    ->join('user_base_info as base on treat_record.userId=base.userId')
+                    ->field('userName,doctor.doctorId,doctor.doctorName,treatRecordId,userComplaint,userHPC,userPMH,doctorSuggest,treatTime,reportCardDescribe,reportCardRemark,reportCardImage')
+                    ->join('user_db_info as db on treat_record.userId=db.userId')
                     ->join("doctor_info as doctor on treat_record.doctorId=doctor.doctorId")
                     ->order("treat_record.treatRecordId")
                     ->where("treat_record.doctorId in ($doctorId_toString)")
@@ -144,15 +145,15 @@ class TreatHistoryAction extends BaseAction
             } else {
                 //获得总页数、总记录数
                 $totalRow = M("treat_record")
-                    ->join('user_base_info as base on treat_record.userId=base.userId')
-                    ->where("userName like '%{$keyword}%' and treat_record.doctorId in ($doctorId_toString)")
+                    ->join('user_db_info as db on treat_record.userId=db.userId')
+                    ->where("db.userName like '%{$keyword}%' and treat_record.doctorId in ($doctorId_toString)")
                     ->count();
                 $totalPage = ceil($totalRow / $pageSize);
                 $userTreatInfo = M("treat_record")
-                    ->field('base.userName,doctor.doctorId,doctor.doctorName,treatRecordId,userComplaint,userHPC,userPMH,doctorSuggest,treatTime,reportCardDescribe,reportCardRemark,reportCardImage')
-                    ->join('user_base_info as base on treat_record.userId=base.userId')
+                    ->field('userName,doctor.doctorId,doctor.doctorName,treatRecordId,userComplaint,userHPC,userPMH,doctorSuggest,treatTime,reportCardDescribe,reportCardRemark,reportCardImage')
+                    ->join('user_db_info as db on treat_record.userId=db.userId')
                     ->join("doctor_info as doctor on treat_record.doctorId=doctor.doctorId")
-                    ->where("treat_record.doctorId in ($doctorId_toString)  and base.userName like '%{$keyword}%'")
+                    ->where("treat_record.doctorId in ($doctorId_toString)  and db.userName like '%{$keyword}%'")
                     ->limit($start, $pageSize)
                     ->select();
                 if ($userTreatInfo) {
@@ -184,6 +185,9 @@ class TreatHistoryAction extends BaseAction
             $log['operationContent'] = "查询了患者：" . $keyword . " 的就诊记录";
             M("manager_log")->add($log);
         }
+
+
+        $this->assign('totalRow',$totalRow);
         $this->assign("keyword", $keyword);
         $this->assign("currentPage", $currentPage);
         $this->assign("totalPage", $totalPage);

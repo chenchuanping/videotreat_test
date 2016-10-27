@@ -18,7 +18,7 @@ class ManagerInfoAction extends BaseAction
         //分页变量
         $currentPage = $_POST["currentPage"];
         $currentPage = $currentPage == NULL ? 1 : $currentPage;
-        $pageSize = 5;
+        $pageSize = 6;
         $totalRow = 0;
         $totalPage = 0;
         $start = ($currentPage - 1) * $pageSize;
@@ -77,6 +77,7 @@ class ManagerInfoAction extends BaseAction
             $log['operationContent'] = "查询了管理员：" . $keyword;
             M("manager_log")->add($log);
         }
+        $this->assign('totalRow',$totalRow);
         $this->assign("keyword", $keyword);
         $this->assign("currentPage", $currentPage);
         $this->assign("totalPage", $totalPage);

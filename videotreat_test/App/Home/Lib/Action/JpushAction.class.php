@@ -21,9 +21,17 @@ class JpushAction extends Action
         $push = $client->push();                              //返回一个Payload构建器
         $platform = array('ios', 'android');//设置推送平台
         $alert = '您好，有医生在呼叫您！';//alert弹出的内容
-        $userId = $_POST['userId'];
-        $doctorId = $_SESSION['userMsg']['doctorId'];
+
+        $userId = $_POST['userId'];         //无法知道userId是自己的还是亲友的，所以要判断
         $regId = M('user_db_info')->where("userId=" . $userId)->getField('imei');
+        if ($regId == '') {
+            $check_friend = M("user_db_info")->where("userId={$userId}")->getField("in_friend_list");
+            if ($check_friend == 1) {
+                $last_userId = M("user_friends_list")->where("friendUserId={$userId}")->getField('userId');
+                $regId = M('user_db_info')->where("userId=" . $last_userId)->getField('imei');
+            }
+        }
+        $doctorId = $_SESSION['userMsg']['doctorId'];
 
         $ios_notification = array(
             'sound' => 'default',

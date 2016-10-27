@@ -623,7 +623,7 @@
         }
 
         function startVideo() {
-            var videoDuration = 600;   //系统参数，视频持续时间
+            var videoDuration = videoDuration;   //系统参数，视频持续时间
             var minute, second, showTime;
             var Obj = window.setInterval(time_subtract, 1000);
 

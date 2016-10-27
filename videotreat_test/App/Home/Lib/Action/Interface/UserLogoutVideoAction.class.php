@@ -5,12 +5,16 @@
  * @param doctorId              int         医生Id
  * @param videoStartTime        string      视频开始时间
  * @param videoEndTime          string      视频结束时间
+ * return code                    int         状态码
+ *        message                 string      提示信息
+ *        data                    array       返回的数据
  */
 
 class UserLogoutVideoAction extends Action
 {
     public function index()
     {
+        include_once 'common/Response.class.php';
         $userId = $_POST['userId'];
         $doctorId = $_POST['doctorId'];
         $videoStartTime = $_POST['videoStartTime'];
@@ -48,9 +52,26 @@ class UserLogoutVideoAction extends Action
                 M("user_behaviour")->where("behaviourId={$behaviourInfo['behaviourId']}")->save($behaviourData);
             }
             /*删除用户的排队*/
-            M("user_line")->where("userId={$userId}")->delete();
+            $del_line = M("user_line")->where("userId={$userId}")->delete();
             /*删除临时自述单的内容*/
-            M("treat_record_report_card")->where("userId={$userId}")->delete();
+            $temporary = M("treat_record_report_card")->where("userId={$userId}")->getField("id");
+            if ($temporary) {
+                $del_report = M("treat_record_report_card")->where("id={$temporary}")->delete();
+            } else {
+                $del_report = true;
+            }
+            if ($del_line && $del_report) {
+                $code = 1;
+                $message = '挂断视频成功';
+            } else {
+                $code = 0;
+                $message = '挂断视频失败';
+            }
+
+        } else {
+            $code = 0;
+            $message = '填写视频记录失败';
         }
+        return Response::json($code, $message);
     }
 }
