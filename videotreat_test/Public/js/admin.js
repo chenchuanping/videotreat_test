@@ -12,11 +12,11 @@ function display_hospital(){
         dataType : "json",
         data : {type:'hospital'},
         success : function(data) {
-            var inshtml = '<div><table class="recyle_table"><tr ><th>编号</th><th>医院名称</th><th>操作</th></tr>';
+            var inshtml = '<div><table class="recyle_table"><tr ><th>医院Id</th><th>医院名称</th><th>操作</th></tr>';
             if (typeof (data) != null) {
                 $.each(data,function(key, val) {
-                        inshtml += '<tr><td>'+val.hospitalId+'</td><td>'+val.hospitalName+'</td><td> ' +
-                            '<input type="button" class="button orange bigrounded" onclick="restore_hospital('+val.hospitalId+')" value="恢复"></td></tr>';
+                    inshtml += '<tr><td>'+val.hospitalId+'</td><td>'+val.hospitalName+'</td><td> ' +
+                        '<button   id="aa" class="" onclick="restore_hospital('+val.hospitalId+')" >恢复</button></td></tr>';
                 });
             }else{
                 inshtml += "<tr><td colspan='3'>暂无数据</td></tr>"
@@ -35,11 +35,11 @@ function display_doctor(){
         dataType : "json",
         data : {type:'doctor'},
         success : function(data) {
-            var inshtml = '<div><table class="recyle_table"><tr ><th>编号</th><th>医生姓名</th><th>操作</th></tr>';
+            var inshtml = '<div><table class="recyle_table"><tr ><th>医生Id</th><th>医生姓名</th><th>操作</th></tr>';
             if (typeof (data) != null) {
                 $.each(data,function(key, val) {
                     inshtml += '<tr><td>'+val.doctorId+'</td><td>'+val.doctorName+'</td><td> ' +
-                        '<input type="button" class="button orange bigrounded" onclick="restore_doctor('+val.doctorId+')" value="恢复"></td></tr>';
+                        '<input type="button" class="easyui-linkbutton l-btn l-btn-small" onclick="restore_doctor('+val.doctorId+')" value="恢复"></td></tr>';
                 });
             }else{
                 inshtml += "<tr><td colspan='3'>暂无数据</td></tr>"

@@ -7,14 +7,13 @@
         mainContainerHeight = wraperHeight;
     }
     $('.main-container').css({
-        height: (mainContainerHeight - 50) + 'px'
+        height: mainContainerHeight
     });
     $('#video-container').css({
         width: $('.main-container').width(),
         height: $('.main-container').height()
     });
     $(function () {
-
         var resolution = resolution,
             maxFrameRate = Number(15),
             channel = room,
@@ -24,7 +23,7 @@
             disableAudio = false,
             disableVideo = false,
             hideLocalStream = false,
-            fullscreenEnabled = true,
+            fullscreenEnabled = false,
             recordingServiceUrl = 'https://recordtest.agorabeckon.com:9002/agora/recording/genToken?channelname=' + channel,
             recording = false,
             uid,
@@ -34,15 +33,13 @@
             isMixed = false,
             isShared = false,
             isShowShareList = false;
-
         if (!key) {
             $.alert("没有指定供应商的key.");
-            window.location.href = 'http://download.agora.io/sdk/Agora_Native_SDK_for_Web_v1_7_0.zip';
             return;
         }
 
         $(".mute-button,.list-switch-audio-btn").off("click").on("click", function (e) {
-
+            $(".mute-button img").off("hover");
             disableAudio = !disableAudio;
 
             var target = $(this),
@@ -50,40 +47,43 @@
                 mixedClassName = 'list-switch-audio-disable-btn';
 
             if (disableAudio) {         //禁用音频流
-                $(e.target).attr("src", root + "/Public/Agora/images/btn_mute_blue@2x.png");
+                $(e.target).attr("src", root + "/Public/Agora/images/btn_mute_touch.png");
                 localStream.disableAudio();
-            } else {            //启用音频流
+            } else {           //启用音频流
                 $(e.target).attr("src", root + "/Public/Agora/images/btn_mute@2x.png");
                 localStream.enableAudio();
             }
-            $(".mute-button img").off("hover");
+
             if (disableAudio) {
                 localStream.disableAudio();
-                $(e.target).attr("src", root + "/Public/Agora/images/btn_mute_blue@2x.png");
+                $(e.target).attr("src", "images/btn_mute_touch.png");
             } else {
                 localStream.enableAudio();
-                $(e.target).attr("src", root + "/Public/Agora/images/btn_mute@2x.png");
+                $(e.target).attr("src", "images/btn_mute@2x.png");
             }
         });
 
-        function closeVideo(){
+
+        /*结束视频*/
+
+        function closeVideo() {
             var userId = window.opener.document.getElementById("userIdUp").value;
             var doctorId = window.opener.document.getElementById("doctorIdUp").value;
-            if (confirm("确定结束视频吗？")) {
-                $.ajax({
-                    url: app + '/VideoHangUp/disconnect',
-                    type: "post",
-                    data: {
-                        userId: userId,
-                        doctorId: doctorId
-                    },
-                    success: function (data) {
-                        client.leave();
-                        window.close();
-                    }
-                });
-            }
+
+            $.ajax({
+                url: app + '/VideoHangUp/disconnect',
+                type: "post",
+                data: {
+                    userId: userId,
+                    doctorId: doctorId
+                },
+                success: function (data) {
+                    client.leave();
+                    window.close();
+                }
+            });
         }
+
         /*结束视频*/
         $(".end-call-button").click(function () {
             closeVideo();
@@ -92,7 +92,7 @@
         /* 加入频道 */
         (function initAgoraRTC() {
             client.init(key, function (obj) {
-
+                ;
                 client.join(key, channel, 0, function (uid) {
                     console.log("用户 " + uid + " 成功地加入频道");
                     console.log("时间为: " + Date.now());
@@ -124,16 +124,10 @@
             });
         }());
         subscribeStreamEvents();
-        /*远程音视频流已添加事件(stream-added) */
         subscribeMouseHoverEvents();
-        /*订阅鼠标划过事件*/
         subscribeWindowResizeEvent();
-        /*订阅窗口大小重置事件*/
         attachExitFullscreenEvent();
         /*监听退出全屏事件*/
-
-        /*监听退出全屏事件*/
-
         function attachExitFullscreenEvent() {
             if (document.addEventListener) {
                 document.addEventListener('webkitfullscreenchange', exitHandler, false);
@@ -175,7 +169,6 @@
             localStream.init(function () {
                 console.log("成功获取用户媒体");
                 console.log(localStream);
-                //alert(123);
                 var size = calculateVideoSize();
                 /*计算视频的大小*/
                 if (remoteStreamList.length === 0) {
@@ -489,6 +482,52 @@
             }
         }
 
+        /*切换全屏按钮*/
+        function toggleFullscreenButton(show, parent) {
+            if (parent) {
+                $(parent + " .fullscreen-button").parent().toggle(show);
+                $(parent + " .fullscreen-button, " + parent + " .fullscreen-button>img").toggle(show);
+            } else {
+                $("#video-container .fullscreen-button").parent().toggle(show);
+                $("#video-container .fullscreen-button, #video-container .fullscreen-button>img").toggle(show);
+            }
+        }
+
+        /*切换扩展按钮*/
+        function toggleExpensionButton(show, parent) {
+            if (parent) {
+                $(parent + " .expension-button").parent().toggle(show);
+                $(parent + " .expension-button, " + parent + " .expension-button>img").toggle(show);
+            } else {
+                $("#video-container .expension-button").toggle(show);
+                $("#video-container .expension-button, #video-container .expension-button>img").toggle(show);
+            }
+        }
+
+        /*添加静音图标*/
+        function addingMuteSpeakIcon(streamId) {
+            $("#agora-remote" + streamId).append("<a class='remote-mute-speak-icon' data-stream-id='" + streamId + "' href='#'>" +
+                "<img src='" + root + "'/Public/Agora/images/icon_mute.png'></a>");
+            $(".remote-mute-speak-icon").off("click").on("click", function (e) {
+                var streamId = Number($(e.target).parent().data("stream-id"));
+                var index, length, obj;
+                for (index = 0, length = remoteStreamList.length; index < length; index += 1) {
+                    obj = remoteStreamList[index];
+                    if (obj.id === streamId) {
+                        if (obj.audioEnabled) {
+                            obj.stream.disableAudio();
+                            obj.audioEnabled = false;
+                            $(this).attr("src", root + "/Public/Agora/images/icon_speak.png");
+                        } else {
+                            obj.stream.enableAudio();
+                            obj.audioEnabled = true;
+                            $(this).attr("src", root + "/Public/Agora/images/icon_mute.png");
+                        }
+                    }
+                }
+            });
+        }
+
         /*一方离开时，显示视频流*/
         function showStreamOnPeerLeave(streamId) {
             var size;
@@ -567,7 +606,6 @@
 
         /*远程已加入，显示音/视频流*/
         function showStreamOnPeerAdded(stream) {
-
             var size;
             if (remoteStreamList.length === 0) {
                 clearAllStream();
@@ -622,8 +660,33 @@
             $("div[id^='bar_']").remove();
         }
 
+
+        /*window.setInterval(three_time_subtract, 1000);
+        function three_time_subtract() {
+            var timeContinue = 30;
+            $("#minute_countDown").text(timeContinue);
+            timeContinue--;
+            if (timeContinue < 1) {
+                var userId = window.opener.document.getElementById("userIdUp").value;
+                var doctorId = window.opener.document.getElementById("doctorIdUp").value;
+                $.ajax({
+                    url: app + '/VideoHangUp/disconnect',
+                    type: "post",
+                    data: {
+                        userId: userId,
+                        doctorId: doctorId
+                    },
+                    success: function (data) {
+                        window.close();
+                    }
+                });
+            }
+        }*/
+
+
+        /*倒计时*/
         function startVideo() {
-            var videoDuration = videoDuration;   //系统参数，视频持续时间
+            var videoDuration = sys_videoDuration;   //系统参数，视频持续时间
             var minute, second, showTime;
             var Obj = window.setInterval(time_subtract, 1000);
 
@@ -659,11 +722,13 @@
         }
 
 
+        /*远程音视频流已添加事件(stream-added) */
         function subscribeStreamEvents() {
             /*远程音视频流已添加事件(stream-added) */
             client.on('stream-added', function (evt) {
                 var stream = evt.stream;
-                startVideo();        /*视频开始，开始计时*/
+                startVideo();
+                /*视频开始，开始计时*/
 
                 client.subscribe(stream, function (err) {
                     console.log("Subscribe stream failed", err);
@@ -672,21 +737,16 @@
 
             /*远端用户已离开房间事件(peer-leave) */
             client.on('peer-leave', function (evt) {
-                closeVideo();       /*手机用户离开，关闭视频*/
-                console.log("Peer has left: " + evt.uid);
-                console.log("Timestamp: " + Date.now());
-                console.log(evt);
+                closeVideo();
+                /*手机用户离开，关闭视频*/
                 showStreamOnPeerLeave(evt.uid);
 
             });
 
+
             /*远程音视频流已订阅事件(stream-subscribed) */
             client.on('stream-subscribed', function (evt) {
                 var stream = evt.stream;
-                console.log("Got stream-subscribed event");
-                console.log("Timestamp: " + Date.now());
-                console.log("Subscribe remote stream successfully: " + stream.getId());
-                console.log(evt);
                 showStreamOnPeerAdded(stream);
                 //updateRoomInfo();
             });
@@ -694,9 +754,6 @@
             /*远程音视频流已移除事件(stream-removed) */
             client.on("stream-removed", function (evt) {
                 var stream = evt.stream;
-                console.log("Stream removed: " + evt.stream.getId());
-                console.log("Timestamp: " + Date.now());
-                console.log(evt);
                 showStreamOnPeerLeave(evt.stream.getId());
                 //updateRoomInfo();
             });
@@ -789,7 +846,6 @@
 
         /*计算视频大小*/
         function calculateVideoSize(multiple) {
-
             var viewportWidth = $(window).width(),
                 viewportHeight = $(window).height(),
                 curResolution = getResolutionArray(resolution),
@@ -829,12 +885,14 @@
         function subscribeMouseHoverEvents() {
             /*静音图标*/
             $(".mute-button img").off("hover").hover(function () {
+
                 if (disableAudio) {
                     $(this).attr("src", root + "/Public/Agora/images/btn_mute_touch.png");
                 } else {
                     $(this).attr("src", root + "/Public/Agora/images/btn_mute.png");
                 }
             }, function () {
+
                 if (disableAudio) {
                     $(this).attr("src", root + "/Public/Agora/images/btn_mute_blue@2x.png");
                 } else {

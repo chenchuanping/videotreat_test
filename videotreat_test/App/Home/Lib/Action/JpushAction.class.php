@@ -13,9 +13,10 @@ class JpushAction extends Action
         include_once 'library/JPush/ReportPayload.php';
         include_once 'library/JPush/DevicePayload.php';
 
-        /*Jpush的key*/
-        $master_secret = '65ea9cd2feed0fe958bed712';
-        $app_key = '9f4c66ea416044f26c3623d1';
+        /*jpush主密码*/
+        $master_secret = M("system_param")->where("paramCode='jpush_master_secret'")->getField("paramValue");
+        /*jpushApKey*/
+        $app_key =M("system_param")->where("paramCode='jpush_app_key'")->getField("paramValue");
 
         $client = new \JPush\Client($app_key, $master_secret);  //调用推送之前，先初始化JPushClient
         $push = $client->push();                              //返回一个Payload构建器
@@ -45,7 +46,8 @@ class JpushAction extends Action
         $android_notification = array(
             'title' => '云医视讯',
             'extras' => [
-                'userId' => $userId
+                'userId' => $userId,
+                'doctorId' => $doctorId
             ]
         );
         $options = array(
@@ -64,8 +66,10 @@ class JpushAction extends Action
         $result = $response->send();//发送推送
 
         /*设置参数*/
-        $resolution = '640p';         //视频分辨率
-        $vendorKey = "1546a861c05a4ab6a90529eff16cd306";      //声网的vendorKey
+        //视频分辨率
+        $resolution = M("system_param")->where("paramCode='agora_resolution'")->getField("paramValue");
+        //声网的vendorKey
+        $vendorKey = M("system_param")->where("paramCode='agora_vendorKey'")->getField("paramValue");
         $data = array();
         $data['resolution'] = $resolution;
         $data['vendorKey'] = $vendorKey;

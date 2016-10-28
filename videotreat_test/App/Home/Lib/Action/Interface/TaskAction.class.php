@@ -86,6 +86,7 @@ class TaskAction extends Action
         $data['singIn'] = $userSignInfo['signIn'];
         $data['userData'] = $userData;
         $data['task'] = $taskInfo;
+
         if ($data && $userId) {
             return Response::json(1, '任务详情获取成功', $data);
         } else {

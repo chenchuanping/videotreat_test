@@ -3,8 +3,8 @@
 /*                               用户退出视频接口
  * @param userId                int         用户userId
  * @param doctorId              int         医生Id
- * @param videoStartTime        string      视频开始时间
- * @param videoEndTime          string      视频结束时间
+ * @param videoStartTime        string      视频开始时间戳
+ * @param videoEndTime          string      视频结束时间戳
  * return code                    int         状态码
  *        message                 string      提示信息
  *        data                    array       返回的数据
@@ -19,8 +19,8 @@ class UserLogoutVideoAction extends Action
         $doctorId = $_POST['doctorId'];
         $videoStartTime = $_POST['videoStartTime'];
         $videoEndTime = $_POST['videoEndTime'];
-
-
+        $videoStartTime = date('Y-m-d H:i:s', substr($videoStartTime, 0, 10));
+        $videoEndTime = date('Y-m-d H:i:s', substr($videoEndTime, 0, 10));
         $data['userId'] = $userId;
         $data['doctorId'] = $doctorId;
         $data['videoStartTime'] = $videoStartTime;
@@ -33,24 +33,19 @@ class UserLogoutVideoAction extends Action
         $end_second = substr($videoEndTime, strrpos($videoEndTime, ':') + 1, 2);
         $minute = $end_minute - $start_minute;
         $second = $end_second - $start_second;
-        if ($second < 10) {
+
+        if ($second < 0) {
+            $second = 60 + $second;
+            $minute = $minute - 1;
+        } elseif ($second < 10) {
             $second = "0" . $second;
         }
+
         $data['videoDuration'] = $minute . ":" . $second;
 
         $add = M("video_history")->add($data);
         if ($add) {
-            /*添加用户行为*/
-            $behaviourInfo = M("user_behaviour")->where("userId={$userId}")->find();
-            $behaviourData['behaviourName'] = "退出视频";
-            if (!$behaviourInfo) {
-                $behaviourData['userId'] = $userId;
-                M("user_behaviour")->add($behaviourData);
-            } else {
-                $behaviourData['userId'] = $userId;
-                $behaviourData['create_time'] = date("Y-m-d H:i:s");
-                M("user_behaviour")->where("behaviourId={$behaviourInfo['behaviourId']}")->save($behaviourData);
-            }
+
             /*删除用户的排队*/
             $del_line = M("user_line")->where("userId={$userId}")->delete();
             /*删除临时自述单的内容*/

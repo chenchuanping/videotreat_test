@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>云医视讯{$aaa}</title>
+    <title>云医视讯{$videoDuration}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="__ROOT__/Public/Agora/css/bundle.css?v=1.6.0">
@@ -12,6 +12,7 @@
         var vendorKey = '{$vendorKey}';
         var room = '{$room}';
         var resolution = '{$resolution}';
+        var sys_videoDuration = '{$videoDuration}';
     </script>
 
     <!-- vertex shader -->
@@ -40,15 +41,6 @@
                     v_texCoord = a_texCoord;
                 }
 
-
-
-
-
-
-
-
-
-
     </script>
     <!-- fragment shader -->
     <script id="2d-fragment-shader" type="x-shader/x-fragment">
@@ -63,6 +55,7 @@
                 void main() {
                     gl_FragColor = texture2D(u_image, v_texCoord);
                 }
+
 
 
 
@@ -118,6 +111,7 @@
 
 
 
+
     </script>
 </head>
 <body class="is-loading">
@@ -160,11 +154,9 @@
 </div>
 <script src="__ROOT__/Public/js/jquery.js"></script>
 <script src="__ROOT__/Public/Agora/js/AgoraRtcAgentSDK-1.6.0.js"></script>
-<!--<script src="__ROOT__/Public/Agora/js/vendor-bundle.js"></script>-->
+<script src="__ROOT__/Public/Agora/js/vendor-bundle.js"></script>
 <script src="__ROOT__/Public/js/meeting.js"></script>
-<script>
-    var videoDuration = '{$videoDuration}';
-</script>
+
 <script>
     if ('addEventListener' in window) {
         window.addEventListener('load',
@@ -173,6 +165,7 @@
                 });
         document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
     }
+
 </script>
 
 </body>

@@ -6,17 +6,11 @@ CREATE TABLE state_info (
 	stateName VARCHAR (10) NOT NULL
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '医生状态表';
 
-INSERT INTO state_info (stateName)
-VALUES
-	('空闲');
+INSERT INTO state_info (stateName)VALUES('空闲');
 
-INSERT INTO state_info (stateName)
-VALUES
-	('忙碌');
+INSERT INTO state_info (stateName)VALUES('忙碌');
 
-INSERT INTO state_info (stateName)
-VALUES
-	('离开');
+INSERT INTO state_info (stateName)VALUES('离开');
 
 /*医生职称表*/
 CREATE TABLE profess_info (
@@ -24,21 +18,13 @@ CREATE TABLE profess_info (
 	professName VARCHAR (20) NOT NULL UNIQUE
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '医生职称表';
 
-INSERT INTO profess_info (professName)
-VALUES
-	('住院医师');
+INSERT INTO profess_info (professName)VALUES('住院医师');
 
-INSERT INTO profess_info (professName)
-VALUES
-	('主治医师');
+INSERT INTO profess_info (professName)VALUES('主治医师');
 
-INSERT INTO profess_info (professName)
-VALUES
-	('副主任医师');
+INSERT INTO profess_info (professName)VALUES('副主任医师');
 
-INSERT INTO profess_info (professName)
-VALUES
-	('主任医师');
+INSERT INTO profess_info (professName)VALUES('主任医师');
 
 /*医生科室表*/
 CREATE TABLE department_info (
@@ -167,13 +153,13 @@ CREATE TABLE dic_user_sex (
 	sex_value VARCHAR (20) NOT NULL COMMENT '性别'
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '性别表';
 
-INSERT INTO dic_user_sex (sex_key, sex_value)VALUES(0, '未知的性别');
+INSERT INTO dic_user_sex (sex_key, sex_value)VALUES(0, '未知');
 
-INSERT INTO dic_user_sex (sex_key, sex_value)VALUES(1, '男性');
+INSERT INTO dic_user_sex (sex_key, sex_value)VALUES(1, '男');
 
-INSERT INTO dic_user_sex (sex_key, sex_value)VALUES(2, '女性');
+INSERT INTO dic_user_sex (sex_key, sex_value)VALUES(2, '女');
 
-INSERT INTO dic_user_sex (sex_key, sex_value)VALUES(9, '未说明的性别');
+INSERT INTO dic_user_sex (sex_key, sex_value)VALUES(9, '未说明');
 
 /*用户登录信息表*/
 CREATE TABLE user_db_info (
@@ -181,7 +167,7 @@ CREATE TABLE user_db_info (
 	userName VARCHAR (50) NOT NULL DEFAULT '' COMMENT '姓名',
 	tel VARCHAR (20) DEFAULT '' COMMENT '手机号',
 	password VARCHAR (40) DEFAULT '' COMMENT '密码',
-  sex_key INT (1) NOT NULL DEFAULT 0 COMMENT '性别'
+  sex_key INT (1) NOT NULL DEFAULT 0 COMMENT '性别',
 	birthday VARCHAR (40) DEFAULT '' COMMENT '出生日期',
 	imei VARCHAR (20) NOT NULL DEFAULT '' COMMENT '手机的唯一识别号码',
 	third_type VARCHAR (20) DEFAULT '' COMMENT '第三方登录类型',
@@ -276,11 +262,6 @@ CREATE TABLE `version` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='版本升级表';
 
-INSERT INTO `version` VALUES ('1', '2.0', '测试版本_ios', '0', '1', '', '2016-10-11 09:31:53');
-INSERT INTO `version` VALUES ('2', '1.0', '测试版本_andriod', '1', '0', 'http://101.201.104.221/YunYi/YunYi.apk', '2016-10-11 09:32:44');
-INSERT INTO `version` VALUES ('4', '1.0.0.1', '测试版本2_andriod', '1', '0', 'http://101.201.104.221/YunYi/YunYi.apk', '2016-10-11 14:33:35');
-INSERT INTO `version` VALUES ('5', '1.0.2.0', '修复视频通讯bug', '1', '0', 'http://101.201.104.221/YunYi/YunYi.apk', '2016-10-12 17:39:26');
-INSERT INTO `version` VALUES ('6', '1.0.2.3', '优化启动速度', '1', '0', 'http://101.201.104.221/YunYi/YunYi.apk', '2016-10-14 16:48:47');
 
 /*意见反馈表*/
 CREATE TABLE suggestion_feedback (
@@ -390,6 +371,11 @@ CREATE TABLE case_history_remark (
 	remarkName VARCHAR (40) NOT NULL UNIQUE COMMENT '备注名称'
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '医生填写病历备注表';
 
+insert into case_history_remark(remarkId, remarkName) VALUES (1,"正常通话");
+insert into case_history_remark(remarkId, remarkName) VALUES (2,"用户拒接");
+insert into case_history_remark(remarkId, remarkName) VALUES (3,"用户主动挂断");
+insert into case_history_remark(remarkId, remarkName) VALUES (4,"网络异常");
+
 /*就诊记录表*/
 CREATE TABLE treat_record (
 	treatRecordId INT AUTO_INCREMENT COMMENT '编号',
@@ -472,6 +458,14 @@ CREATE TABLE operation_type (
 	operationName VARCHAR (20) NOT NULL
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '操作类型表';
 
+insert into operation_type(operationId,operationName)VALUES (1,'增加');
+insert into operation_type(operationId,operationName)VALUES (2,'删除');
+insert into operation_type(operationId,operationName)VALUES (3,'修改');
+insert into operation_type(operationId,operationName)VALUES (4,'查询');
+insert into operation_type(operationId,operationName)VALUES (5,'登录');
+insert into operation_type(operationId,operationName)VALUES (6,'退出');
+
+
 /*管理员日志表*/
 CREATE TABLE manager_log (
 	id INT auto_increment PRIMARY KEY,
@@ -516,7 +510,7 @@ CREATE TABLE system_param (
 	paramId INT AUTO_INCREMENT PRIMARY KEY COMMENT '编号',
 	paramName VARCHAR (30) NOT NULL COMMENT '参数名称',
 	paramCode VARCHAR (20) NOT NULL COMMENT '参数代码',
-	paramValue VARCHAR (20) NOT NULL COMMENT '参数值',
+	paramValue VARCHAR (100) NOT NULL COMMENT '参数值',
 	paramUnit VARCHAR (20) NOT NULL COMMENT '参数单位',
 	paramRemark VARCHAR (50) NOT NULL DEFAULT '' COMMENT '参数说明',
 	isValid INT NOT NULL DEFAULT 1 COMMENT '是否有效 1有效0失效',
@@ -526,7 +520,10 @@ CREATE TABLE system_param (
 insert into system_param (paramName,paramCode,paramValue,paramUnit)VALUES ('刷新排队列表时间','get_line_time','5000','毫秒');
 insert into system_param (paramName,paramCode,paramValue,paramUnit)VALUES ('视频时长','video_duration','600','秒');
 insert into system_param (paramName,paramCode,paramValue,paramUnit)VALUES ('医生排队人数','line_up_number','10','个');
-
+insert into system_param (paramName,paramCode,paramValue,paramUnit)VALUES ('jpush主密码','jpush_master_secret','65ea9cd2feed0fe958bed712','');
+insert into system_param (paramName,paramCode,paramValue,paramUnit)VALUES ('jpushApKey','jpush_app_key','9f4c66ea416044f26c3623d1','');
+insert into system_param (paramName,paramCode,paramValue,paramUnit)VALUES ('视频分辨率','agora_resolution','640p','');
+insert into system_param (paramName,paramCode,paramValue,paramUnit)VALUES ('声网的vendorKey','agora_vendorKey','1546a861c05a4ab6a90529eff16cd306','');
 
 /*用户行为表*/
 DROP TABLE if EXISTS user_behaviour;

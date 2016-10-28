@@ -35,14 +35,29 @@ class TreatRecordGetAllAction extends Action
     {
         include_once 'common/Response.class.php';
         /*接受客户端POST过来的数据*/
-        $userId =   $_POST['userId'];   //用户id
+        $userId = $_POST['userId'];   //用户id
         $client = $_POST['client'];/*0为安卓，1为iOS*/
+
         $userTreatInfo = M("treat_record")
             ->field('treatRecordId,treat_record.doctorId,db.userName,doctor.doctorName,userComplaint,userHPC,userPMH,doctorSuggest,treatTime,reportCardRemark,reportCardDescribe,reportCardImage')
             ->join('user_db_info as db on treat_record.userId=db.userId')
             ->join("doctor_info as doctor on treat_record.doctorId=doctor.doctorId")
             ->where("treat_record.userId={$userId}")
             ->select();
+        $friends = M('user_friends_list')->field('friendUserId')->where("userId={$userId}")->select();
+        foreach ($friends as $value) {
+            $friendTreatInfo = M("treat_record")
+                ->field('treatRecordId,treat_record.doctorId,db.userName,doctor.doctorName,userComplaint,userHPC,userPMH,doctorSuggest,treatTime,reportCardRemark,reportCardDescribe,reportCardImage')
+                ->join('user_db_info as db on treat_record.userId=db.userId')
+                ->join("doctor_info as doctor on treat_record.doctorId=doctor.doctorId")
+                ->where("treat_record.userId={$value['friendUserId']}")
+                ->find();
+
+            if ($friendTreatInfo != null) {
+                $userTreatInfo[] = $friendTreatInfo;
+            }
+        }
+
         if ($userTreatInfo) {
             foreach ($userTreatInfo as $k => $value) {
                 $otherInfo = M("doctor_info")

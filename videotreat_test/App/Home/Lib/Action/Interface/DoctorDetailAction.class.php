@@ -26,18 +26,17 @@ class DoctorDetailAction extends Action
     {
         include_once 'common/Response.class.php';
         /*接受客户端POST过来的数据*/
-        $userId =  $_POST['userId'];
-        $doctorId =   $_POST['doctorId'];
+        $userId = $_POST['userId'];
+        $doctorId = $_POST['doctorId'];
         $client = $_POST['client'];/*0为安卓，1为iOS*/
         /*判断当前用户是否在队列中*/
         /*这个人的所有亲友Id*/
         $friends = M("user_friends_list")->field('friendUserId')->where("userId={$userId}")->select();
+        $friend_user_line_info = '';
         foreach ($friends as $v) {
-            $friend_user_line_info = M("user_line")->where("userId={$v['friendUserId']} and doctorId={$doctorId}")->find();
+            $friend_user_line_info .= M("user_line")->where("userId={$v['friendUserId']} and doctorId={$doctorId}")->find();
         }
-
         $user_line_info = M("user_line")->where("userId={$userId} and doctorId={$doctorId}")->find();
-
         if ($friend_user_line_info || $user_line_info) {
             $data['on_line_sign'] = 1;        /*当前用户在当前医生排队中*/
         } else {

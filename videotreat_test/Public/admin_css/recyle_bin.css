@@ -1,13 +1,20 @@
 .recyle_table{
     font-size: 16px;
+    border-collapse: collapse;
+    margin:10px;
 }
 .recyle_table tr th{
     width: 150px;
-    line-height: 1.5em;
+    line-height:40px;
     text-align: center;
+    border:#ccc solid 1px;
 }
 .recyle_table tr td{
     width: 150px;
-    line-height: 1em;
+    line-height: 30px;
     text-align: center;
+    border: #ccc solid 1px;
+}
+.l-btn {
+    padding:2px 8px;
 }

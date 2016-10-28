@@ -4,7 +4,7 @@ class TreatRecordPutAction extends Action
 {
     public function index()
     {
-        $userId = $_POST['userId'];
+        $userId =  $_POST['userId'];
         /*查找自述卡中的信息*/
         $reportCardId = $_POST['reportCardId'];
         if ($reportCardId != null) {

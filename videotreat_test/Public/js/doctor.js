@@ -269,6 +269,7 @@ function jiezhen(userId, reportCardId, doctorId) {
         dataType: 'json',
         success: function (data) {
             if (data != null) {
+                $('#jiezhen_button').hide();
                 window.open(app + '/Meeting/index?room=' + userId + '&vendorKey=' + data['vendorKey'] + '&resolution=' + data['resolution'], "_blank", "width=" + document.body.clientWidth + ",height=" + document.body.clientHeight + ",top=0,left=" + document.body.clientWidth);
                 $('#userIdUp').val(userId);
                 if (reportCardId != null) {

@@ -3,8 +3,7 @@
 /*                               退出登录接口
  * @param userId                int        用户userId
  * @param doctorId              int         医生Id
- * @param videoEndTime          string      视频结束时间
- * @param videoHistoryId        int         用户记录就诊时间Id
+ * @param type                  string      refuse   noResponse
  * @param client                  int         手机型号区别，1为ios 0为android
  * return code                    int         状态码
  *        message                 string      提示信息
@@ -18,41 +17,33 @@ class UserRefuseVideoAction extends Action
         include_once 'common/Response.class.php';
         $userId = $_POST['userId'];
         $doctorId = $_POST['doctorId'];
+        $type = $_POST['type'];
+
         $line = M("user_line")->where("userId={$userId} and doctorId={$doctorId}")->getField('id');
         if ($line) {
-            /*添加用户行为*/
-            $behaviourInfo = M("user_behaviour")->where("userId={$userId}")->find();
-            $behaviourData['behaviourName'] = "拒绝进入视频";
-            if (!$behaviourInfo) {
-                $behaviourData['userId'] = $userId;
-                M("user_behaviour")->add($behaviourData);
-            } else {
-                $behaviourData['userId'] = $userId;
-                $behaviourData['create_time'] = date("Y-m-d H:i:s");
-                M("user_behaviour")->where("behaviourId={$behaviourInfo['behaviourId']}")->save($behaviourData);
-            }
             /*删除用户的排队*/
-            $del_line = M("user_line")->where("userId={$userId}")->delete();
+            M("user_line")->where("userId={$userId}")->delete();
             /*删除临时自述单的内容*/
             $temporary = M("treat_record_report_card")->where("userId={$userId}")->getField("id");
             if ($temporary) {
-                $del_report = M("treat_record_report_card")->where("userId={$userId}")->delete();
-            } else {
-                $del_report = true;
+                M("treat_record_report_card")->where("userId={$userId}")->delete();
             }
-            if ($del_line && $del_report) {
+            if ($type == 'refuse') {
                 $code = 1;
-                $message = "拒绝进入成功";
-                $data['userId']=$userId;
-                $data['doctorId']=$doctorId;
-                $data['videoStartTime']=date("Y-m-d H:i:s");
-                $data['videoEndTime']=date("Y-m-d H:i:s");
-                $data['videoDuration']=0;
-                M("video_history")->add($data);
+                $message = "拒绝进入";
+            } elseif ($type == 'noResponse') {
+                $code = 1;
+                $message = "无应答";
             } else {
                 $code = 0;
-                $message = "拒绝进入失败";
+                $message = "参数错误";
             }
+            $data['userId'] = $userId;
+            $data['doctorId'] = $doctorId;
+            $data['videoStartTime'] = date("Y-m-d H:i:s");
+            $data['videoEndTime'] = date("Y-m-d H:i:s");
+            $data['videoDuration'] = 0;
+            M("video_history")->add($data);
             return Response::json($code, $message);
         }
     }

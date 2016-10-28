@@ -72,6 +72,7 @@ class UserThirdPartyLoginAction extends Action
             $data['client'] = $client;
             $userId = M("user_db_info")->data($data)->add();/*自增长的，用户userId  将对应的userId  的每个任务和完成情况，在user_task表中，初始化*/;
 
+            /*将对应的userId  的每个任务和完成情况，在user_task表中，初始化*/
             $taskInfo = M("task_info")->field('taskId')->select();
             foreach ($taskInfo as $v) {
                 $taskData['userId'] = $userId;

@@ -10,6 +10,7 @@
  * return code                    int         状态码
  *        message                 string      提示信息
  *        data                    array       返回的数据  为空
+ *
  *              doctorId            int             医生Id
  *
  */
@@ -81,7 +82,14 @@ class LineInfoAction extends Action
                         if ($result) {
                             $code = 1;
                             $message = '加入队列成功';
+                            //加入队列，如果存在行为，清空，防止用户无法接诊
+                            $behaviourInfo = M("user_behaviour")->where("userId={$add_data['userId']}")->find();
+                            if ($behaviourInfo) {
+                                $behaviour_data['behaviourName'] = '';
+                                M("user_behaviour")->where("userId={$add_data['userId']}")->save($behaviour_data);
+                            }
                             $doctorInfo = M("doctor_info")->field("doctorId,doctorName,headPic")->where("doctorId={$doctorId}")->find();
+                            $doctorInfo['userId'] = $add_data['userId'];
                         } else {
                             $code = 0;
                             $message = '加入队列失败';
@@ -93,15 +101,14 @@ class LineInfoAction extends Action
                 }
             }
         } elseif ($state == 'leave') {
-
             $friends = M("user_friends_list")->field('friendUserId')->where("userId={$userId}")->select();
             foreach ($friends as $v) {
-                $friend_user_line_info = M("user_line")->where("userId={$v['friendUserId']} and doctorId={$doctorId}")->find();
+                $friend_user_line_info = M("user_line")->where("userId={$v['friendUserId']} ")->find();
                 if ($friend_user_line_info) {
                     $result1 = M("user_line")->where("userId={$v['friendUserId']}")->delete();
                 }
             }
-            $user_line_info = M("user_line")->where("userId={$userId} and doctorId={$doctorId}")->find();
+            $user_line_info = M("user_line")->where("userId={$userId} ")->find();
             if ($user_line_info) {
                 $result2 = M("user_line")->where("userId={$userId}")->delete();
             }
