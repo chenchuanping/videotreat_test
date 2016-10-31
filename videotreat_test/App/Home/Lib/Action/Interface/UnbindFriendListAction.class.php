@@ -14,10 +14,12 @@ class UnbindFriendListAction extends Action
         if ($result && $result2) {
             $code = 1;
             $message = '解除绑定成功';
+            Response::log($_POST, $code, $message);
             return Response::json($code, $message);
         } else {
             $code = 0;
             $message = '解除绑定失败';
+            Response::log($_POST, $code, $message);
             return Response::json($code, $message);
         }
     }

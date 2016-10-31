@@ -52,7 +52,7 @@ class UserDetailGetAction extends Action
             $code = 0;
             $message = '用户不存在';
         }
-
+        Response::log($_POST, $code, $message, $data);
         return Response::json($code, $message, $data);
     }
 }

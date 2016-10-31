@@ -41,7 +41,7 @@ class UserLoginVideoAction extends Action
             $code = 0;
             $message = '医生不在视频中';
         }
-
+        Response::log($_POST, $code, $message, $data);
         return Response::json($code, $message, $data);
     }
 }

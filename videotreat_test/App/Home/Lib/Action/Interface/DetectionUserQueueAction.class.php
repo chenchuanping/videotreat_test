@@ -25,6 +25,7 @@ class DetectionUserQueueAction extends Action
                 $message = "不在队列中";
             }
         }
+        Response::log($_POST, $code, $message);
         return Response::json($code, $message);
     }
 }

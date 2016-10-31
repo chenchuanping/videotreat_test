@@ -103,7 +103,7 @@ class ReportCardModifyAction extends Action
             $message = "自述卡修改失败";
             $data = array();
         }
-
+        Response::log($_POST,$code,$message,$data);
         return Response::json($code, $message, $data);
     }
 }

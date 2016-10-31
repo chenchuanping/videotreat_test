@@ -44,9 +44,15 @@ class NearHospitalAction extends Action
         }
         $data['hospitalList'] = $hospitalList_detail;
         if ($data) {
-            return Response::json(1, '附近医院获取成功', $data);
+            $code = 1;
+            $message = '附近医院获取成功';
+            Response::log($_POST, $code, $message, $data);
+            return Response::json($code, $message, $data);
         } else {
-            return Response::json(1, '附近医院为空', array());
+            $code = 1;
+            $message = '附近医院为空';
+            Response::log($_POST, $code, $message);
+            return Response::json($code, $message, array());
         }
     }
 }

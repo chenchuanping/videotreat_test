@@ -38,6 +38,7 @@ class UserModifyPWDAction extends Action
             $code = 0;
             $message = "旧密码不正确";
         }
+        Response::log($_POST, $code, $message);
         return Response::json($code, $message);
     }
 }

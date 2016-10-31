@@ -94,14 +94,19 @@ class ReportCardPutAction extends Action
                 for ($i = 1; $i <= $len; $i++) {
                     $data['image_' . $i] = $reportCardImages[$i - 1];
                 }
+                Response::log($_POST, $code, $message, $data);
                 return Response::json($code, $message, $data);
             } else {
-                return Response::json(0, "添加失败", array());
+                $code = 0;
+                $message = '添加失败';
+                Response::log($_POST, $code, $message);
+                return Response::json($code, $message, array());
             }
         } else {
             $code = 0;
             $message = "自述卡填写失败";
             $data = array();
+            Response::log($_POST, $code, $message, $data);
             return Response::json($code, $message, $data);
         }
 

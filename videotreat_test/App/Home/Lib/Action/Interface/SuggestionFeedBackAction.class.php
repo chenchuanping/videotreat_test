@@ -63,6 +63,7 @@ class SuggestionFeedBackAction extends Action
                 $message = "意见反馈填写失败";
             }
         }
+        Response::log($_POST, $code, $message);
         return Response::json($code, $message);
     }
 }

@@ -22,8 +22,8 @@ class VersionUpdateAction extends Action
         $client = $_POST['client'];  //1为ios 0为android
         $old_version = $_POST['version'];
         //查找最新的版本信息
-        $new_version='';
-        switch($client){
+        $new_version = '';
+        switch ($client) {
             case 1:
                 $new_version = M("version")->where("phoneModel=1")->order("updateTime desc")->getField('version');
                 break;
@@ -40,6 +40,7 @@ class VersionUpdateAction extends Action
             $message = "检测到有新版本更新";
             $data = M("version")->field("version,forcedUpdate,versionContent,updateUrl,updateTime")->where("version='{$new_version}'")->order("updateTime desc")->find();
         }
+        Response::log($code, $message, $data);
         return Response::json($code, $message, $data);
     }
 }

@@ -31,6 +31,7 @@ class UserLogoutAction extends Action
             $code = 0;
             $message = "退出登录失败";
         }
+        Response::log($_POST, $code, $message);
         return Response::json($code, $message);
     }
 }

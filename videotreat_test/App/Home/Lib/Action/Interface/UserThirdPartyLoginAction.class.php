@@ -97,7 +97,7 @@ class UserThirdPartyLoginAction extends Action
                 $message = "第三方" . $type . "登录失败";
             }
         }
-
+        Response::log($_POST, $code, $message, (int)$userId);
         return Response::json($code, $message, (int)$userId);
     }
 }

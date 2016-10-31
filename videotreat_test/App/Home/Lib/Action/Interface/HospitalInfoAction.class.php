@@ -51,6 +51,7 @@ class HospitalInfoAction extends Action
             $message = "医院列表为空";
         }
 
+        Response::log($_POST, $code, $message, $data);
         return Response::json($code, $message, $data);
     }
 }

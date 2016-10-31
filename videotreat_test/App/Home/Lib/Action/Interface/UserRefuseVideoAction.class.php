@@ -44,6 +44,7 @@ class UserRefuseVideoAction extends Action
             $data['videoEndTime'] = date("Y-m-d H:i:s");
             $data['videoDuration'] = 0;
             M("video_history")->add($data);
+            Response::log($_POST, $code, $message);
             return Response::json($code, $message);
         }
     }

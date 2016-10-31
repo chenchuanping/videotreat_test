@@ -68,7 +68,13 @@ class UserLoginVerifyAction extends Action
                     ->options($options);
                 $result = $response->send();//发送推送
                 if ($result) {
-                    echo Response::json(1, '推送成功');
+                    $code = 1;
+                    $message = '推送成功';
+                    Response::log($code, $message);
+                } else {
+                    $code = 0;
+                    $message = '推送失败';
+                    Response::log($_POST, $code, $message);
                 }
             }
         }

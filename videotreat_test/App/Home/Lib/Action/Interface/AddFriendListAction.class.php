@@ -76,15 +76,18 @@ class AddFriendListAction extends Action
                     ->find();
                 $userInfo['sex'] = $userInfo['sex_value'];
                 unset($userInfo['sex_value']);
+                Response::log($_POST, $code, $message, $userInfo);
                 return Response::json($code, $message, $userInfo);
             } else {
                 $code = 0;
                 $message = '添加亲友失败';
+                Response::log($_POST, $code, $message);
                 return Response::json($code, $message);
             }
         } else {
             $code = 0;
             $message = '添加亲友失败';
+            Response::log($_POST, $code, $message);
             return Response::json($code, $message);
         }
     }

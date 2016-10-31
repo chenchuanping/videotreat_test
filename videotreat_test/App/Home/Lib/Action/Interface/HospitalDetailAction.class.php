@@ -59,8 +59,10 @@ class HospitalDetailAction extends Action
         $data['doctorList'] = $doctorInfo;
         $data['introduction'] = $introduction;
         if ($data) {
+            Response::log($_POST, 1, $message, $data);
             return Response::json(1, $message, $data);
         } else {
+            Response::log($_POST, 1, $message, $data);
             return Response::json(1, "医院详情为空", array());
         }
 

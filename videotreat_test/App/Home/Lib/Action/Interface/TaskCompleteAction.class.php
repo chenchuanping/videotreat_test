@@ -59,9 +59,15 @@ class TaskCompleteAction extends Action
             /*添加到user_grade的表中，而且对等级进行处理*/
             M("user_grade")->where("userId={$userId}")->save($user_task);
             if ($result) {
-                return Response::json(1, '任务完成');
+                $code = 1;
+                $message = '任务完成';
+                Response::log($_POST, $code, $message);
+                return Response::json($code, $message);
             } else {
-                return Response::json(0, '任务未完成');
+                $code = 0;
+                $message = '任务未完成';
+                Response::log($_POST, $code, $message);
+                return Response::json($code, $message);
             }
         }
     }

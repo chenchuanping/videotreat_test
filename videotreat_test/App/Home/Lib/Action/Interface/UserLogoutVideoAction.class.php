@@ -67,6 +67,7 @@ class UserLogoutVideoAction extends Action
             $code = 0;
             $message = '填写视频记录失败';
         }
+        Response::log($_POST, $code, $message);
         return Response::json($code, $message);
     }
 }

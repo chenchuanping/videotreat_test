@@ -90,6 +90,7 @@ class ModFriendListAction extends Action
         } else {
             $code = 0;
             $message = '修改失败';
+            Response::log($_POST, $code, $message);
             return Response::json($code, $message);
         }
     }

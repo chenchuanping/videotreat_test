@@ -16,8 +16,8 @@ class UserSignInAction extends Action
     {
         include_once 'common/Response.class.php';
         /*接受客户端POST过来的数据*/
-        $userId =   $_POST['userId'];
-        $signInDate =   $_POST['signInDate'];     //签到日期
+        $userId = $_POST['userId'];
+        $signInDate = $_POST['signInDate'];     //签到日期
         $client = $_POST['client'];/*0为安卓，1为iOS*/
         $date['signInDate'] = $signInDate;
         $date['signIn'] = 1;          /*表示已签到*/
@@ -31,14 +31,14 @@ class UserSignInAction extends Action
             if (!$result) {
                 $code = 0;
                 $message = "签到失败";
-            }else{
+            } else {
                 $code = 1;
                 $message = "签到成功";
             }
-        }else{
+        } else {
             $code = 101;
             $message = "已签到";
-            $data=array();
+            $data = array();
         }
         $userSignInInfo = M("user_sign_in")
             ->field('signInDate')
@@ -46,12 +46,14 @@ class UserSignInAction extends Action
             ->order('signInDate')
             ->select();
         foreach ($userSignInInfo as $item) {
-            $signInDateList[]=$item['signInDate'];
+            $signInDateList[] = $item['signInDate'];
         }
         $data['signInDate'] = $signInDateList;
         if ($data) {
+            Response::log($_POST, $code, $message, $data);
             return Response::json($code, $message, $data);
         } else {
+            Response::log($_POST, $code, $message);
             return Response::json($code, $message, array());
         }
     }

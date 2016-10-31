@@ -37,7 +37,7 @@ class FriendListGetAllAction extends Action
             $message = "亲友列表为空";
             $data = '';
         }
-
+        Response::log($_POST, $code, $message, $data);
         return Response::json($code, $message, $data);
     }
 

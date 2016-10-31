@@ -69,6 +69,7 @@ class TreatRecordGetAction extends Action
             $message = "就诊记录为空";
             $data = array();
         }
+        Response::log($_POST, $code, $message, $data);
         return Response::json($code, $message, $data);
     }
 }

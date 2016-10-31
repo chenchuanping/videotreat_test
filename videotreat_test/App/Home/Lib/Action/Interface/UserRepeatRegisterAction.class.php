@@ -27,6 +27,7 @@ class UserRepeatRegisterAction extends Action
             $code = 1;
             $message = "手机号未注册！";
         }
+        Response::log($_POST, $code, $message, $data);
         return Response::json($code, $message, $data);
     }
 }

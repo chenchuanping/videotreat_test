@@ -58,9 +58,14 @@ class UserAttentionAction extends Action
             $message = "没有更多数据了";
         }
         if ($data) {
-            return Response::json(1, $message, $data);
+            $code = 1;
+            Response::log($_POST, $code, $message, $data);
+            return Response::json($code, $message, $data);
         } else {
-            return Response::json(1, '用户关注为空', array());
+            $code = 1;
+            $message = '用户关注为空';
+            Response::log($_POST, $code, $message);
+            return Response::json($code, $message, array());
         }
     }
 }

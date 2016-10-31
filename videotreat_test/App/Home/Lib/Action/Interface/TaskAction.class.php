@@ -88,9 +88,15 @@ class TaskAction extends Action
         $data['task'] = $taskInfo;
 
         if ($data && $userId) {
-            return Response::json(1, '任务详情获取成功', $data);
+            $code = 1;
+            $message = '任务详情获取成功';
+            Response::log($_POST, $code, $message, $data);
+            return Response::json($code, $message, $data);
         } else {
-            return Response::json(0, '任务详情获取失败');
+            $code = 0;
+            $message = '任务详情获取失败';
+            Response::log($_POST, $code, $message, $data);
+            return Response::json($code, $message);
         }
     }
 }

@@ -9,6 +9,8 @@ define('APP_DEBUG',true);
 define('APP_NAME','videotreat_test');
 //定义应用目录
 define('APP_PATH','App/Home/');
+//定义api接口日志信息
+define('API_LOG','api.log');
 //指定项目根目录
 define('__ROOT__','/videotreat_test');
 // 引入ThinkPHP入口文件

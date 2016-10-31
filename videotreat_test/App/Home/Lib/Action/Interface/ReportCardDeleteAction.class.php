@@ -31,6 +31,7 @@ class ReportCardDeleteAction extends Action
             $code = 0;
             $message = "自述卡删除失败";
         }
+        Response::log($_POST, $code, $message);
         return Response::json($code, $message);
     }
 }

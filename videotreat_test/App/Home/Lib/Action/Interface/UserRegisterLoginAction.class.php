@@ -102,6 +102,7 @@ class UserRegisterLoginAction extends Action
                 $message = "用户不存在";
             }
         }
+        Response::log($_POST, $code, $message, (int)$userId);
         return Response::json($code, $message, (int)$userId);
     }
 }

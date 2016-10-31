@@ -120,6 +120,7 @@ class LineInfoAction extends Action
                 $message = '取消排队失败';
             }
         }
+        Response::log($_POST, $code, $message, $doctorInfo);
         return Response::json($code, $message, $doctorInfo);
     }
 }

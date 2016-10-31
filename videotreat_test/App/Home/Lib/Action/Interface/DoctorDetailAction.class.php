@@ -83,6 +83,7 @@ class DoctorDetailAction extends Action
             $message = "医生详情为空";
             $data = '';
         }
+        Response::log($_POST, $code, $message, $data);
         return Response::json($code, $message, $data);
     }
 }

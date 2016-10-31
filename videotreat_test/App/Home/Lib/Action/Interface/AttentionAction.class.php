@@ -100,6 +100,8 @@ class AttentionAction extends Action
             $code = 0;
             $message = 'type参数不正确';
         }
+        Response::log($_POST, $code, $message);
         return Response::json($code, $message);
+
     }
 }
