@@ -36,8 +36,17 @@ class TaskAction extends Action
             if (!$user_task)
                 M("user_task")->data($taskData)->add();
         }
+        /*定时清除用户完成情况*/
+        $time = date("H:i:s");
+        $hour = substr($time, 0, 2);
+        $minute = substr($time, 3, 2);
+        $second = substr($time, 6, 2);
 
-        /*用户签到*/
+        if ($hour == '24' && $minute == '00' && $second == '00') {
+            $clear_task['taskState'] = 0;
+            $sql = "update user_task  inner  join task_info on user_task.taskId=task_info.taskId set taskState=0 where task_info.taskType='daily'";
+            M()->execute($sql);
+        }
         /*得到今天的日期*/
         $today = date('j');
         $userSignInfo = M("user_sign_in")->field('signIn')->where("userId={$userId} and signInDate={$today}")->find();
