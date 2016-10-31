@@ -342,6 +342,7 @@ CREATE TABLE user_task (
 	taskState INT NOT NULL DEFAULT 0 COMMENT '任务完成情况 1是完成，0是未完成'
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '用户—任务关联表';
 
+ALTER TABLE user_task drop id;
 /*标签表*/
 CREATE TABLE label (
 	labelId INT auto_increment PRIMARY KEY COMMENT '标签Id',

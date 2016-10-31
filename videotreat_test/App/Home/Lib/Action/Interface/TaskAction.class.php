@@ -26,6 +26,17 @@ class TaskAction extends Action
         $type = $_POST['type'];
         $userId = $_POST['userId'];
         $client = $_POST['client'];/*0为安卓，1为iOS*/
+
+        /*将对应的userId  的每个任务和完成情况，在user_task表中，初始化*/
+        $taskInfo = M("task_info")->field('taskId')->select();
+        foreach ($taskInfo as $v) {
+            $taskData['userId'] = $userId;
+            $taskData['taskId'] = $v['taskId'];
+            $user_task = M("user_task")->where("userId={$userId} and taskId={$v['taskId']}")->find();
+            if (!$user_task)
+                M("user_task")->data($taskData)->add();
+        }
+
         /*用户签到*/
         /*得到今天的日期*/
         $today = date('j');

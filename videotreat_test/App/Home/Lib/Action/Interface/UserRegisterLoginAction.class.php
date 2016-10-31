@@ -43,13 +43,6 @@ class UserRegisterLoginAction extends Action
                     /*初始化基本信息*/
                     $user_base['userId'] = $userId;
                     M("user_base_info")->data($user_base)->add();
-                    /*将对应的userId  的每个任务和完成情况，在user_task表中，初始化*/
-                    $taskInfo = M("task_info")->field('taskId')->select();
-                    foreach ($taskInfo as $v) {
-                        $taskData['userId'] = $userId;
-                        $taskData['taskId'] = $v['taskId'];
-                        M("user_task")->data($taskData)->add();
-                    }
                 } else {
                     $message = "注册失败";
                 }
