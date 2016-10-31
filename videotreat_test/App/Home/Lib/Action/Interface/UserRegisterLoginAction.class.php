@@ -28,6 +28,7 @@ class UserRegisterLoginAction extends Action
         if ($type == 'register') {          /*注册*/
             $userData['tel'] = $tel;
             $userData['password'] = $password;
+            $userData['client '] = $client;
             $userInfo = M("user_db_info")->where("tel='{$userData['tel']}'")->find();
             if ($userInfo) {
                 $code = 101;

@@ -30,9 +30,11 @@ class UserLoginVerifyAction extends Action
                 //修改imei
                 $data['imei'] = $imei;
                 M('user_db_info')->where("userId={$userId}")->save($data);
-                /*Jpush的key*/
-                $master_secret = '65ea9cd2feed0fe958bed712';
-                $app_key = '9f4c66ea416044f26c3623d1';
+                /*jpush主密码*/
+                $master_secret = M("system_param")->where("paramCode='jpush_master_secret'")->getField("paramValue");
+                /*jpushApKey*/
+                $app_key = M("system_param")->where("paramCode='jpush_app_key'")->getField("paramValue");
+
 
                 $client = new JPush\Client($app_key, $master_secret);  //调用推送之前，先初始化JPushClient
 

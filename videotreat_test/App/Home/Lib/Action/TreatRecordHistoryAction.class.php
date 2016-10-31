@@ -49,7 +49,7 @@ class  TreatRecordHistoryAction extends Action
         $page->setConfig('next', '下一页');
         $page->setConfig('last', '末页');
         $page->setConfig('first', '首页');
-        $page->setConfig('theme', "%totalRow% %header% %nowPage%/%totalPage% 页 %upPage% %downPage% %first% %prePage% %linkPage% %nextPage% %end%");
+        $page->setConfig('theme', "&nbsp;&nbsp;&nbsp;%nowPage%/%totalPage% 页 %upPage% %downPage% %first% %prePage% %linkPage% %nextPage% %end%");
         //显示页码
         $show = $page->show();
         $this->assign('count', $totalRow);

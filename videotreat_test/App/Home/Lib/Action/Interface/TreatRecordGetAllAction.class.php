@@ -39,7 +39,7 @@ class TreatRecordGetAllAction extends Action
         $client = $_POST['client'];/*0为安卓，1为iOS*/
 
         $userTreatInfo = M("treat_record")
-            ->field('treatRecordId,treat_record.doctorId,db.userName,doctor.doctorName,userComplaint,userHPC,userPMH,doctorSuggest,treatTime,reportCardRemark,reportCardDescribe,reportCardImage')
+            ->field('treatRecordId,treat_record.doctorId,db.userName,doctor.doctorName,userComplaint,userHPC,userPMH,doctorSuggest,treatTime,reportCardDescribe,reportCardImage')
             ->join('user_db_info as db on treat_record.userId=db.userId')
             ->join("doctor_info as doctor on treat_record.doctorId=doctor.doctorId")
             ->where("treat_record.userId={$userId}")
@@ -47,7 +47,7 @@ class TreatRecordGetAllAction extends Action
         $friends = M('user_friends_list')->field('friendUserId')->where("userId={$userId}")->select();
         foreach ($friends as $value) {
             $friendTreatInfo = M("treat_record")
-                ->field('treatRecordId,treat_record.doctorId,db.userName,doctor.doctorName,userComplaint,userHPC,userPMH,doctorSuggest,treatTime,reportCardRemark,reportCardDescribe,reportCardImage')
+                ->field('treatRecordId,treat_record.doctorId,db.userName,doctor.doctorName,userComplaint,userHPC,userPMH,doctorSuggest,treatTime,reportCardDescribe,reportCardImage')
                 ->join('user_db_info as db on treat_record.userId=db.userId')
                 ->join("doctor_info as doctor on treat_record.doctorId=doctor.doctorId")
                 ->where("treat_record.userId={$value['friendUserId']}")

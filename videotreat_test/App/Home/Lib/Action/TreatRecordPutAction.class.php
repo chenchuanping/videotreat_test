@@ -4,11 +4,11 @@ class TreatRecordPutAction extends Action
 {
     public function index()
     {
-        $userId =  $_POST['userId'];
+        $userId = $_POST['userId'];
         /*查找自述卡中的信息*/
         $reportCardId = $_POST['reportCardId'];
         if ($reportCardId != null) {
-            $reportCardInfo = M('treat_record_report_card')->where("reportCardId={$reportCardId} and userId={$userId}")->find();
+            $reportCardInfo = M('treat_record_report_card')->where("reportCardId={$reportCardId}")->find();
             $_POST['reportCardName'] = $reportCardInfo['reportCardName'];
             $_POST['reportCardDescribe'] = $reportCardInfo['reportCardDescribe'];
             $_POST['reportCardImage'] = $reportCardInfo['reportCardImage'];
@@ -16,13 +16,12 @@ class TreatRecordPutAction extends Action
         unset($_POST['reportCardId']);
         $doctorId = $_SESSION['userMsg']['doctorId'];
         $_POST['doctorId'] = $doctorId;
-
         /*添加到就诊记录表中*/
         $result = M("treat_record")->data($_POST)->add();
         if ($result) {
             /*修改医生表中，医生退出视频*/
-            $doctor_isInVideo=M('doctor_info')->where("doctorId={$doctorId}")->getField("isInVideo");
-            if($doctor_isInVideo==1){
+            $doctor_isInVideo = M('doctor_info')->where("doctorId={$doctorId}")->getField("isInVideo");
+            if ($doctor_isInVideo == 1) {
                 $isInVideo['isInVideo'] = 0;
                 M("doctor_info")->where("doctorId={$doctorId}")->save($isInVideo);
             }

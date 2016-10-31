@@ -8,9 +8,7 @@ $(function () {
     $('#content_right').css('width', conWidth * 2);
     $('.dk_toggle').css('color', '#000');
     $('button').button();
-    /*刷新页面时，初始化时*/
-    //$('#userIdUp').val('');               //基本信息-自述单中的隐藏字段设置为空
-    //$("#reportCardIdUp").val('');        //基本信息-自述单中的隐藏字段设置为空
+
     //主诉光标丢失验证
     $('#userComplaint').blur(function () {
         var v = $(this).val();
@@ -258,6 +256,7 @@ $(".get_user_line").click(function () {
 
 //接诊按钮
 function jiezhen(userId, reportCardId, doctorId) {
+    $('#jiezhen_button').hide();
     /*先清除隐藏表单内容*/
     $('#userIdUp').val('');
     $('#reportCardIdUp').val('');
@@ -269,7 +268,6 @@ function jiezhen(userId, reportCardId, doctorId) {
         dataType: 'json',
         success: function (data) {
             if (data != null) {
-                $('#jiezhen_button').hide();
                 window.open(app + '/Meeting/index?room=' + userId + '&vendorKey=' + data['vendorKey'] + '&resolution=' + data['resolution'], "_blank", "width=" + document.body.clientWidth + ",height=" + document.body.clientHeight + ",top=0,left=" + document.body.clientWidth);
                 $('#userIdUp').val(userId);
                 if (reportCardId != null) {

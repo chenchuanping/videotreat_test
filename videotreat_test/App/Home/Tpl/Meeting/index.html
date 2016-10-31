@@ -148,7 +148,7 @@
     <!-- Footer -->
     <footer id="footer">
         <ul class="copyright">
-            <li>北京信创达科技有限公司</li>
+            <li>北京云医视讯科技有限公司</li>
         </ul>
     </footer>
 </div>

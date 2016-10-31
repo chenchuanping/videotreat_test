@@ -127,7 +127,7 @@ CREATE TABLE hospital_info (
 CREATE TABLE doctor_info (
 	doctorId INT PRIMARY KEY AUTO_INCREMENT COMMENT '医生编号',
 	doctorName VARCHAR (32) NOT NULL COMMENT '医生姓名',
-	PASSWORD VARCHAR (32) NOT NULL COMMENT '医生密码',
+	password VARCHAR (32) NOT NULL COMMENT '医生密码',
 	tel VARCHAR (20) NOT NULL UNIQUE COMMENT '医生手机号',
 	stateId INT NOT NULL DEFAULT 3 COMMENT '医生状态  关联state_info表',
 	isInVideo   INT   NOT NULL DEFAULT 0  COMMENT '医生是否在视频中，1表示在，0表示不在',
@@ -171,6 +171,7 @@ CREATE TABLE user_db_info (
 	birthday VARCHAR (40) DEFAULT '' COMMENT '出生日期',
 	imei VARCHAR (20) NOT NULL DEFAULT '' COMMENT '手机的唯一识别号码',
 	third_type VARCHAR (20) DEFAULT '' COMMENT '第三方登录类型',
+	in_friend_list int(1) DEFAULT 0 COMMENT '是否在亲友列表中',
 	client INT (1) DEFAULT '1' COMMENT '手机型号 1是苹果0是安卓',
 	login_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	FOREIGN KEY (sex_key) REFERENCES dic_user_sex (sex_key)
@@ -234,6 +235,7 @@ CREATE TABLE user_report_card (
 	reportCardDescribe VARCHAR (1000) NULL COMMENT '病情自述',
 	reportCardRemark VARCHAR (1000) NULL COMMENT '备注说明',
 	reportCardImage VARCHAR (1000) NULL COMMENT '自述卡图片',
+	imageCount int DEFAULT NULL COMMENT '图片数量',
 	FOREIGN KEY (userId) REFERENCES user_db_info (userId)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '自述卡';
 
@@ -389,7 +391,6 @@ CREATE TABLE treat_record (
 	doctorSuggest VARCHAR (1000) NOT NULL DEFAULT '' COMMENT '医生建议',
 	remarkId INT NULL COMMENT '描述',
 	reportCardDescribe VARCHAR (1000) NOT NULL DEFAULT '' COMMENT '自述卡详情',
-	reportCardRemark VARCHAR (100) NOT NULL DEFAULT '' COMMENT '自述卡描述',
 	reportCardImage VARCHAR (1000) NOT NULL DEFAULT '' COMMENT '自述卡图片',
 	treatTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '接诊日期 yyyy-MM-dd HH:mm:ss',
 	PRIMARY KEY (treatRecordId),
@@ -435,12 +436,12 @@ CREATE TABLE role_action (
 CREATE TABLE manager_info (
 	managerId INT auto_increment PRIMARY KEY,
 	managerName VARCHAR (100) NOT NULL COMMENT '管理员姓名',
-	PASSWORD VARCHAR (32) NOT NULL COMMENT '密码',
+	password VARCHAR (32) NOT NULL COMMENT '密码',
 	systemAdmin INT (1) NOT NULL DEFAULT 0 COMMENT '是否是系统管理员',
 	isDel INT NOT NULL DEFAULT 0 COMMENT '是否删除，1为删除'
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '管理员表';
 
-INSERT INTO manager_info (managerName, PASSWORD)VALUES('admin', md5('123456'));
+INSERT INTO manager_info (managerName, password)VALUES('admin', md5('123456'));
 
 /*管理员-医院-角色表*/
 CREATE TABLE manager_hospital (
