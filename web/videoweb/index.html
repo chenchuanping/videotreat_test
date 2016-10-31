@@ -1,0 +1,735 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>视频诊疗</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+<link href="../common/indexpage/css/bootstrap.css" rel='stylesheet'
+	type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- Custom Theme files -->
+<link href="../common/indexpage/css/styleindex.css" rel='stylesheet'
+	type='text/css' />
+
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript">
+	
+	
+	
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
+</script>
+<!--webfont-->
+
+<style type="text/css">
+
+table.treatline {
+	font-family: verdana, arial, sans-serif;
+	font-size: 12px;
+	color: #333333;
+	border-width: 1px;
+	border-color: #a9c6c9;
+	border-collapse: collapse;
+	width: 100%;
+	height: 30%;
+	text-align: center;
+}
+
+table.treatline th {
+	border-width: 1px;
+	padding: 12px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+
+table.treatline td {
+	border-width: 1px;
+	padding: 12px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+
+table.altrowstable {
+	font-family: verdana, arial, sans-serif;
+	font-size: 12px;
+	color: #333333;
+	border-width: 1px;
+	border-color: #a9c6c9;
+	border-collapse: collapse;
+	width: 100%;
+	height: 30%;
+}
+
+table.altrowstable th {
+	border-width: 1px;
+	padding: 12px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+
+table.altrowstable td {
+	border-width: 1px;
+	padding: 12px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+
+.oddrowcolor {
+	background-color: #d4e3e5;
+}
+
+.evenrowcolor {
+	background-color: #c3dde0;
+}
+
+.font_type {
+	color: #a9c6c9;
+	font-weight: bold;
+	font-size: 15px;
+}
+</style>
+<script type="text/javascript"
+	src="../common/indexpage/js/jquery-1.11.1.min.js"></script>
+<script src="../common/indexpage/js/jquery.easydropdown.js"></script>
+<script src="../common/indexpage/js/responsiveslides.min.js"></script>
+<script>
+	$(function() {
+		$("#slider").responsiveSlides({
+			auto : true,
+			nav : true,
+			speed : 500,
+			namespace : "callbacks",
+			pager : true,
+		});
+	});
+	
+	
+</script>
+
+<script type="text/javascript">
+
+
+
+	//初始化判断是否登陆		
+	$(document).ready(function() {
+		checkuserlogin();
+
+	});
+
+	//初始化判断是否登录
+	function checkuserlogin() {
+		$.ajax({
+			url : '../checkdoctor.action',
+			type : "post",
+			dataType : "json",
+			data : "",
+			success : function(data) {
+			//查看医生状态
+					 var dstate = data.dstate;
+						setSelectChecked("ww",dstate);
+				if (data.RespResult == 0) {
+					//alert("登陆成功");
+				setInterval("get_sel()", 3000);
+
+				} else {
+					//alert("没有登陆");
+					location.href = "./demo.html";
+				}
+			}
+		});
+	}
+	//就诊历史查询
+	function myHistory() {
+		document.getElementById("treatRecordAgree").style.display = "none";//隐藏
+
+		$.ajax({
+					url : '../docHistory.action',
+					type : "post",
+					dataType : "json",
+					data : "StartRow=0&PageSize=50",
+					success : function(data) {
+						if (typeof (data.data) != "undefined") {
+							// alert("wwwww");
+							var inse = '<div ><table class="altrowstable" id="alternatecolor"><tr ><td colspan="6" class="font_type">就诊历史</td></tr><tr><td>序号</td><td>姓名</td><td>性别</td><td>年龄</td><td>就诊时间</td><td>操作</td></tr>';
+							$
+									.each(
+											data.data,
+											function(idx, tre) {
+												inse += '<tr><td>'
+														+ idx
+														+ '</td><td>'
+														+ tre.uname
+														+ '</td><td>'
+														+ tre.usex
+														+ '</td><td>'
+														+ tre.uages
+														+ '</td><td>'
+														+ tre.treatdate
+														+ '</td><td><a href="javascript:;"  onClick="detailtreat('
+														+ tre.Autoid
+														+ ');">查看详情</a></td></tr>';
+											});
+							inse += '</table></div>';
+							$("#treadRecord").html(inse);
+						} else {
+							var nul = '';
+							$("#treadRecord").html(nul);
+						}
+					}
+				});
+
+	}
+	//点击详情查看页面
+	var autoid;
+	function detailtreat(autoid) {
+		document.getElementById("treadRecordDetail").style.display = "";//显示就诊历史详情
+		$
+				.ajax({
+					url : '../treatHistoryDetail.action',
+					type : "post",
+					dataType : "json",
+					data : {
+						autoid : autoid
+					},
+					success : function(data) {
+						if (typeof (data.data) != "undefined") {
+							var detailhtml = '';
+							$
+									.each(
+											data.data,
+											function(idx, tred) {
+												detailhtml += '<div><table class="altrowstable" id="alternatecolor"><tr ><td colspan="2" class="font_type">就诊历史详情</td></tr><tr><td>姓名:</td><td>'
+														+ tred.uname
+														+ '</td></tr><tr><td>性别:</td><td>'
+														+ tred.usex
+														+ '</td></tr><tr><td>年龄:</td><td>'
+														+ tred.uages
+														+ '</td></tr><tr><td>就诊时间:</td><td>'
+														+ tred.treatdate
+														+ '+'
+														+ tred.treattime
+														+ '</td></tr><tr><td>就诊问题:</td><td>'
+														+ tred.treatwenti
+														+ '</td></tr><tr><td>主诉:</td><td>'
+														+ tred.mchief
+														+ '</td></tr><tr><td>现病史:</td><td>'
+														+ tred.medicalhistory
+														+ '</td></tr><tr><td>医生建议:</td><td>'
+														+ tred.dsuggest
+														+ '</td></tr></table></div>';
+											});
+							$("#treadRecordDetail").html(detailhtml);
+
+						} else {
+							var nul = '';
+							$("#treadRecordDetail").html(nul);
+						}
+					}
+				});
+	}
+	//获取用户信息
+	function userdetail(uid) {
+		document.getElementById("treadRecordDetail").style.display = "none";//隐藏就诊历史详情
+		//alert(uid);
+
+		$
+				.ajax({
+					url : '../userDetail.action',
+					type : "post",
+					dataType : "json",
+					data : {
+						autoid : uid
+					},
+					success : function(data) {
+						if (typeof (data.data) != "undefined") {
+							var userhtml = '';
+							$
+									.each(
+											data.data,
+											function(idx, user) {
+												userhtml += '<div><table class="altrowstable" id="alternatecolor"><tr ><td colspan="6" class="font_type">用户基本信息</td></tr><tr><td>姓名:</td><td>'
+														+ user.uname
+														+ '</td><td>年龄:</td><td>'
+														+ user.uages
+														+ '</td><td>性别:</td><td>'
+														+ user.usex
+														+ '</td></tr>'
+														+ '<tr><td>联系电话:</td><td>'
+														+ user.telno
+														+ '</td><td>身高:</td><td>'
+														+ user.stature
+														+ '</td><td>体重:</td><td>'
+														+ user.weight
+														+ '</td></tr>'
+														+ '<tr><td>地址:</td><td colspan="5">'
+														+ user.address
+														+ '</td></tr></table></div>';
+											});
+
+							$("#treadRecord").html(userhtml);
+
+						} else {
+							var nul = '<div><table border="3"><tr><td>姓名:</td><td>'
+									+ +'</td><td>年龄:</td><td>'
+									+ +'</td><td>血型:</td><td>'
+									+ +'</td></tr>'
+									+ '<tr><td>联系电话:</td><td>'
+									+ +'</td><td>身高:</td><td>'
+									+ +'</td><td>体重:</td><td>'
+									+ +'</td></tr>'
+									+ '<tr><td>地址:</td><td>' + +'</td></tr>';
+							$("#treadRecord").html(nul);
+						}
+					}
+				});
+	}
+
+	
+var uid2;	
+	//获取用户排队信息列表页面
+	function get_sel() {
+	
+		$
+				.ajax({
+					url : '../lineInfo.action',
+					type : "post",
+					dataType : "json",
+					data : "StartRow=0&PageSize=50",
+					success : function(data) {
+						if (typeof (data.data) != "undefined") {
+						   var inshtml = '<div style="height:200px;overflow:auto;background:#F8F8FF;"><table class="treatline" id="alternatecolor"><tr bgcolor="#D4EBFD"><td>序号</td><td>姓名</td><td>性别</td><td>年龄</td><td>操作</td></tr>';
+							$.each(data.data,function(idx, tre) {
+								inshtml += '<tr><td>'
+														+ idx
+														+ '</td><td><a href="javascript:;"  onClick="userdetail('
+														+ tre.uid
+														+ ');">'
+														+ tre.uname
+														+ '</a></td><td>'
+														+ tre.usex
+														+ '</td><td>'
+														+ tre.uages
+														+ '</td><td id="jz"style="width: 20%;height:20px;"><a href="javascript:;"  onClick="agreeVideo('
+														+ tre.uid
+														+ ','
+														+ tre.did
+														+ ');"><img width="80px" height="30px" src="../common/indexpage/jiezhen.png" /></a></td></tr>';
+											});
+											//没有数据
+							inshtml += '</table></div>';
+							$("#linehtml").html(inshtml);
+							//关闭挂断按钮
+                                       $.each(data.data,function(idx2, tre2) {
+                                         if(tre2.uid==uid2){
+											//alert("yyyyy");
+											document.getElementById("guaduan").style.display = "";//显示
+											}else{
+											//alert("xxxxxx");
+											abc();
+											
+											}});
+
+
+						} else {
+							var nul = '<div><table class="altrowstable" id="alternatecolor"><tr bgcolor="#D4EBFD"><td>序号</td><td>姓名</td><td>性别</td><td>年龄</td><td>就诊时间</td><td>操作</td></tr><tr><td colspan="6" align="center"><font style="font-weight:bold;font-style:italic;color:#00000;">无排队信息</font></td></tr></table></div>';
+							$("#linehtml").html(nul);
+							abc();
+						}
+					}
+				});
+	}
+	var publisher;
+	var apiKey;
+	var sessionId;
+	var token;
+	var session;
+	//接诊按钮
+	function agreeVideo(uid, did) {
+		document.getElementById("uidup").value = uid;
+		document.getElementById("didup").value = did;
+		uid2=uid;
+		//alert(uid2+"hhhhhhhhhhhhhhhhhhh");
+		//右侧显示用户信息
+		userdetail(uid);
+		document.getElementById("treatRecordAgree").style.display = "";//显示
+
+		$.ajax({
+			url : '../agreeVideo.action',
+			type : "post",
+			dataType : "json",
+			data : {
+				uid : uid,
+				did : did
+			},
+			success : function(data) {
+				if (data.RespResult == 0) {
+
+					apiKey = data.apiKey;
+					sessionId = data.sessionId;
+					token = data.token;
+					//alert(token);
+					videoTreat(apiKey, sessionId, token);
+					userdetail(uid);
+
+				} else {
+					alert("网络不通畅，请重试");
+				}
+
+			}
+		});
+	}
+
+	//安全退出页面
+	function logout() {
+		$.ajax({
+			url : '../webloginout.action',
+			type : "post",
+			dataType : "json",
+			data : "",
+			success : function(data) {
+				//alert("退出成功");
+				location.href = "./demo.html";
+			}
+		});
+	}
+	//修改医生状态
+	function log() {
+
+		var objS = document.getElementById("ww");
+		var grade = objS.options[objS.selectedIndex].value;
+		//alert(grade);
+		$.ajax({
+			url : '../dstate.action',
+			type : "post",
+			data : {
+				dstate : grade
+			},
+
+			dataType : "json",
+			success : function(data) {
+				if (data.RespResult == 0) {
+					//alert("修改成功");
+
+				} else {
+					alert("修改状态失败");
+					//location.href='my_login.html?url='+window.location.href;
+				}
+			}
+		});
+
+	}
+	function upHistory() {
+		var uid = document.getElementById("uidup").value;
+		//alert(uid);
+		var did = document.getElementById("didup").value;
+		//alert(did);
+		var zhusu = document.getElementById("zhusu").value;
+		//alert(zhusu);
+		var xianbing = document.getElementById("xianbing").value;
+		//alert(xianbing);
+		var jianyi = document.getElementById("jianyi").value;
+		//alert(jianyi);
+		$.ajax({
+			url : '../saveTreatHistory.action',
+			type : "post",
+			data : {
+				uid : uid,
+				did : did,
+				zhusu : zhusu,
+				xianbing : xianbing,
+				jianyi : jianyi
+			},
+
+			dataType : "json",
+			success : function(data) {
+				if (data.RespResult == 0) {
+					alert("病历填写完成");
+
+				} else {
+					alert("病历填写失败");
+					//location.href='my_login.html?url='+window.location.href;
+				}
+			}
+		});
+	}
+	function disconnect() {
+		var uid = document.getElementById("uidup").value;
+		var did = document.getElementById("didup").value;
+		//alert("uid=" + uid);
+		if (confirm("确定结束视频前保存了就诊记录吗？")) {
+			$.ajax({
+				url : '../deleteline.action',
+				type : "post",
+				data : {
+					uid : uid,
+					did : did,
+				},
+
+				dataType : "json",
+				success : function(data) {
+					if (data.RespResult == 0) {
+					//alert("ddddddddd");
+					document.getElementById("guaduan").style.display = "none";//隐藏
+						session.disconnect();
+						publisher.destroy();
+                        session.unsubscribe(stream);
+                        
+																	
+					} else {
+						alert("结束视频失败！");
+						//location.href='my_login.html?url='+window.location.href;
+					}
+				}
+			});
+		} else {
+			return;
+		}
+
+	}
+	function abc(){
+	//alert("lllll");
+	        document.getElementById("guaduan").style.display = "none";//隐藏
+			document.getElementById("treatRecordAgree").style.display = "none";//隐藏
+			if(session==null||publisher==null){
+			
+			}else{
+			            session.disconnect();
+						publisher.destroy();
+                        session.unsubscribe(stream);
+			}
+						
+	}
+	function checkvideostate(){
+	    var uid = document.getElementById("uidup").value;
+		var did = document.getElementById("didup").value;
+		var flag = "1";
+		$.ajax({
+				url : '../deleteline.action',
+				type : "post",
+				data : {
+					uid : uid,
+					did : did,
+					flag:flag,
+				},
+
+				dataType : "json",
+				success : function(data) {
+					if (data.RespResult == 0) {
+					alert("接通了哈哈哈哈哈");
+										
+					} else {
+						alert("结束视频失败！");
+						//location.href='my_login.html?url='+window.location.href;
+					}
+				}
+			});
+		
+		
+		
+	}
+	
+	
+</script>
+
+</head>
+<body>
+	<div class="header">
+		<div class="header_top">
+			<div class="container">
+				<div class="header_top_left">
+					<img src="../common/indexpage/logo.png" height="36px" width="70px" />
+				</div>
+				<div style="float: right;">
+					<div style="float:left;margin-right:10px;">
+						<select tabindex="4" style="font-size: 15px;width:60px;background-color:transparent;border:0;border:none;margin-top: 11px" id="ww" onchange="log()">
+
+							<option value="0" style="background-color:#D4EBFD;border:0;border:none;font-size: 15px;">接诊</option>
+							<option value="1" style="background-color:#D4EBFD;border:0;border:none;font-size: 15px;">忙碌</option>
+							<option value="2" style="background-color:#D4EBFD;border:0;border:none;font-size: 15px;">离开</option>
+
+						</select>
+					</div>
+					<div style="font-size: 10px;float:left;margin-right:10px;font-size: 15px;font-weight: 400;margin-top:9px;">
+						<img alt="" src="../common/indexpage/wode.png">
+						<a href="javascript:;" onClick="myHistory()">我的就诊</a>
+					</div>
+					
+					
+				<div style="font-size: 10px;float:left;font-size: 15px;
+	font-weight: 400;margin-top:9px;"><a href="javascript:;" onClick="logout()">安全退出</a>  </div>
+					<!-- <ul class="header_user_info">
+						<a class="login" href="login.html"> <i class="user"></i>
+							<li class="user_desc"><a href="javascript:;"
+								onClick="myHistory()">我的就诊</a></li>
+						</a>
+					</ul>
+					<div class="srch">
+						<a href="javascript:;" onClick="logout()">安全退出</a>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<table style="width: 80%;height: 600px;margin:0px auto;border-color: #D4EBFD" border="1">
+		<tr>
+			<td style="background:url(../common/indexpage/nob.png) no-repeat;width:65%;height:380px;position:relative;">
+				<div style="width:100%;height:100%;">
+					<div id="publisherContainer" style="width:100%;height:100%;z-index:3;position:absolute; "></div>
+					<div id="guaduan" style="z-index:5;margin-left :48%;position:absolute;margin-top: 290px;display: none;">
+						<a href="javascript:;" onClick="disconnect();"><img src="../common/indexpage/guad.png"></a>
+					</div>
+					<!--  控制医生视频的大小和位置-->
+					<div id="publisherContainer1" tyle="z-index:5;margin-left :75%;position:absolute;margin-top: 210px;"></div>
+				</div>
+				<script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
+				<script charset="utf-8">
+					function videoTreat(apiKey, sessionId, token) {
+
+						//alert("进入connection====token：=====" + token);
+						var publisherOptions = {
+
+							insertMode : 'append',
+							width : '100%',
+							height : '100%'
+						};
+
+						session = OT
+								.initSession(apiKey, sessionId)
+								.on(
+										'streamCreated',
+										function(event) {
+											//session.subscribe(event.stream); 
+											//var subscriberProperties = {insertMode: 'append'};
+											var subscriber = session
+													.subscribe(
+															event.stream,
+															'publisherContainer',
+															publisherOptions,
+															function(error) {
+																if (error) {
+																	alert("网络不通畅，请重试");
+																} else {
+																	document
+																			.getElementById("guaduan").style.display = "";//显示
+																	//alert("Subscriber added");
+																}
+															});
+										}).connect(
+										token,
+										function(error) {
+
+											publisher = OT.initPublisher(
+													'publisherContainer1', {
+														width : '20%',
+														height : 140
+													});
+											session.publish(publisher);
+                                              //document.getElementById("guaduan").style.display = "";//显示
+										});
+					}
+				</script>
+			</td>
+
+
+			<td style="height:600px;width:35%;vertical-align:top;" rowspan="2">
+				<div id="treadRecord" style="wight:35%"></div>
+				<div id="treadRecordDetail" style="display: none;overflow-y:scroll;"></div>
+				<div id="treatRecordAgree" style="display: none">
+
+					<div>
+
+						<table>
+							<tr>
+								<input type="hidden" id="uidup" />
+								<input type="hidden" id="didup" />
+								<td class="font_type">主诉：</td>
+							</tr>
+							<tr>
+								<td><textarea name="zushu" cols="50" rows="2" id="zhusu"></textarea></td>
+							</tr>
+							<tr>
+								<td class="font_type">现病史：</td>
+							</tr>
+							<tr>
+								<td><textarea name="xinabingshi" cols="50" rows="4"
+										id="xianbing"></textarea></td>
+							</tr>
+							<tr>
+								<td class="font_type">医生建议：</td>
+							</tr>
+							<tr>
+								<td><textarea name="doctorsuggesst" cols="50" rows="8"
+										id="jianyi"></textarea></td>
+							</tr>
+						</table>
+						<a href="javascript:;" onClick="upHistory();"><img
+							width="90px" height="25px" src="../common/indexpage/tj.png"></a>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:65%;height:30%;text-align:top;vertical-align:top;">
+				<div id="aaa">
+					<div style="color:#a9c6c9;font-weight: bold;font-size: 15px;">待诊患者列表</div>
+					<div id="linehtml"></div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div class="footer_botto">
+		<div class="container">
+			<div class="cssmenu">
+				<ul>
+					<li class="active"><a href="#">我们的伙伴</a></li> |
+					<li><a href="#">制作团队</a></li>|
+					<li><a href="#">易接近</a></li> |
+					<li><a href="#">存储目录</a></li> |
+					<li><a href="#">关于我们</a></li>
+				</ul>
+			</div>
+			<div class="copy">
+				<p>
+					Copyright 2016. name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/"></a>
+				</p>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<div style="display:none">
+		<script src='#' language='JavaScript' charset='gb2312'></script>
+	</div>
+</body>
+<script type="text/javascript">
+/**
+ * 设置select选中
+ * @param selectId select的id值
+ * @param checkValue 选中option的值
+ * @author lqy
+ * @since 2015-08-21
+*/
+function setSelectChecked(selectId, checkValue){
+
+	var select = document.getElementById(selectId);
+
+	for(var i=0; i<select.options.length; i++){
+		if(select.options[i].value == checkValue){
+		//alert("nnnnnnnnn"+checkValue);
+		//$(".dropdown").val(checkValue);
+		//$("#selectId").val(checkValue);
+			//select.options[i].selected = true;
+			 //$("#ww").find("option").eq(checkValue).attr("selected","selected");
+			 document.getElementById("ww").options[i].setAttribute("selected", true); 
+			// document.getElementById("ww").innerHTML ="<option value='0'>接诊</option>";
+			//alert("eeeeeeeeeeeeee");
+			return;
+		}
+	}
+};
+</script>
+</html>

@@ -1,0 +1,101 @@
+body{
+    margin: 0 auto;
+}
+#header{
+    width: 100%;
+    height: 100px;
+    font: 34px/1em '宋体';
+    line-height: 50px;
+    background-color: #6672c4;
+    color:#ffffff;
+    font-weight: bold;
+    text-align: left;
+}
+#header >ul{
+    position: absolute;
+    right:0;
+}
+#header >ul >li{
+    font-size: 16px;
+    margin-right: 10px;
+    list-style: none;
+    float: left;
+}
+#header >ul >li a{
+    color: #ffffff;
+}
+#content{
+    width: 100%;
+    height: 1200px;
+    margin: 2px 0;
+}
+/*左侧*/
+#content_left{
+    width:10%;
+    height: 100%;
+    background-color: #f9f9f9;
+}
+#content_left >ul{
+    display: block;
+    padding-left: 12px;
+    font-size: 16px;
+    font-family: "宋体";
+    text-align: center;
+    background-color: #ffffff;
+}
+#content_left >ul >li{
+    width: 170px;
+    margin: 20px 0;
+    color: #000;
+    font-weight:lighter;
+    padding: 10px 0;
+    cursor: pointer;
+}
+#authority{
+    width: 80px;
+    margin-top:20px;
+    margin-left: 20px;
+}
+#authority li{
+    list-style-type: square;;
+    margin-top:16px;
+}
+/*右侧*/
+#content_right{
+    width:89%;
+    margin-left: 2px;
+    background-color: #eceee8;
+}
+#footer{
+    width: 100%;
+    height: 50px;
+    background-color: #b0a4e9;
+}
+/*按钮*/
+.button {
+    border-radius: 0.5em;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display:inline-block;
+    font: 16px/50% Arial,Helvetica,sans-serif;
+    margin: 2px;
+    outline: medium none;
+    padding: 0.5em 2em 0.55em;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    vertical-align: baseline;
+}
+.orange {
+    background: rgba(0, 0, 0, 0)
+    -moz-linear-gradient(center top , #faa51a, #f47a20)
+    repeat scroll 0 0;
+    border: 1px solid #da7c0c;
+    color: #fef4e9;
+}
+.bigrounded {
+    border-radius: 2em;
+}
+input,textarea{
+    border:none;
+}

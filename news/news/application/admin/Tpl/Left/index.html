@@ -1,0 +1,51 @@
+<script type="text/javascript" src="__ROOT__/public/js/dtree.js"></script>
+<script type="text/javascript">
+
+	function hello(){
+		
+	  d = new dTree('d','__ROOT__/public/');
+	//添加一个新的菜单
+	  d.add(0,-1,'后台管理','');//最顶级菜单，没有父菜单，为-1
+	
+	  d.add(1,0,'重新登陆','javascript:logout()');
+	  <if condition="$userInfo.userType eq 12">
+	  d.add(2,0,'新闻管理','');
+		  d.add(21,2,'添加新闻','__APP__/Addnews/index');
+		  d.add(22,2,'修改新闻','__APP__/Modnews/index');
+	
+	  d.add(3,0,'分类管理','');
+		  d.add(31,3,'添加分类','__APP__/Addtype/index');
+		  d.add(32,3,'修改分类','__APP__/Modtype/index');
+	  d.add(4,0,'用户管理','');
+	 	  d.add(41,4,'添加管理员','__APP__/Adduser/index');
+		  d.add(42,4,'修改管理员','__APP__/Moduser/index');
+	 </if>
+	 <if condition="$userInfo.userType eq 8">
+	  d.add(2,0,'新闻管理','');
+		  d.add(21,2,'添加新闻','__APP__/Addnews/index');
+		  d.add(22,2,'修改新闻','__APP__/Modnews/index');
+	
+	  d.add(3,0,'分类管理','');
+		  d.add(31,3,'添加分类');
+		  d.add(32,3,'修改分类');
+	  d.add(4,0,'用户管理','');
+	 	  d.add(41,4,'添加管理员');
+		  d.add(42,4,'修改管理员');
+	 </if>
+	 <if condition="$userInfo.userType eq 1">
+	  d.add(2,0,'新闻管理','');
+		  d.add(21,2,'添加新闻','__APP__/Addnews/index');
+		  d.add(22,2,'修改新闻');
+	
+	  d.add(3,0,'分类管理','');
+		  d.add(31,3,'添加分类');
+		  d.add(32,3,'修改分类');
+	  d.add(4,0,'用户管理');
+	 	  d.add(41,4,'添加管理员');
+		  d.add(42,4,'修改管理员');
+	 </if>
+		d.add(5,0,'返回首页','__APP__/Admin/index');
+		  document.write(d);
+		}
+	hello();
+</script>

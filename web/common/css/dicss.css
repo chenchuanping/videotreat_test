@@ -1,0 +1,24 @@
+.dispan{ margin:10px; width:1004px; height:auto;}
+.dibiaoti{font-size:12px; font-weight:bold; margin-right:10px;color:#b40001; background: url(../images/iocn_06.jpg) center left no-repeat; padding-left:20px; }
+.dili{ padding:0px; margin:0px; width:1002px;}
+.dili li{ float:left; list-style:none; width:200px; margin-top:2px;height:27px;}
+.diinput_text01{ color:#a5a5a5; font-size:12px; width:100px;}
+.left_dinov{ float:left; display:block; width:632px; height:250px;}
+.right_dinov{float:left; display:block; width:358px; height:250px; border-left:1px dotted #333333;}
+
+.pinz{ padding:0px; margin-left:10px;}
+.pinz li{ float:left; list-style:none; width:170px; margin-top:5px;height:30px;}
+<!--
+.STYLE1 {
+	font-size: xx-large;
+	font-weight: bold;
+}
+#tool {
+	position:absolute;
+	left:821px;
+	top:255px;
+	width:1024px;
+	height:26px;
+	z-index:1;
+}
+-->

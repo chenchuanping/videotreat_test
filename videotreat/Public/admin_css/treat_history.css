@@ -1,0 +1,35 @@
+#content_right{
+    overflow: auto;
+}
+#treat_history_list{
+    font-size: 15px;
+}
+#treat_history_list th{
+    width: 80px;
+    padding:6px 0;
+    text-align: center;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+}
+textarea{
+    font-size: inherit;
+    text-align: left;
+    width: 160px;
+    height: 100px;
+}
+input{
+    font-size: inherit;
+    text-align: center;
+    width: 80px;
+    text-overflow: ellipsis;
+}
+/*分页*/
+#pageSize{
+    height: 40px;
+    color: #ff0000;
+    border-color: #aaaaaa;
+    text-align: center;
+}

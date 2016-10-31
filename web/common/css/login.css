@@ -1,0 +1,144 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 14px;
+}
+html {
+	height: 100%;
+}
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align: center;
+	height: 100%;
+}
+.centerDiv {
+	display: inline-block;
+	zoom: 1;
+ 	*display: inline;
+	vertical-align: middle;
+	text-align: left;
+	width: 450px;
+	padding: 10px;
+	border: 0px solid #333;
+	position: relative;
+	z-index: 450;
+}
+.hiddenDiv {
+	height: 100%;
+	overflow: hidden;
+	display: inline-block;
+	width: 1px;
+	overflow: hidden;
+	margin-left: -1px;
+	vertical-align: middle;
+}
+* {
+	margin: 0;
+	padding: 0;
+	background-color: #E4E4E4;
+	background-repeat: repeat-x;
+	background-position: top;
+}
+a {
+	color: #1E7ACE;
+	text-decoration: none;
+}
+a:hover {
+	color: #000;
+	text-decoration: underline;
+}
+h3 {
+	color:#FFF;
+	font-size: 15px;
+	font-weight: bold;
+}
+pre, p {
+	color: #1E7ACE;
+	margin: 4px;
+}
+input, select, textarea {
+	width:200px; 
+	border: 1px solid #333333; 
+	padding: 5px; 
+	color: #000;
+	background: #fff url(<%=path %>/images/bg_login_input.png) repeat-x top;
+}
+input:focus{
+	border: 1px solid #09C;
+	color: #09C;
+}
+fieldset {
+	padding: 10px;
+	margin-top: 5px;
+	border: 1px solid #666;
+	background: #333333;
+}
+fieldset legend {
+	color: #033;
+	font-weight: bold;
+	padding: 3px 20px 3px 20px;
+	border: 1px solid #666;
+	background: #fff;
+}
+fieldset label {
+	float: left;
+	width: 120px;
+	text-align: right;
+	padding: 4px;
+	margin: 1px;
+}
+fieldset div {
+	clear: left;
+	margin-bottom: 2px;
+ 	background: #333333;
+}
+.enter {
+	text-align: center;
+}
+.clear {
+	clear: both;
+}
+.centerDiv label {
+	font-size: 13px;
+	color: #ddd;
+	font-weight: 600;
+	background: #333333;
+}
+#Layer1 {
+	position:absolute;
+	width:450px;
+	height:45px;
+	z-index:1;
+	left: 234px;
+	top: 181px;
+}
+.centerDiv .buttom {
+	padding: 0;
+	font-size: 12px;
+	font-weight:600;
+	color: #1C5571;
+	border: none;
+	background: #3197CA url(<%=path %>/images/bg_login_btn1.png) repeat-x top;
+	height: 24px;
+	width: 76px;
+	margin-left: 20px;
+	padding-top: 3px;	
+}
+.centerDiv .buttom:hover {
+	padding: 0;
+	font-size: 12px;
+	font-weight:600;
+	color: #103141;
+	border: none;
+	height: 24px;
+	width: 76px;
+	margin-left: 20px;
+	padding-top: 3px;
+	background-color: #3197CA;
+	background-image: url(<%=path %>/images/bg_login_btn2.png);
+	background-repeat: repeat-x;
+	background-position: top;
+
+}

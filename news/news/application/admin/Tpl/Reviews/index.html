@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>后台管理系统</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <link href="__ROOT__/public/css/admin.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="__ROOT__/library/jquery/jquery-2.2.3.js"></script>
+    <script type="text/javascript">
+      	function delType(articleId,id){
+     		 if(confirm("是否删除评论？")){
+                 window.location = "__APP__/Reviews/delete/articleId/"+articleId+"/id/"+id;
+             }
+        }
+    </script>
+  </head>
+  <body>
+    <!-- 网站的头 -->
+   <include file='Header:index' />
+    
+    <!-- 当前位置 -->
+    <div class="locationDiv">&nbsp;: 后台管理 : 修改分类</div>
+    
+    <!-- 正文内容 -->
+    <div class="mainDiv clear">
+    
+      <!-- 左侧树状列表 -->
+      <div class="leftDiv">  <include file='Left:index' /></div>
+      
+      <!-- 右侧页面内容 -->
+      <div class="rightDiv">
+      <br><br><br><br>
+        <form name="frm" method="post" action="__APP__/Reviews/delete">
+        	<table border="1" style="align:center;width:600px;cellpadding:0;cellspacing:0">
+	          <tr class="modTypeDiv1">
+	            <th>ID</th>
+	            <th>新闻数</th>
+	            <th>发表人</th>
+	            <th>发表日期</th>
+	            <th>操作</th>
+	          </tr>
+		<foreach name="reviews" item="v">
+	            <tr  class="modTypeDiv2" style="background-color:#FFFFFF;">
+	            <td align="center" width="200">{$v.id}</td>
+	            <td align="center" width="200">{$v.body}</td>
+	            <td align="center" width="200">{$v.userName}</td>
+	            <td align="center" width="200">{$v.dateandtime}</td>
+	            <td align="center" width="200">
+	             	 <a href="#" onclick="delType({$v.articleId},{$v.id})">删除</a>
+	            </td>
+	          </tr>
+		</foreach>
+       	 </table>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

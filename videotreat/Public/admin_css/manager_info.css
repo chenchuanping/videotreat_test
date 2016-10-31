@@ -1,0 +1,58 @@
+#manager_list{
+    font-size: 16px;
+}
+#manager_list th{
+    width: 150px;
+    line-height: 1.5em;
+    text-align: center;
+}
+#manager_list td{
+    width: 150px;
+    line-height: 1em;
+    text-align: center;
+}
+.manager_hospital{
+    width: 400px !important;
+}
+.labelArray{
+    display: inline-block;
+    width: 200px !important;
+    height: 106px;
+    overflow: auto;
+    text-align: center !important;
+}
+.profile{
+    display: inline-block;
+    width: 400px !important;
+    height: 106px;
+    overflow: auto;
+    text-align: center !important;
+}
+.headPic{
+    width: 100px;
+    height: 106px;
+}
+.caozhuo{
+    width: 200px;
+}
+/*分页*/
+#pageSize{
+    height: 40px;
+    color: #ff0000;
+    border-color: #aaaaaa;
+    text-align: center;
+}
+
+/*添加医院*/
+#addManager{
+    position:absolute;
+    left: 1000px;
+    margin-top: 8px;
+}
+/*医院搜索*/
+#searchHospital{
+    border:0;
+    border-bottom:1px solid black;
+    background: #F5FFFA;
+    height: 30px;
+}

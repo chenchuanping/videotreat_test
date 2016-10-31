@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>后台管理系统</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+   	<link href="__ROOT__/public/css/admin.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="__ROOT__/library/jquery/jquery-2.2.3.js"></script>
+ 	<script type="text/javascript">
+      //点击了页码的超链接
+      function setPage(currentPage)
+      {
+          document.frm.currentPage.value = currentPage;//设置页码
+          document.frm.submit();//提交表单
+      }
+      
+      function delnews(articleId,typeId){
+    	  if(confirm("是否删除该新闻？")){
+    		  window.location = "__APP__/Modnews/delete/articleId/"+articleId+"/typeId/"+typeId;
+    	  }
+      } 
+    </script>
+  </head>
+  <body>
+    <!-- 网站的头 -->
+      <include file='Header:index' />
+    
+    <!-- 当前位置 -->
+    <div class="locationDiv">&nbsp;: 后台管理 : 修改新闻</div>
+    
+    <!-- 正文内容 -->
+    <div class="mainDiv clear">
+    
+      <!-- 左侧树状列表 -->
+      <div class="leftDiv">  <include file='Left:index' /></div>
+      
+      <!-- 右侧页面内容 -->
+      <div class="rightDiv">
+      
+        <br><br><br><br>
+        <form name="frm" method="post" action="__APP__/Modnews/index" >
+            <input type="hidden" name="currentPage" value="1">
+	        <table border="0" align="center" width="700" cellpadding="0" cellspacing="0">
+	          <tr>
+	            <td align="left">
+	              &nbsp;新闻搜索：
+	              <input type="text" name="keyword" size="30" value='{$keyword}'/>
+	              <select name="searchType"> 
+	              		<if condition="$searchType=='title'">
+							<option value='title' selected='selected'>标题</option>
+	                		<option value='content'>内容</option>
+						<else/>
+							<option value='title' >标题</option>
+							<option value='content' selected='selected' >内容</option>
+						</if>
+	              </select>
+	              <input type="submit" value="搜索">
+	            </td>
+	          </tr>
+	        </table>
+        </form>
+        <br>
+        <table border="1" style="align:center;width:700px;cellpadding:0;cellspacing:0">
+          <tr height="30" style="font-weight:bold;">
+            <td>新闻编号</td>
+            <td>新闻类型</td>
+            <td>发表时间</td>
+            <td width="300px">新闻标题</td>
+            <td>删除评论</td>
+            <td >删除新闻</td>
+          </tr>
+		<foreach name="newsInfo" item="v">
+          <tr height="25">
+            <td>{$v.articleId}</td>
+            <td>{$v.typeName}</td>
+            <td>{$v.dateandtime}</td>
+            <td align="left">
+            		<a href="__APP__/UpdateNews/index/articleId/{$v.articleId}/typeId/{$v.typeId}">
+            			{$v.title}
+            		</a>
+            	</td>
+            <td><a href="__APP__/Reviews/index/articleId/{$v.articleId}">查看评论</a></td>
+            <td><a href="#" onclick="delnews({$v.articleId},{$v.typeId})">删除</a></td>
+			</tr>
+		</foreach>
+          <tr height="25">
+            <td colspan="6" align="left">
+			<for start="1" end="$totalPage+1">
+                <if condition="$currentPage == $i">
+                  [{$i}]&nbsp;&nbsp;
+                <else/>
+                  <a href="#" onclick="setPage({$i})">[{$i}]</a>&nbsp;&nbsp;
+                </if>
+              </for>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

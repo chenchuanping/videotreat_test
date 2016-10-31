@@ -1,0 +1,55 @@
+[ 16-10-10 09:04:49 ]
+
+错误信息：[ oa Public images ]非法操作images
+错误页面：/xinchuangda/xinchuangda/oa/index.php/Public/images/attention.gif
+错误类型：ThinkException
+错误跟踪：
+[16-10-10 09:04:10] E:\wamp\www\xinchuangda\oa\oa\Temp\~runtime.php (7) Action->__call(images, Array)
+[16-10-10 09:04:10] E:\wamp\www\xinchuangda\oa\oa\Temp\~runtime.php (7) PublicAction->images()
+[16-10-10 09:04:10] E:\wamp\www\xinchuangda\oa\oa\Temp\~runtime.php (7) App->exec()
+[16-10-10 09:04:10] E:\wamp\www\xinchuangda\oa\index.php (19) App->run()
+
+[ 16-10-10 09:04:50 ]
+
+错误信息：[ oa Public images ]非法操作images
+错误页面：/xinchuangda/xinchuangda/oa/index.php/Public/images/attention.gif
+错误类型：ThinkException
+错误跟踪：
+[16-10-10 09:04:10] E:\wamp\www\xinchuangda\oa\oa\Temp\~runtime.php (7) Action->__call(images, Array)
+[16-10-10 09:04:10] E:\wamp\www\xinchuangda\oa\oa\Temp\~runtime.php (7) PublicAction->images()
+[16-10-10 09:04:10] E:\wamp\www\xinchuangda\oa\oa\Temp\~runtime.php (7) App->exec()
+[16-10-10 09:04:10] E:\wamp\www\xinchuangda\oa\index.php (19) App->run()
+
+[ 16-10-10 09:07:45 ]
+
+错误信息：[ oa Public images ]非法操作images
+错误页面：/xinchuangda/xinchuangda/oa/index.php/Public/images/attention.gif
+错误类型：ThinkException
+错误跟踪：
+[16-10-10 09:07:10] E:\wamp\www\xinchuangda\oa\oa\Temp\~runtime.php (7) Action->__call(images, Array)
+[16-10-10 09:07:10] E:\wamp\www\xinchuangda\oa\oa\Temp\~runtime.php (7) PublicAction->images()
+[16-10-10 09:07:10] E:\wamp\www\xinchuangda\oa\oa\Temp\~runtime.php (7) App->exec()
+[16-10-10 09:07:10] E:\wamp\www\xinchuangda\oa\index.php (19) App->run()
+
+[ 16-10-10 09:09:32 ]
+
+错误信息：[ oa Public images ]非法操作images
+错误页面：/oa/index.php/Public/images/attention.gif
+错误类型：ThinkException
+错误跟踪：
+[16-10-10 09:09:10] E:\wamp\www\oa\oa\Temp\~runtime.php (7) Action->__call(images, Array)
+[16-10-10 09:09:10] E:\wamp\www\oa\oa\Temp\~runtime.php (7) PublicAction->images()
+[16-10-10 09:09:10] E:\wamp\www\oa\oa\Temp\~runtime.php (7) App->exec()
+[16-10-10 09:09:10] E:\wamp\www\oa\index.php (19) App->run()
+
+[ 16-10-10 09:09:32 ]
+
+错误信息：[ oa Public images ]非法操作images
+错误页面：/oa/index.php/Public/images/attention.gif
+错误类型：ThinkException
+错误跟踪：
+[16-10-10 09:09:10] E:\wamp\www\oa\oa\Temp\~runtime.php (7) Action->__call(images, Array)
+[16-10-10 09:09:10] E:\wamp\www\oa\oa\Temp\~runtime.php (7) PublicAction->images()
+[16-10-10 09:09:10] E:\wamp\www\oa\oa\Temp\~runtime.php (7) App->exec()
+[16-10-10 09:09:10] E:\wamp\www\oa\index.php (19) App->run()
+

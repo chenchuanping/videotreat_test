@@ -1,0 +1,61 @@
+@charset "utf-8";
+/* CSS Document */
+/*--------------------------------- 垂直图片按钮css----------------------------------*/
+.img_button1{
+	display: block;
+	overflow:hidden;
+	width:1002px;
+	margin:0px;
+	padding:0px;
+}
+.img_button1 li {
+	float:left;
+	text-align: center;
+	margin-right:20px;
+	list-style-type: none;
+}
+.img_button1 li a {	color: #7D3333;	text-decoration: none;}
+.imgtext { display:block;}
+
+/*--------------------------------- 水平图片按钮css----------------------------------*/
+.img_button2 { list-style:none; margin:0px; padding:0px;width:auto;}
+.img_button2 li { clear:both;}
+.img_button2 li img { float:left;}
+.img_button2 li span {display:block; height:24px; line-height:24px;float:left;}
+.block { display:block; height:10px; width:10px;}
+
+/*--------------------------------- 场次管理css----------------------------------*/
+.rightico { float:right;}
+#changciInfo { margin:0px;padding:0px;}
+.little_tools {
+	list-style-type: none;
+	padding:0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 20px;
+}
+.little_tools li { float:left; margin-right:20px;}
+.modifyico {background-image: url(../images/ccglico/modify.png) ; width:16px; height:16px; display:block; 
+}
+.deleteico {background-image: url(../images/ccglico/delete.png); width:16px; height:16px; display:block;}
+ul img { border:none;}
+/*--------------------------------- 初审和复审css----------------------------------*/
+#cs_content_top {
+	overflow:hidden;
+	margin-top:10px;
+}
+#cs_content_top ul{
+	margin:0px;
+	padding:0px;
+	list-style-type: none;
+	text-align: center;
+	color: #F00;
+}
+#cs_content_top ul li {
+	display:inline;
+	}
+/*--------------------------------- 参数管理css----------------------------------*/
+#canshuInfo li { display:inline; float:left;}
+#div_img_ccgl {width:762px; height:auto; float:left; margin-left:10px; padding:10px 0px 10px 0px; border-bottom: 1px dotted #333333; padding-left:40px;}
+.img_block { margin-left:20px;}

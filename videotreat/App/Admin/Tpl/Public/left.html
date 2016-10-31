@@ -1,0 +1,40 @@
+<div id="content_left" class="left">
+	<ul>
+		<li>
+			<span>权限管理</span>
+			<ul id="authority">
+				<li id="authority_manager">角色管理</li>
+				<li id="post_manager">岗位管理</li>
+			</ul>
+		</li>
+		<li><a href="__APP__/HospitalInfo/index">医院信息管理</a></li>
+		<li><a href="__APP__/DoctorInfo/index">医生信息管理</a></li>
+		<if condition="$Think.session.userMsg.systemAdmin eq 1">
+			<li><a href="__APP__/ManagerInfo/index">管理员管理</a></li>
+		</if>
+		<li><a href="__APP__/TreatHistory/index">就诊历史查询</a></li>
+		<if condition="$Think.session.userMsg.systemAdmin eq 1">
+			<li><a href="__APP__/RecycleBin/index">回收站</a></li>
+			<li><a href="__APP__/AdminLog/index">日志管理</a></li>
+			<li><a href="__APP__/PublishVersion/index">发布新版本</a></li>
+			<li><a href="__APP__/UserSuggestion/index">用户意见</a></li>
+		</if>
+	</ul>
+</div>
+<script src="__ROOT__/Public/js/jquery.js"></script>
+<script>
+	function logout(){
+		if(confirm("是否退出登录？")){
+			window.location = "__APP__/Login/logout";
+		}
+	}
+	function gotoIndex(){
+		window.location = "__APP__/Index/index";
+	}
+	//点击了页码的超链接
+	function setPage(currentPage)
+	{
+		document.frm.currentPage.value = currentPage;//设置页码
+		document.frm.submit();//提交表单
+	}
+</script>

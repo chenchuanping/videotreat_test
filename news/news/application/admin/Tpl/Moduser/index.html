@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>后台管理系统</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <link href="__ROOT__/public/css/admin.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="__ROOT__/library/jquery/jquery-2.2.3.js"></script>
+    <script type="text/javascript">
+	    //删除用户
+	    function delUser(id){
+	        if(confirm("是否删除用户？")){
+	            window.location = "__APP__/Moduser/delete/id/"+id;
+	        }
+	    }
+	    var oldId;
+	    var oldUserName;
+	    var oldPassword;
+	    var oldUserType;
+	    var oldRemark;
+	    var oldAddnum;
+	    var oldLink;
+	    //让某一行显示为文本框
+	    function showText(id) {
+	        hideText(); 
+	        oldId=id;//1
+	        oldUserName = $("#td"+id+"1").html();//admin
+	        oldPassword = $("#td"+id+"2").html();//123
+	        oldUserType = $("#td"+id+"3").html();//系统管理员
+	        oldRemark = $("#td"+id+"4").html();//用户详情
+	        oldAddnum = $("#td"+id+"5").html();//添加新闻数
+	        oldLink = $("#td"+id+"6").html();//操作
+	        $("#td"+id+"0").css("backgroundColor","gray");
+	        $("#td"+id+"1").html("<input type='text' name='userName' size='10' value='"+oldUserName+"'>");
+	        $("#td"+id+"2").html("<input type='text' name='password' size='10' value='"+oldPassword+"'>");
+	        $("#td"+id+"3").html("<input type='text' name='userType' size='10' value='"+oldUserType+"'>");
+	        $("#td"+id+"4").html("<input type='text' name='remark' size='10' value='"+oldRemark+"'>");
+	        $("#td"+id+"5").html("<input type='text' name='addnum' size='10' value='"+oldAddnum+"'>");
+	        $("#td"+id+"6").html("<a href='#' onclick='submitForm()'>更新</a>  <a href='#' onclick='hideText()'>取消</a>");
+	    }
+	    //点击了取消按扭
+	    function hideText(){
+	  	  $("#td"+oldId+"0").css("backgroundColor","white");
+	  	  $("#td"+oldId+"1").html(oldUserName);
+	  	  $("#td"+oldId+"2").html(oldPassword);
+	  	  $("#td"+oldId+"3").html(oldUserType);
+	  	  $("#td"+oldId+"4").html(oldRemark);
+	  	  $("#td"+oldId+"5").html(oldAddnum);
+	  	  $("#td"+oldId+"6").html(oldLink);
+	    }
+	    //点击了更新按扭
+	    function submitForm(){
+	        //设置表单的提交地址
+	        document.frm.action = "__APP__/Moduser/moduser/id/"+oldId;
+	        //让表单提交
+	        document.frm.submit();
+	    }
+    </script>
+  </head>
+  <body>
+    <!-- 网站的头 -->
+    <include file='Header:index' /> 
+    <!-- 当前位置 -->
+    <div class="locationDiv">&nbsp;: 后台管理 : 修改管理员</div>  
+    <!-- 正文内容 -->
+    <div class="mainDiv clear">
+      <!-- 左侧树状列表 -->
+      <div class="leftDiv"> <include file='Left:index' /></div> 
+      <!-- 右侧页面内容 -->
+      <div class="rightDiv">
+            <div class="addTypeDiv1">修改管理员</div>
+             <br>
+        <form name="frm" method="post" action="__APP__/Moduser/moduser">
+        	<table border="1" style="align:center;width:720px;cellpadding:0;cellspacing:0">
+	          <tr class="modTypeDiv1">
+	            <td width="120px">用户名</td>
+	            <td width="120px">密码</td>
+	            <td width="120px">用户类型</td>
+	            <td width="120px">用户详情</td>
+	            <td width="120px">添加新闻数</td>
+	            <td width="120px">操作</td>
+	          </tr>
+	<foreach name="user" item="v">
+		<tr id="td{$v.id}0" class="modTypeDiv2" style="background-color:#FFFFFF;">
+	      <td id="td{$v.id}1" width="120">{$v.userName}</td>
+	      <td id="td{$v.id}2" width="120">{$v.password}</td>
+	      <td id="td{$v.id}3" width="120">{$v.userType}</td>
+	      <td id="td{$v.id}4" width="120">{$v.remark}</td>
+	      <td id="td{$v.id}5" width="120">{$v.addnum}</td>
+	      <td id="td{$v.id}6" width="130">
+	            <a href="#" onclick="showText({$v.id})">编辑</a>
+	             &nbsp;&nbsp;&nbsp;
+	           <a href="#" onclick="delUser({$v.id})">删除</a>
+	      </td>
+	    </tr>
+	</foreach>
+       	 </table>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

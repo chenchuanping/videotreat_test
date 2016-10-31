@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>后台管理系统</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+   <link href="__ROOT__/public/css/admin.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="__ROOT__/library/jquery/jquery-2.2.3.js"></script>
+	 <script type="text/javascript">
+      //删除分类
+      function delType(typeId){
+          if(confirm("是否删除该分类及分类下所有新闻？")){
+              window.location = "__APP__/Modtype/delete/typeId/"+typeId;
+          }
+      }
+      var oldTypeId;//原来的typeId
+      var oldTypeName;//原来的typeName
+      var oldArticleNums;//原来articleNums
+      var oldLink;//原来的超链接
+      //点击了编辑按扭
+      //让某一行显示为文本框
+      function showText(typeId) {
+          hideText(); 
+          oldTypeId = typeId;
+          oldTypeName = $("#td"+typeId+"1").html();
+          oldArticleNums = $("#td"+typeId+"2").html();
+          oldLink = $("#td"+typeId+"3").html();
+          $("#td"+typeId+"0").css("backgroundColor","gray");
+          $("#td"+typeId+"1").html("<input type='text' name='typeName' size='10' value='"+oldTypeName+"'>");
+          $("#td"+typeId+"2").html("<input type='text' name='articleNums' size='10' value='"+oldArticleNums+"'>");
+          $("#td"+typeId+"3").html("<a href='#' onclick='submitForm()'>更新</a>  <a href='#' onclick='hideText()'>取消</a>");
+      }
+      //点击了取消按扭，将内容还原成以前的内容
+      function hideText(){
+    	  $("#td"+oldTypeId+"0").css("backgroundColor","white");
+    	  $("#td"+oldTypeId+"1").html(oldTypeName);
+    	  $("#td"+oldTypeId+"2").html(oldArticleNums);
+    	  $("#td"+oldTypeId+"3").html(oldLink);
+      }
+      //点击了更新按扭
+      function submitForm(){
+          //设置表单的提交地址
+          document.frm.action = "__APP__/Modtype/modtype/typeId/"+oldTypeId;
+          document.frm.submit();//提交表单
+      }
+    </script>
+  </head>
+  <body>
+    <!-- 网站的头 -->
+   <include file='Header:index' /> 
+    
+    <!-- 当前位置 -->
+    <div class="locationDiv">&nbsp;: 后台管理 : 修改分类</div>
+    
+    <!-- 正文内容 -->
+    <div class="mainDiv clear">
+    
+      <!-- 左侧树状列表 -->
+      <div class="leftDiv">  <include file='Left:index' /></div>
+      
+      <!-- 右侧页面内容 -->
+      <div class="rightDiv">
+      <br><br><br><br>
+        <form name="frm" method="post" action="modtype.php">
+        	<table border="1" style="align:center;width:600px;cellpadding:0;cellspacing:0">
+	          <tr class="modTypeDiv1">
+	            <td>类别名称</td>
+	            <td>新闻数</td>
+	            <td>操作</td>
+	          </tr>
+	        <foreach name="newstypes" item="v">
+	            <tr id="td{$v.typeId}0" class="modTypeDiv2" style="background-color:#FFFFFF;">
+	            <td id="td{$v.typeId}1" width="200">{$v.typeName}</td>
+	            <td id="td{$v.typeId}2" width="200">{$v.articleNums}</td>
+	            <td id="td{$v.typeId}3" width="200">
+	             	 <a href="#" onclick="showText({$v.typeId})">编辑</a>
+	             	 &nbsp;&nbsp;&nbsp;
+	             	 <a href="#" onclick="delType({$v.typeId})">删除</a>
+	            </td>
+	          </tr>
+			</foreach>
+       	 </table>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

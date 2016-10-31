@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>天天新闻网</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<link href="__ROOT__/public/css/news.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<!-- 网站头 -->
+       <include file="Public:header" />
+	<!-- 正文内容 -->
+	<div class="mainDiv clear">
+	  <div class="newsTypeDiv">
+	 
+	    <div class="newsTypeDiv1">&nbsp;<a href="__APP__/Default/index.html" class="a">新闻主页</a> &raquo; {$newstype.typeName}</div>
+	    <div class="newsTypeDiv2">本类共有 {$newstype.articleNums} 条新闻</div>
+	  </div>
+	
+	 <foreach name="newsInfo" item="v">
+	  <div class="newsTypeDiv3">
+	     <img src="__ROOT__/public/images/makealltop.gif">
+		  	<a href="__APP__/News/index/articleId/{$v.articleId}.html">
+		    	{$v.title}
+	    	</a>
+	  </div>
+	</foreach>
+	  <div class="newsTypeDiv3">&nbsp;</div>
+	</div>
+    <!-- 网页脚 -->
+     <include file='Public:footer'/>
+  </body>
+</html>

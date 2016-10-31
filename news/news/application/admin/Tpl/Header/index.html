@@ -1,0 +1,92 @@
+<script type="text/javascript">
+	$(function(){
+		$("#menuDiv1,#menuDiv2,#menuDiv3,#menuDiv4,#menuDiv5").hover(
+			function(){
+				$(this).css("backgroundColor","#D4D0C8");
+				$(this).find("div").show();
+			},
+			function(){
+				$(this).css("backgroundColor","#E4E9EC");
+				$(this).find("div").hide();
+			});
+	});
+	 //退出后台
+	  function logout()
+	  {
+		  if(confirm("是否退出后台管理系统?"))
+		  {
+			  window.location = "__APP__/Admin/logout";
+		  }
+	  }
+</script>
+<div class="headDiv">
+<div class="headDiv1">www.ttnewS.com</div>
+<div class="headDiv2"><img src="__ROOT__/public/images/image6.gif"></div>
+</div>
+<div class="headDiv3">&nbsp;</div>
+<!-- 导航菜单 -->
+<div class="menuDiv">
+	<div id="menuDiv1"><a href="#" onclick="logout()">重新登陆</a></div>
+	 <if condition="$userInfo.userType eq 12">
+	<div id="menuDiv2"><a href="#">新闻管理</a><br>
+		<div>
+			<a href="__APP__/Addnews/index">添加新闻</a><br>
+			<a href="__APP__/Modnews/index">修改新闻</a>
+		</div>
+	</div>
+	<div id="menuDiv3"><a href="#">分类管理</a><br>
+		<div>
+		<a href="__APP__/Addtype/index">添加分类</a><br>
+		<a href="__APP__/Modtype/index">修改分类</a>
+		</div>
+	</div>
+	<div id="menuDiv4"><a href="#">用户管理</a><br>
+		<div>
+		<a href="__APP__/Adduser/index">添加管理员</a><br/>
+		<a href="__APP__/Moduser/index">修改管理员</a>
+		</div>
+	</div>
+	</if>
+	 <if condition="$userInfo.userType eq 8">
+	<div id="menuDiv2"><a href="#">新闻管理</a><br>
+		<div>
+			<a href="__APP__/Addnews/index">添加新闻</a><br>
+			<a href="__APP__/Modnews/index">修改新闻</a>
+		</div>
+	</div>
+	<div id="menuDiv3"><a href="#">分类管理</a><br>
+		<div>
+		添加分类<br>
+		修改分类
+		</div>
+	</div>
+	<div id="menuDiv4"><a href="#">用户管理</a><br>
+		<div>
+		添加管理员<br/>
+		修改管理员
+		</div>
+	</div>
+	</if>
+	 <if condition="$userInfo.userType eq 1">
+	<div id="menuDiv2"><a href="#">新闻管理</a><br>
+		<div>
+			<a href="__APP__/Addnews/index">添加新闻</a><br>
+			<a href="#">修改新闻</a>
+		</div>
+	</div>
+	<div id="menuDiv3"><a href="#">分类管理</a><br>
+		<div>
+		添加分类<br>
+		修改分类
+		</div>
+	</div>
+	<div id="menuDiv4"><a href="#">用户管理</a><br>
+		<div>
+		添加管理员<br/>
+		修改管理员
+		</div>
+	</div>
+	</if>
+<div id="menuDiv5"><a href="__APP__/Admin/index">返回首页</a></div>
+</div>
+

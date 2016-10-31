@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>云医视讯管理系统</title>
+    <link rel="stylesheet" href="__ROOT__/Public/css/public.css">
+    <link rel="stylesheet" href="__ROOT__/Public/admin_css/admin.css">
+    <link rel="stylesheet" href="__ROOT__/Public/admin_css/recyle_bin.css">
+    <script>
+        var app="__APP__";
+    </script>
+</head>
+<body onload="init_recycle()">
+<include file="Public/header"/>
+<div id="content">
+    <include file="Public/left"/>
+    <div id="content_right" class="right">
+        <input type="button" value="医院回收站" onclick="display_hospital()" class="button orange bigrounded">
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <input type="button" value="医生回收站" onclick="display_doctor()" class="button orange bigrounded">
+       <div id="hospital_recycle"></div>
+        <div id="doctor_recycle"></div>
+    </div>
+</div>
+<include file="Public/footer"/>
+<script src="__ROOT__/Public/js/jquery.js"></script>
+<script src="__ROOT__/Public/js/admin.js"></script>
+</body>
+</html>

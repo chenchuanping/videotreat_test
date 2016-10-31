@@ -1,0 +1,871 @@
+@charset "utf-8";
+/* CSS Document */
+html {
+	font-size: 100%;
+	height: 100%;
+	width: 100%;
+	margin-bottom: 1px;
+	/*_background: #f0f0f0 url(about/blank) fixed;*/ /*兼容IE6 防抖动*/
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	color: #333;
+	background: #f0f0f0 url(../images/slider_bg.gif) top left repeat-y;;
+}
+
+.clear {
+	clear: both;
+}
+
+img {
+	border: none;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	color: #333;
+	text-decoration: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: "宋体", Helvetica, Arial, sans-serif;
+	color: #333;
+	font-size: 18px;
+}
+
+/***************************  管理界面主体框架  ***************************/
+#body-wrapper {
+	width: 100%;
+}
+
+#sidebar {
+	width: 200px;
+	height: auto;
+	position: absolute;
+	left: 0px;
+	top: 0;
+	background: url(../images/slider_bg.gif) top left repeat-y;
+}
+
+#sidebar .logo_wrapper {
+	margin: 15px 9px 12px 16px;
+	text-align: center;
+}
+
+#sidebar .module {
+	margin: 0 1px 5px 10px;
+}
+
+.module .slider-title {
+	border: 1px solid #002642;
+	cursor: pointer;
+	width: 186px;
+	height: 50px;
+	margin: 0 0 0 1px;
+	line-height: 50px;
+	text-align: center;
+	background: url(../images/slider_blue.gif) repeat-x;
+	color: #FFF;
+	font-size: 22px;
+}
+
+.module ul {
+	float: right;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+.module ul li {
+	float: right;
+	border: 1px solid #aaa;
+	border-top: 0;
+	width: 178px;
+	height: 37px;
+	background: url(../images/slider_button_bg.gif) repeat-x;
+	font-size: 20px;
+	line-height: 37px;
+}
+
+.module ul li a {
+	display: block;
+	height: 37px;
+}
+
+.module ul li a:hover,.module ul li.selected {
+	color: #0068b7;
+	background: url(../images/slider_button_hover.gif) no-repeat;
+}
+
+.module ul li sys-manages {
+	width: 178px;
+	padding-left: 31px;
+	text-align: left;
+}
+
+#right-content-wrapper {
+	margin: 0 0 0 201px;
+	/* background: url(../images/bg-radial-gradient.gif) left top no-repeat;*/
+}
+
+.right-tip { /* width:100%;*/
+	height: 56px;
+	background: #f0f0f0 url(../images/sys_tip_bg.gif) 100px top repeat-x;
+}
+
+.right-tip img {
+	margin: 8px 0 0 15px;
+}
+
+.right-tip .quit_system {
+	float: right;
+	margin: 15px 15px 0 0;
+	_margin: 15px 8px 0 0; /*兼容IE6*/
+}
+
+.right-tip .quit_system .user {
+	float: left;
+	margin-top: 12px;
+	color: #FFFFFF;
+	font-family: "宋体", "microsoft yahei";
+	font-size: 14px;
+}
+
+.right-tip .quit_system .quit {
+	float: left;
+	margin-left: 10px;
+	_margin-left: 5px; /*兼容IE6*/
+	padding-left: 30px;
+	width: 80px;
+	height: 29px;
+	background: url(../images/quit_button.png) left top no-repeat;
+}
+
+.right-tip .quit_system .quit a {
+	color: #333;
+	font-family: "宋体", "microsoft yahei";
+	font-size: 13px;
+	line-height: 29px;
+}
+
+.right-tip .quit_system .quit a:hover {
+	color: #FF0000;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.content-box-welcome {
+	width: 96%;
+	height: 455px;
+	margin: 15px 15px 15px 25px;
+	border: 1px solid #fff;
+	text-align: center; /* height:640px;*/
+}
+
+.content-box-welcome p {
+	color: #FF0000;
+	font-family: "宋体", "microsoft yahei";
+	font-size: 80px;
+	font-weight: 600;
+	line-height: 120px;
+}
+
+.content-box {
+	margin: 12px 15px 0 15px;
+	border: 1px solid #ccc;
+	background: #fff;
+	font-family: "宋体", "microsoft yahei"; /* height:568px;*/
+}
+
+.content-box-header {
+	margin-top: 1px;
+	height: 40px;
+	border-bottom: 1px solid #ccc;
+	background: #e5e5e5 url('../images/bg-content-box.gif') top left
+		repeat-x;
+}
+
+.content-box-header .content-title {
+	margin-left: 10px;
+	color: #003b6d;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 40px;
+}
+
+.navigation {
+	margin: 6px 10px 10px 10px;
+	padding: 0;
+	height: 35px;
+	border-bottom: 1px solid #0068b7;
+	color: #333;
+	font-size: 14px;
+	line-height: 40px;
+}
+
+.navigation a:hover {
+	color: #0068b7;
+	text-decoration: underline;
+}
+
+#footer {
+	height: 42px;
+	/*width:100%;*/
+	font-size: 14px;
+	line-height: 42px;
+	border-top: 1px solid #0068b7;
+	margin: 10px 15px 0 15px;
+	/*position:fixed;*/
+	bottom: 0px;
+	left: auto;
+	right: auto;
+	text-align: left;
+	/*_POSITION:absolute;兼容IE6*/
+	/*_top:expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - 55));兼容IE6*/
+	/*_TOP:expression(offsetParent.scrollTop+document.documentElement.clientHeight-this.offsetHeight);/*兼容IE6*/
+}
+
+/***************************  内容 表格  ***************************/
+
+/**** 用印申请 ****/
+.content-table {
+	margin: 15px 0;
+	padding: 8px;
+}
+
+.content-table table {
+	width: 100%;
+	border: 1px solid #bdbdbd;
+	border-collapse: collapse;
+	vertical-align: central;
+}
+
+.content-table .t-application {
+	width: 100%;
+	border: 1px solid #bdbdbd;
+	border-collapse: collapse;
+}
+
+.content-table .t-application td {
+	height: 30px;
+	border: 1px solid #bdbdbd;
+	padding: 1px 5px 1px 5px;
+	background: #fafafa;
+}
+
+.content-table .t-application td.left {
+	background: #c5d6e8;
+	width: 15%;
+	text-align: center;
+	font-weight: bold;
+}
+
+.content-table .t-application td.right {
+	text-align: left;
+	padding-left: 15px;
+}
+
+.content-table .t-application td select {
+	padding: 4px;
+	border: 1px solid #bdbdbd;
+	outline: none;
+}
+
+.content-table .t-application td input {
+	padding: 2px 10px 2px 1px;
+	_padding: 2px 6px 2px 2px; /*兼容IE6*/
+}
+
+/**** 用印审核 ****/
+.content-table .t-verification {
+	width: 100%;
+	border: 1px solid #bdbdbd;
+	border-collapse: collapse;
+}
+
+.content-table .t-verification thead th {
+	font-weight: bold;
+	border-left: 2px solid #FFF;
+	border-bottom: 2px solid #FFF;
+	text-align: center;
+	background: #0068b7;
+	color: #FFFFFF;
+	height: 30px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.content-table .t-verification tbody td {
+	text-align: center;
+	height: 30px;
+	background: #fafafa;
+	padding-left: 15px;
+	border: 1px solid #bdbdbd;
+	font-size: 14px;
+}
+
+/**** 异常处理 ****/
+.btn-group {
+	float: right;
+}
+
+.button {
+	width: 100px;
+	height: 28px;
+	border: 1px solid #bdbdbd;
+	background: #f3f3f3 url(../images/btn-group-bg.gif) left top repeat-x;
+	margin-left: 6px;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.btn-group ul {
+	display: inline;
+}
+
+.btn-group ul li {
+	float: right;
+	display: block;
+	_float: left; /*兼容IE6*/
+	margin-left: 10px;
+	padding-top: 4px;
+	_padding-top: 7px; /*兼容IE6*/
+}
+/**** 按钮位置  ****/
+.btn-groupnew ul li {
+	float: left;
+	display: block;
+	_float: left; /*兼容IE6*/
+	margin-left: 130px;
+	padding-top: 50px;
+	_padding-top: 7px; /*兼容IE6*/
+}
+
+.btn-group ul li a {
+	float: right;
+	display: block;
+	_float: left; /*兼容IE6*/
+	padding: 0px 10px;
+	border: 1px solid #bdbdbd;
+	background: #f3f3f3 url(../images/btn-group-bg.gif) left top repeat-x;
+	line-height: 25px;
+}
+
+.btn-group ul li a:hover {
+	border: 1px solid #3c7fb1;
+	background: #c5d6e8;
+	color: #333;
+	text-decoration: none;
+}
+
+.btn-group ul li a:active {
+	border: 1px solid #2c5f86;
+	background: #86c6e8;
+	color: #333;
+	text-decoration: none;
+}
+
+.content-table table.t-handling td {
+	font-weight: bold;
+	height: 32px;
+	border: 1px solid #bdbdbd;
+	padding: 5px;
+	background: #fafafa;
+}
+
+.content-table table.t-handling td.left {
+	background: #c5d6e8;
+	width: 12%;
+	text-align: center;
+}
+
+.content-table table.t-handling td.right {
+	text-align: left;
+	padding-left: 10px;
+}
+
+.content-table table.t-handling td input {
+	width: 300px;
+	height: 24px;
+}
+
+.content-table table.t-handling td textarea {
+	width: 650px;
+	height: 300px;
+}
+
+.content-table table.t-handling td span {
+	margin-left: 20px;
+	font-size: 12px;
+}
+/**** myButton****/
+.myButton {
+    width: 200px;
+	height: 30px;
+}
+
+/**** 印控机查询 ****/
+.content-table table.equ-query td {
+	font-weight: bold;
+	font-size: 14px;
+	height: 24px;
+	border: 1px solid #bdbdbd;
+	padding: 5px;
+	background: #fafafa;
+}
+.content-table table.equ-query td.left {
+	background: #c5d6e8;
+	width: 12%;
+	text-align: center;
+}
+/**最后一行样式*/
+.content-table table.equ-query td.myStyle {
+	width: 12%;
+	text-align: center;
+	height:50px;
+	line-height:30px;
+}
+.content-table table.equ-query td input {
+	width: 300px;
+	height: 22px;
+}
+
+.content-table table.equ-query td.right select {
+	width: 200px;
+	height: 24px;
+}
+
+.content-table table.equ-query td.right input.recordtime {
+	width: 150px;
+	border: 1px solid #999;
+}
+
+.content-table table.equ-query td.right span {
+	margin: 0 10px;
+}
+
+.equ-detail-list {
+	width: 100%;
+	border: 1px solid #bdbdbd;
+	border-collapse: collapse;
+	margin-top: 25px;
+}
+
+.equ-detail-list thead th {
+	font-weight: bold;
+	border-left: 2px solid #FFF;
+	border-bottom: 2px solid #FFF;
+	text-align: center;
+	background: #0068b7;
+	color: #FFFFFF;
+	height: 35px;
+	font-weight: bold;
+}
+
+.equ-detail-list tbody td {
+	text-align: center;
+	vertical-align: central;
+	height: 22px;
+	border: 1px solid #bdbdbd;
+	padding: 5px;
+	background: #fafafa;
+}
+
+.page-navwrapper {
+	text-align: right;
+}
+
+.page-navwrapper .page-list {
+	margin: 10px 5px 0 0;
+	font-family: Tahoma, "宋体";
+	font-size: 14px;
+}
+
+.page-navwrapper .page-list span {
+	margin: 0 5px;
+	letter-spacing: 2px;
+}
+
+.page-navwrapper .page-list span b {
+	margin: 0 2px;
+}
+
+.page-navwrapper .page-list span select {
+	width: 40px;
+}
+
+.page-navwrapper .page-list a {
+	font-family: Tahoma, "宋体";
+	margin: 0 5px;
+	font-size: 14px;
+}
+
+.page-navwrapper .page-list a:hover {
+	color: #0068b7;
+}
+
+/**** 印控机查询 ****/
+.equ-setup td {
+	text-align: left;
+	vertical-align: central;
+	font-weight: bold;
+	font-size: 14px;
+	height: 20px;
+	border: 1px solid #bdbdbd;
+	padding: 5px;
+	background: #fafafa;
+}
+
+.equ-setup td.left {
+	text-align: right;
+	background: #c5d6e8;
+	width: 18%;
+}
+
+.equ-setup td.right input {
+	width: 220px;
+	height: 18px;
+	margin-left: 5px;
+}
+
+.tab-btn {
+	margin-left: 10px;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: central;
+}
+
+.tab-btn a {
+	display: inline-block;
+	width: 50px;
+	height: 22px;
+	line-height: 22px;
+	border: 1px solid #bdbdbd;
+	background: #f3f3f3 url(../images/btn-group-bg.gif) left top repeat-x;
+	text-align: center;
+}
+
+.tab-btn a:hover {
+	border: 1px solid #3c7fb1;
+	background: #c5d6e8;
+	color: #333;
+	text-decoration: none;
+}
+
+.tab-btn a:active {
+	border: 1px solid #2c5f86;
+	background: #86c6e8;
+	color: #333;
+	text-decoration: none;
+}
+
+.tab-btn_mh a {
+	width: 80px;
+}
+
+.s-warn {
+	margin-left: 20px;
+	font-weight: normal;
+	font-size: 10px;
+	font-family: inherit;
+	color: #FF0000;
+}
+
+/**** 修改密码 ****/
+.mod-password thead th {
+	font-weight: bold;
+	border-left: 2px solid #FFF;
+	border-bottom: 2px solid #FFF;
+	text-align: left;
+	background: #0068b7;
+	color: #FFFFFF;
+	height: 35px;
+	padding-left: 10px;
+}
+
+.mod-password td {
+	font-weight: bold;
+	height: 30px;
+	border: 1px solid #bdbdbd;
+	padding: 5px;
+	background: #fafafa;
+}
+
+.mod-password td.left {
+	background: #c5d6e8;
+	width: 15%;
+	text-align: right;
+}
+
+.mod-password td input {
+	width: 300px;
+	height: 24px;
+}
+
+.mod-password .important {
+	font-weight: normal;
+	color: #F00;
+}
+
+/**** 机构管理 ****/
+.content-user-wrapper {
+	margin: 0;
+	padding: 8px;
+}
+
+.user-left-box {
+	float: left;
+	width: 32%;
+	min-height: 450px;
+	border: 1px solid #dadada;
+	background: #fafafa;
+}
+
+.user-l-b-header {
+	height: 40px;
+	line-height: 40px;
+	padding-left: 8px;
+	background: url(../images/user-h-bg.gif) left top repeat-x;
+	border-bottom: 1px solid #dadada;
+	font-size: 20px;
+	font-weight: bold;
+	color: #0068b7;
+	text-align: left;
+}
+
+.user-l-b-header span {
+	background: url(../images/icon1.png) left 40% no-repeat;
+	padding-left: 28px;
+}
+
+.user-right-box {
+	float: left;
+	margin-left: 8px;
+	width: 66%;
+	min-height: 450px;
+	border: 1px solid #dadada;
+}
+
+.user-right-box table {
+	width: 99%;
+	border: 1px solid #bdbdbd;
+	border-collapse: collapse;
+	margin: 5px;
+}
+
+.user-right-box table thead th {
+	font-weight: bold;
+	border-left: 2px solid #FFF;
+	border-bottom: 2px solid #FFF;
+	text-align: center;
+	vertical-align: central;
+	background: #0068b7;
+	color: #FFFFFF;
+	height: 30px;
+}
+
+.user-right-box table tbody td {
+	text-align: center;
+	vertical-align: central;
+	height: 22px;
+	border: 1px solid #bdbdbd;
+	padding: 5px;
+	background: #fafafa;
+}
+
+.user-right-box table tbody td span {
+	font-size: 12px;
+	margin-left: 0px;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: central;
+}
+
+.user-right-box table tbody td span a {
+	display: inline-block;
+	width: 50px;
+	height: 22px;
+	line-height: 22px;
+	border: 1px solid #bdbdbd;
+	background: #f3f3f3 url(../images/btn-group-bg.gif) left top repeat-x;
+	text-align: center;
+}
+
+.user-right-box table tbody td span a:hover {
+	border: 1px solid #3c7fb1;
+	background: #c5d6e8;
+	color: #333;
+	text-decoration: none;
+}
+
+.user-right-box table tbody td span a:active {
+	border: 1px solid #2c5f86;
+	background: #86c6e8;
+	color: #333;
+	text-decoration: none;
+}
+
+.newuser-btn {
+	margin: 3px 5px 0 87%;
+	width: 85px;
+	height: 24px;
+	background: url(../images/newuser-btn.gif) no-repeat;
+}
+
+.newuser-btn a {
+	display: block;
+	width: 85px;
+	height: 24px;
+	background: url(../images/newuser-btn.gif) no-repeat;
+}
+
+.newuser-btn a:hover {
+	background: url(../images/newuser-btn2.gif) no-repeat;
+}
+
+/**** 角色管理 ****/
+.accout-box {
+	border: 1px solid #dadada;
+	background: #fff;
+}
+
+.newaccount-btn {
+	margin: 10px 5px 5px 91%;
+	_margin: 10px 5px 10px 74%;
+	width: 85px;
+	height: 24px;
+	background: url(../images/newaccount-btn.gif) no-repeat;
+}
+
+.accout-box table {
+	width: 99%;
+	border: 1px solid #bdbdbd;
+	border-collapse: collapse;
+	margin: 5px;
+}
+
+.accout-box table thead th {
+	font-weight: bold;
+	border-left: 2px solid #FFF;
+	border-bottom: 2px solid #FFF;
+	text-align: center;
+	vertical-align: central;
+	background: #0068b7;
+	color: #FFFFFF;
+	height: 30px;
+}
+
+.accout-box table tbody td {
+	text-align: center;
+	vertical-align: central;
+	height: 22px;
+	border: 1px solid #bdbdbd;
+	padding: 5px;
+	background: #fafafa;
+}
+
+.accout-box table tbody td span {
+	font-size: 12px;
+	margin-left: 0px;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: central;
+}
+
+.accout-box table tbody td span a {
+	display: inline-block;
+	width: 50px;
+	height: 22px;
+	line-height: 22px;
+	border: 1px solid #bdbdbd;
+	background: #f3f3f3 url(../images/btn-group-bg.gif) left top repeat-x;
+	text-align: center;
+}
+
+.accout-box table tbody td span a:hover {
+	border: 1px solid #3c7fb1;
+	background: #c5d6e8;
+	color: #333;
+	text-decoration: none;
+}
+
+.accout-box table tbody td span a:active {
+	border: 1px solid #2c5f86;
+	background: #86c6e8;
+	color: #333;
+	text-decoration: none;
+}
+
+.newaccount-btn a {
+	display: block;
+	width: 85px;
+	height: 24px;
+	background: url(../images/newaccount-btn.gif) no-repeat;
+}
+
+.newaccount-btn a:hover {
+	background: url(../images/newaccount-btn2.gif) no-repeat;
+}
+
+.a-detl-box {
+	margin: 5px auto;
+}
+
+.user-l-b-detl td {
+	font-weight: bold;
+	font-size: 14px;
+	height: 30px;
+	border: 1px solid #bdbdbd;
+	padding: 5px;
+	background: #fff;
+}
+
+.user-l-b-detl td.left {
+	background: #c5d6e8;
+	width: 12%;
+	text-align: center;
+}
+
+.user-l-b-detl td.right {
+	background: #fafafa;
+	text-align: left;
+}
+
+.user-l-b-detl td input {
+	width: 300px;
+	height: 24px;
+}
+
+.user-powerright {
+	float: left;
+	width: 300px;
+	margin: 0;
+}
+
+.user-type {
+	float: left;
+	width: 300px;
+	margin-left: 15px;
+}
+
+/*----------------------------------*/
+/**** 机构管理 ****/
+.red-bold {
+	color: #F00;
+	font-weight: bold;
+	height: 30px;
+	font-size: 14px;
+	text-align: left;
+}
+
+/*----------印章----------------*/
+#darwcri {
+	position: absolute;
+}

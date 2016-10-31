@@ -1,0 +1,7 @@
+	<foreach name="hotNews" item="v">
+<div class="hotNews1">
+	  [<a href="__APP__/NewsTypes/index/typeId/{$v.typeId}.html">{$v.typeName}</a>] 
+	  <a href="__APP__/News/index/articleId/{$v.articleId}.html">{$v.title}</a> 
+	 {$v.dateandtime}<img src="__ROOT__/public/images/new1.gif">         
+</div>
+	</foreach>

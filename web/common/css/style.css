@@ -1,0 +1,26 @@
+@charset "utf-8";
+* {
+    margin: 0px ;
+    padding: 0px ;
+    text-decoration: none ;
+    list-style: none;
+    font-size: 12px ;
+    font-family: Arial ;
+}
+/**login**/
+.login_body{background: transparent; background: url(../images/login.jpg);background-attachment:fixed;background-repeat:no-repeat;background-size:cover;-moz-background-size:cover;-webkit-background-size:cover;}
+.login_div{width:500px;height:500px; top: 50%; left: 50%; color: black; margin-top: -130px; margin-left: -150px; position:fixed;border-radius:10px; z-index: 9999;   }
+.login_div .login_title{text-align: center; font-size: 35px; margin-top: 30px; letter-spacing: 5px; font-weight: bold;}
+.login_nav{margin-top: 140px;}
+.login_username{text-align: right; height: 40px; line-height: 40px; font-size: 20px; font-weight: bold;}
+.login_usernameInput{height: 20px; padding: 0px;}
+#dname{font-size: 12px; height: 40px; outline: 0px; border-radius: 10px; border: 1px solid #CCCCCC; width: 60%;}
+.ok_gou{height: 40px; color: #5CB85C; font-size: 35px; display: none; text-align: center; border-radius: 10px;padding: 0px; line-height: 37px; border: 2px solid  #5CB85C;}
+.error_cuo{height: 40px; color: red; font-size: 40px;  display: none; text-align: center; border-radius: 10px;padding: 0px; line-height: 30px; border: 2px solid red;}
+.login_psdNav{margin-top: 30px;}
+.login_psdNav .col-xs-4{text-align: right; height: 40px; line-height: 40px; font-size: 20px; font-weight: bold;}
+.login_psdNav .col-xs-5{height: 40px; padding: 0px;}
+#dpass{height: 40px; font-size: 12px; outline: 0px; border-radius: 10px; border: 1px solid #CCCCCC; width: 60%; }
+.login_btn_div{text-align: left; margin-top: 30px; padding-left: -15px;}
+
+

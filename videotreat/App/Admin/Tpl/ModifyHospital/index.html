@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>云医视讯管理系统</title>
+    <link rel="stylesheet" href="__ROOT__/Public/css/public.css">
+    <link rel="stylesheet" href="__ROOT__/Public/admin_css/admin.css">
+    <link rel="stylesheet" href="__ROOT__/Public/admin_css/modify_hospital.css">
+</head>
+<body>
+<include file="Public/header"/>
+
+<div id="content">
+    <include file="Public/left"/>
+
+    <div id="content_right" class="right">
+        <form action="__APP__/ModifyHospital/modify/hospitalId/{$hospitalId}" method="post" enctype="multipart/form-data">
+            <table id="hospital_list" border="1" >
+                <tr>
+                    <td class="td_left">医院名称</td>
+                    <td colspan="2"><input class="td_right" type="text" name="hospitalName" value="{$hospitalInfo.hospitalName}"></td>
+                </tr>
+                <tr>
+                    <td>医院Logo</td>
+                    <td colspan="2">
+                        <img src="{$hospitalInfo.hospitalLogo}" alt="医院Logo">
+                        <input  type="file" name="hospitalLogo" >
+                    </td>
+                </tr>
+                <tr>
+                    <td>医院图片</td>
+                    <td colspan="2">
+                        <img src="{$hospitalInfo.hospitalImage}" alt="医院图片">
+                        <input  type="file" name="hospitalImage">
+                    </td>
+                </tr>
+                <tr>
+                    <td>医师数量</td>
+                    <td colspan="2"><input class="td_right" type="text" name="doctorNumber" value="{$hospitalInfo.doctorNumber}"></td>
+                </tr>
+                <tr>
+                    <td>医院地址</td>
+                    <td colspan="2"><input class="td_right"  type="text" name="hospitalAddress" value="{$hospitalInfo.hospitalAddress}"></td>
+                </tr>
+                <tr>
+                    <td>标签</td>
+                    <td><input class="td_right" style="width: 300px" type="text" value="{$hospitalInfo.labelArray}" disabled="disabled"></td>
+                    <td class="labelList">
+                        <foreach name="labelInfo" item="v">
+                            <input  type="checkbox" name="labelArray[]" value="{$v.labelId}">{$v.labelName}
+                        </foreach>
+                    </td>
+                </tr>
+                <tr>
+                    <td>简介</td>
+                    <td colspan="2">
+                        <textarea name="hospitalIntroduction">{$hospitalInfo.hospitalIntroduction}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <input class="button orange bigrounded" type="submit"  value="修改" />
+                        <input class="button orange bigrounded" type="reset"  value="重置"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<include file="Public/footer"/>
+<script src="__ROOT__/Public/js/jquery.js"></script>
+</body>
+</html>

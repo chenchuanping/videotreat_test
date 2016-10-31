@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>后台管理系统</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<link href="__ROOT__/public/css/admin.css" type="text/css" rel="stylesheet" />
+</head>
+ <body>
+    <!-- 网站的头 -->
+      <include file='Header:index' /> 
+    <!-- 当前位置 -->
+    <div class="locationDiv">&nbsp;: 后台管理 : 添加新闻</div>
+    
+    <!-- 正文内容 -->
+    <div class="mainDiv clear">
+    
+      <!-- 左侧树状列表 -->
+      <div class="leftDiv"><include file='Left:index' /></div>
+      
+      <!-- 右侧页面内容 -->
+      <div class="rightDiv">
+        <br>
+      <form name="frm" method="post" action="__APP__/UpdateNews/update/articleId/{$articleId}/typeId/{$oldTypeId}" >
+        <table class="addNewsTb" bgcolor="#E4E9EC" border="0" align="center" width="700">
+          <tr>
+            <td class="changeBack">新闻标题：</td>
+            <td><input  size="40" name="title" value="{$newsInfo.title}"/></td>
+          </tr>
+          <tr>
+            <td class="changeBack">新闻内容：</td>
+            <td><textarea name="content" rows="8" cols="70">{$newsInfo.content}</textarea></td>
+          </tr>
+            <tr>
+	            <td>新闻类型：</td>
+	            <td>
+	              <select name="typeId">
+	       <foreach name="newsTypes" item="v">
+					<if condition="$v.typeId eq $oldTypeId">
+				<option value="{$v.typeId}" selected="selected">{$v.typeName}</option>
+					<else />
+				<option value="{$v.typeId}" >{$v.typeName}</option>     
+		       		</if>
+	       	</foreach>
+	              </select>
+	            </td>
+	          </tr>
+	          <tr>
+            <td class="changeBack">发送者：</td>
+            <td><input size="40" name="userName" value="{$newsInfo.userName}"/></td>
+          </tr>
+          <tr>
+            <td class="changeBack">新闻作者：</td>
+            <td><input size="40" name="writer" value="{$newsInfo.writer}"/></td>
+          </tr>
+          <tr>
+            <td class="changeBack">新闻来源：</td>
+            <td><input size="40" name="source" value="{$newsInfo.source}"/></td>
+          </tr>
+          <tr>
+            <td class="changeBack">发表日期：</td>
+            <td><input size="40" name="dateandtime" value="{$newsInfo.dateandtime}"/></td>
+          </tr>
+          <tr>
+           	<td><input type="submit" value="更新" /></td>
+            <td><input type="reset"  value="取消" /> </td>
+          </tr>
+        </table>
+        </form>
+      </div> 
+    </div>
+  </body>
+</html>

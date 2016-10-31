@@ -1,0 +1,327 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Home</title>
+<link href="../common/indexpage/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- Custom Theme files -->
+<link href="../common/indexpage/css/styleindex.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--webfont-->
+<link href='http://fonts.useso.com/css?family=Oxygen:300,400,700' rel='stylesheet' type='text/css'>
+<style type="text/css">
+#Content{ 
+    height:600px; 
+    width:
+    /*�˴������������˸߶ȣ�һ�㲻������������ø߶ȣ�һ��ʹ��overflow:auto;������������������������Ӧ�߶ȣ������ָ���߶Ȼ���������Ӧ�߶ȣ�������Ĭ��Ϊ1���ַ��߶ȣ������·��Ĳ���Ԫ�أ�footer������margin-top:���Խ���Ч*/ 
+    margin-top:20px;/*�˴�����margin���÷�������content������headerԪ��֮��ľ���*/ 
+    background:#F7F7F7; 
+} 
+#Content-Line{ 
+    height:200px; 
+    width:400px; 
+    margin:20px;/*����Ԫ�ظ�����Ԫ�صľ���Ϊ20����*/ 
+    float:left;/*���ø�����ʵ�ֶ���Ч����div+Css�����к���Ҫ��*/ 
+    background:#F7F7F7; 
+} 
+#Content-Right{ 
+    height:400px; 
+    width:200px; 
+    margin:20px;/*����Ԫ�ظ�����Ԫ�صľ���Ϊ20����*/ 
+    float:left;/*���ø�����ʵ�ֶ���Ч����div+Css�����к���Ҫ��*/ 
+    background:#F7F7F7; 
+} 
+#Content-Main{ 
+    height:400px; 
+    width:4000px; 
+    margin:20px;/*����Ԫ�ظ�����Ԫ�صľ���Ϊ20����*/ 
+    float:left;/*���ø�����ʵ�ֶ���Ч����div+Css�����к���Ҫ��*/ 
+    background:#F7F7F7; 
+} 
+
+
+body,td,th {
+	font-family: Oxygen, sans-serif;
+
+	
+	}
+
+#s2{ width: 100px; height: 100px; border:4px;border-bottom-color:blue; float: left; } 
+#s3{ width: 100px; height: 100px; border:3px;border-bottom-color:blue; float: left; clear: left; } 
+#s4{ width: 100px; height: 100px;  border:3px;border-bottom-color:blue;float: left; } 
+</style>
+<script type="text/javascript" src="../common/indexpage/js/jquery-1.11.1.min.js"></script>
+<script src="../common/indexpage/js/jquery.easydropdown.js"></script>
+<script src="../common/indexpage/js/responsiveslides.min.js"></script>
+<script>
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: true,
+      	nav: true,
+      	speed: 500,
+        namespace: "callbacks",
+        pager: true,
+      });
+    });
+</script>
+
+<script type="text/javascript">
+//		
+$(document).ready(function(){	
+			checkuserlogin();
+			//get_sel();
+		});
+function checkuserlogin()
+		{
+			$.ajax({
+					url:'../checkdoctor.action',
+						type:"post",
+						dataType:"json",
+					data:"",
+					success:function(data)
+					{
+						if(data.RespResult==0)
+						{
+						alert("��½�ɹ�");
+							get_sel();
+							
+						}else{
+							alert("û�е�½");
+							location.href="./demo.html";
+						}
+					}
+				});
+		}	
+		
+function myHistory(){
+          $.ajax({
+				url:'../docHistory.action',
+				type:"post",
+                dataType:"json",
+                data:"StartRow=0&PageSize=50",
+                success:function(data)
+                {
+				  if(typeof(data.data)!="undefined"){
+				 // alert("wwwww");
+						var inse = '<div><table border="3"><tr ><td colspan="6">������ʷ</td></tr><tr><td>���</td><td>����</td><td>�Ա�</td><td>����</td><td>����ʱ��</td><td>����</td></tr>';
+               $.each(data.data,function(idx,tre){
+                    inse += '<tr><td>'+idx+'</td><td>'+tre.uname+'</td><td>'+tre.usex+'</td><td>'+tre.uages+'</td><td>'+tre.treatdate+'</td><td><a href="javascript:;"  onClick="detailtreat('+tre.Autoid+');">�鿴����</a></td></tr>';
+	           });
+	           inse+='</table></div>';
+						$("#treadRecord").html(inse);
+					}else{
+						var nul = '';
+						$("#treadRecord").html(nul);
+					}
+				}
+			});
+		}
+var autoid;
+function detailtreat(autoid){
+
+ $.ajax({
+				url:'../treatHistoryDetail.action',
+				type:"post",
+                dataType:"json",
+                data:{autoid:autoid},
+                success:function(data)
+                {
+				  if(typeof(data.data)!="undefined"){
+						var detailhtml = '';
+               $.each(data.data,function(idx,tred){
+                     detailhtml += '<div><table border="3"><tr><td>����:</td><td>'+tred.uname+'</td></tr><tr><td>�Ա�:</td><td>'+tred.usex+'</td></tr><tr><td>����:</td><td>'+tred.uages+'</td></tr><tr><td>����ʱ��:</td><td>'+tred.treatdate+'+'+tred.treattime+'</td></tr><tr><td>��������:</td><td>'+tred.treatwenti+'</td></tr><tr><td>����:</td><td>'+tred.mchief+'</td></tr><tr><td>�ֲ�ʷ:</td><td>'+tred.medicalhistory+'</td></tr><tr><td>ҽ������:</td><td>'+tred.dsuggest+'</td></tr></table></div>';
+	           });
+	              $("#treadRecord").html(detailhtml);
+						
+					}else{
+						var nul = '';
+						$("#treadRecord").html(nul);
+					}
+				}
+			});
+		}
+function get_sel(){
+		  $.ajax({
+				url:'../lineInfo.action',
+				type:"post",
+                dataType:"json",
+                data:"StartRow=0&PageSize=50",
+                success:function(data)
+                {
+				  if(typeof(data.data)!="undefined"){
+						var inshtml = '<div><table border="3"><tr><td>���</td><td>����</td><td>�Ա�</td><td>����</td><td>����</td></tr>';
+                             $.each(data.data,function(idx,tre){
+                             inshtml += '<tr><td>'+idx+'</td><td>'+tre.uname+'</td><td>'+tre.usex+'</td><td>'+tre.uages+'</td><td><a href="javascript:;"  onClick="agreeVideo('+tre.uid+','+tre.did+');">����</a></td></tr>';
+	                     });
+						 inshtml+='</table></div>';
+						$("#linehtml").html(inshtml);
+						
+					}else{
+						var nul = '<div><table border="3"><tr><td>���</td><td>����</td><td>�Ա�</td><td>����</td><td>����ʱ��</td><td>����</td></tr></table></div>';
+						$("#linehtml").html(nul);
+					}
+				}
+			});
+		}
+
+
+var apiKey;
+var sessionId;
+var token;
+function agreeVideo(uid,did){
+
+$.ajax({
+				url:'../agreeVideo.action',
+				type:"post",
+                dataType:"json",
+                data:{uid:uid,did:did},
+                success:function(data)
+                {
+                if(data.RespResult==0){
+                 apiKey= data.apiKey;
+				 sessionId=data.sessionId;
+				  token=data.token;
+				 videoTreat(apiKey,sessionId,token);
+				 
+                }else{
+                alert("����ʧ��");
+                }
+				
+				}
+			});
+		}
+
+function logout(){
+   $.ajax({
+    		url:'../webloginout.action',
+				type:"post",
+				dataType:"json",
+		  	data:"",
+		  	success:function(data)
+		  	{
+		  		alert("�˳��ɹ�");
+		  		location.href="./demo.html";
+		  	}
+	});
+}
+function log(){
+
+        var objS = document.getElementById("ww");
+        var grade = objS.options[objS.selectedIndex].value;
+        alert(grade);
+        $.ajax({
+    		url:'../dstate.action',
+				type:"post",
+				data: {dstate:grade},
+				
+				dataType:"json",
+		  	success:function(data)
+		  	{
+		  		if(data.RespResult==0)
+						{
+							alert("�޸ĳɹ�");
+							
+						}else{
+							alert("�޸�״̬ʧ��");
+							//location.href='my_login.html?url='+window.location.href;
+						}
+		  	}
+	});
+
+}
+
+</script>	
+
+</head>
+<body>
+<div class="header">
+   <div class="header_top">
+    <div class="container">
+	  <div class="header_top_left">
+	  <img src="../common/images/logio.png" height="40px" width="70px"/>
+	  </div>
+	  <div class="header_top_right">
+	   <div class="lang_list">
+			<select tabindex="4" class="dropdown"  id="ww" onchange="log()">
+
+		     	<option value="0" >����</option>
+				<option  value="1" >æµ</option>
+				<option  value="2" >�뿪</option>
+				
+			</select>
+   		</div>
+        <ul class="header_user_info">
+   		    <a class="login" href="login.html">
+			  <i class="user"></i> 
+			  <li class="user_desc"><a href="javascript:;" onClick="myHistory()">�ҵľ���</a></li>
+		    </a>
+         </ul>
+           <div class="srch"><a href="javascript:;" onClick="logout()">��ȫ�˳�</a></div>
+	       <div class="clearfix"> </div>
+         </div>
+	 </div>
+  </div>
+</div>
+ <div id="Content"> 
+ <div  id="Content-left">
+ <div id="Content-Main"> </div> 
+  <div id="Content-Down"> </div> 
+ </div>
+        <div id="Content-Right"> <div>���ﻼ���б�</div>
+	<div id="linehtml"></div></div> 
+       
+    </div> 
+
+<div class="grid-2">
+  <div class="container">
+       
+  <!-- <div id="s1">  
+    <div>���ﻼ���б�</div>
+	<div id="linehtml"></div>
+    </div>  -->
+  <div id="s2"></div>
+  	<div id="treadRecord"></div>
+  <div id="s3">
+ <script src="https://static.opentok.com/v2/js/opentok.js"charset="utf-8"></script>
+
+<script charset="utf-8">
+
+function videoTreat(apiKey,sessionId,token){
+var session = OT.initSession(apiKey, sessionId).on('streamCreated',function(event){ 
+ session.subscribe(event.stream);       
+ }) .connect(token,function(error){
+var publisher = OT.initPublisher(); 
+ session.publish(publisher);});
+}
+
+
+</script> 
+  </div> 
+  <div id="s4"></div>
+       	
+       		
+       	</div>
+       </div>
+      
+       <div class="footer_bottom">
+       	<div class="container">
+       		<div class="cssmenu">
+				<ul>
+					<li class="active"><a href="login.html">���ǵĻ��</a></li> |
+					<li><a href="checkout.html">�����Ŷ�</a></li> |
+					<li><a href="checkout.html">�׽ӽ�</a></li> |
+					<li><a href="login.html">�洢Ŀ¼</a></li> |
+					<li><a href="register.html">��������</a></li>
+				</ul>
+			</div>
+			<div class="copy">
+			    <p>Copyright 2014. name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/"></a></p>
+		    </div>
+		    <div class="clearfix"> </div>
+       	</div>
+       </div>
+<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+</body>
+</html>		

@@ -1,0 +1,16 @@
+.icon_error{
+    display: inline-block;
+    height: 14px;
+    margin: -2px 5px 0 0;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 14px;
+    background: url("../images/icon.png") no-repeat;
+}
+.err_tip {
+    line-height: 20px;
+    font-size: 12px;
+
+    color: #ff6f3d;
+    display: none;;
+}

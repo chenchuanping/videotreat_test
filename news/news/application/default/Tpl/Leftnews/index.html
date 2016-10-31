@@ -1,0 +1,18 @@
+<foreach name="newstypes" item="v">	
+	<div class="twoNews">
+		<div class="twoNews1">&nbsp;
+			<a href="__APP__/NewsTypes/index/typeId/{$v.typeId}.html" class="a">{$v.typeName}</a>
+		</div>
+		<div class="twoNews2">
+			<a href="__APP__/NewsTypes/index/typeId/{$v.typeId}.html" class="a">更多</a>&nbsp;
+		</div>
+	</div>
+	<foreach name="v.news" item="v1">
+		<div class="twoNews3" ><img src="__ROOT__/public/images/makealltop.gif">
+			<a href="__APP__/News/index/articleId/{$v1.articleId}.html" 
+			style="text-overflow:ellipsis;white-space:nowrap;overflow:hidden;
+			display:inline-block;width:210px;">
+			{$v1.title}</a>
+		</div>
+	</foreach>
+</foreach>

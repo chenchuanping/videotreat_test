@@ -1,0 +1,5 @@
+#rc_top{ width:100%; height:39px; background:url(../images/login_bg.jpg) top left repeat-x; margin:0 auto;}
+#rc_nov{ width:1024px; height:550px; margin:0 auto; padding-top:100px; text-align:center;}
+
+.login_text01{ width:141px; height:30px; background: url(../images/login4.png); border:0px;}
+.submit_login01{ width:90px; height:38px; background:url(../images/login5.png) no-repeat; border:0px;}

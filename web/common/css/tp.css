@@ -1,0 +1,10 @@
+.dispan{ margin:10px; width:1004px; height:auto;}
+.dibiaoti{font-size:12px; font-weight:bold; margin-right:10px;color:#b40001; background: url(../images/iocn_06.jpg) center left no-repeat; padding-left:20px; }
+.tp{ padding:0px; margin:0px; width:1002px;}
+.tp li{ float:left; list-style:none; width:300px; margin-top:5px;height:30px;}
+.diinput_text01{ color:#a5a5a5; font-size:12px; width:100px;}
+.left_dinov{ float:left; display:block; width:632px; height:250px;}
+.right_dinov{float:left; display:block; width:358px; height:250px; border-left:1px dotted #333333;}
+
+.pinz{ padding:0px; margin-left:10px;}
+.pinz li{ float:left; list-style:none; width:170px; margin-top:5px;height:30px;}

@@ -6,7 +6,7 @@ class FriendListGetAllAction extends Action
     public function index()
     {
         include_once 'common/Response.class.php';
-        $userId =  $_POST['userId'];
+        $userId = $_POST['userId'];
         //得到当前用户的所有亲友id
         $friendUserIdArray = M('user_friends_list')->field("friendUserId")->where("userId={$userId}")->select();
         if ($friendUserIdArray) {

@@ -1,0 +1,26 @@
+#modifyManager{
+    margin-top: 50px;
+    margin-left: 50px;
+   text-align:center;
+    font-size: 18px;
+}
+#modifyManager td{
+    line-height: 1.5em;
+    text-align: center;
+}
+.td_left{
+    width: 150px;
+}
+.td_right{
+    font-size: large;
+    width: 600px;
+    height: 50px;
+    overflow: scroll;
+}
+#errorMsg{
+    color:red;
+    font-size: large;
+    display: block;
+    margin-top:10px;
+    margin-left:300px;"
+}

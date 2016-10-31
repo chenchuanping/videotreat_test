@@ -1,0 +1,16 @@
+<!-- 网站头 -->
+    <div class="headDiv">
+      <div class="headDiv1">
+        <div class="headDiv10">www.<b>ttnewS</b>.com</div>
+        <div class="headDiv11"><img src="__ROOT__/public/images/banner17.gif" width="370" height="50"></div>
+      </div>
+      <div class="headDiv2">天天新闻网{$Think.now}</div>
+    </div>
+	<!-- 导航菜单 -->
+<div class="menuDiv">
+  <a href="__APP__/Default/index.html" class="a">首页</a> | 
+  	<foreach name="newstypes" item="v">
+  		<a href="__APP__/NewsTypes/index/typeId/{$v.typeId}.html" class="a" >{$v.typeName}</a>|
+  	</foreach>
+  <a href="__APP__/Search/index.html" class="a">搜索</a>
+</div>

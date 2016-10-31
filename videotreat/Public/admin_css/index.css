@@ -1,0 +1,20 @@
+.welcomeDiv1{
+    width:1700px;
+    background-color: #9bb8e7;
+    font-size:25px;
+    font-weight:bold;
+    height:100px;
+    line-height:100px;
+    vertical-align:middle;
+    margin:100px auto 0;
+}
+.welcomeDiv2{
+    width:1700px;
+    background-color: #9bb8e7;
+    font-size:22px;
+    height:100px;
+    line-height:100px;
+    vertical-align:middle;
+    margin:0 auto;
+    text-align:left;
+}

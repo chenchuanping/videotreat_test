@@ -1,0 +1,186 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+img {
+	border: none;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	color: #333;
+	text-decoration: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: "宋体", Helvetica, Arial, sans-serif;
+	color: #333;
+	font-size: 18px;
+}
+
+.content-box {
+	margin: 12px 15px 0 15px;
+	border: 1px solid #ccc;
+	background: #fff;
+	font-family: "宋体", "microsoft yahei"; /* height:568px;*/
+}
+.content-box-header {
+	margin-top: 1px;
+	height: 40px;
+	border-bottom: 1px solid #ccc;
+	background: #e5e5e5 url('../images/bg-content-box.gif') top left
+		repeat-x;
+}
+
+.content-box-header .content-title {
+	margin-left: 10px;
+	color: #003b6d;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 40px;
+}
+/***************************  内容 表格  ***************************/
+
+.content-table {
+	margin: 15px 0;
+	padding: 8px;
+}
+
+.content-table table {
+	width: 100%;
+	border: 1px solid #bdbdbd;
+	border-collapse: collapse;
+	vertical-align: central;
+}
+
+.content-table .t-application {
+	width: 100%;
+	border: 1px solid #bdbdbd;
+	border-collapse: collapse;
+}
+
+.content-table .t-application td {
+	height: 30px;
+	border: 1px solid #bdbdbd;
+	padding: 1px 5px 1px 5px;
+	background: #fafafa;
+}
+
+.content-table .t-application td.left {
+	background: #c5d6e8;
+	width: 15%;
+	text-align: center;
+	font-weight: bold;
+}
+
+.content-table .t-application td.right {
+	text-align: left;
+	padding-left: 15px;
+}
+
+.content-table .t-application td select {
+	padding: 4px;
+	border: 1px solid #bdbdbd;
+	outline: none;
+}
+
+.content-table .t-application td input {
+	padding: 2px 10px 2px 1px;
+	_padding: 2px 6px 2px 2px; /*兼容IE6*/
+}
+
+
+.button {
+	width: 100px;
+	height: 28px;
+	border: 1px solid #bdbdbd;
+	background: #f3f3f3 url(../images/btn-group-bg.gif) left top repeat-x;
+	margin-left: 6px;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+
+/**** myButton****/
+.myButton {
+    width: 200px;
+	height: 30px;
+}
+
+/**** 印控机查询 ****/
+.content-table table.equ-query td {
+	font-weight: bold;
+	font-size: 14px;
+	height: 24px;
+	border: 1px solid #bdbdbd;
+	padding: 5px;
+	background: #fafafa;
+}
+.content-table table.equ-query td.left {
+	background: #c5d6e8;
+	width: 12%;
+	text-align: center;
+}
+.content-table table.equ-query td.goodleft {
+	background: #c5d6e8;
+	width: 12%;
+	text-align: center;
+}
+.content-table table.equ-query td.goodright {
+	width: 88%;
+}
+/**最后一行样式*/
+.content-table table.equ-query td.myStyle {
+	width: 12%;
+	text-align: center;
+	height:50px;
+	line-height:30px;
+}
+.content-table table.equ-query td input {
+	width: 300px;
+	height: 22px;
+}
+
+.content-table table.equ-query td.right select {
+	width: 200px;
+	height: 24px;
+}
+
+.content-table table.equ-query td.right input.recordtime {
+	width: 150px;
+	border: 1px solid #999;
+}
+
+.content-table table.equ-query td.right span {
+	margin: 0 10px;
+}
+
+.equ-detail-list {
+	width: 100%;
+	border: 1px solid #bdbdbd;
+	border-collapse: collapse;
+	margin-top: 25px;
+}
+
+.equ-detail-list thead th {
+	font-weight: bold;
+	border-left: 2px solid #FFF;
+	border-bottom: 2px solid #FFF;
+	text-align: center;
+	background: #0068b7;
+	color: #FFFFFF;
+	height: 35px;
+	font-weight: bold;
+}
+
+.equ-detail-list tbody td {
+	text-align: center;
+	vertical-align: central;
+	height: 22px;
+	border: 1px solid #bdbdbd;
+	padding: 5px;
+	background: #fafafa;
+}
